@@ -1,4 +1,4 @@
-# 에이전트란?
+# 에이전트란? [[what-is-an-agent]]
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-no-check.jpg" alt="Unit 1 planning"/>
 
@@ -6,7 +6,7 @@
 
 에이전트가 무엇인지, 한 예시를 들어 설명하겠습니다.
 
-## 큰 그림 : 에이전트 알프레드 (Alfred)
+## 큰 그림 : 에이전트 알프레드 (Alfred) [[the-big-picture-alfred-the-agent]]
 
 **에이전트** 알프레드를 만나보세요! 
 
@@ -42,7 +42,7 @@
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/process.jpg" alt="Agent process"/>
 
-## 좀 더 이론적인 부분을 살펴봅시다
+## 좀 더 이론적인 부분을 살펴봅시다 [[lets-go-more-formal]]
 
 전체 그림을 이해한 후, 이제 더 정확한 정의를 내려봅시다:
 
@@ -61,7 +61,7 @@
 
 **가능한 행동의 범위**는 에이전트가 **어떤 도구**를 가지고 있는지에 달려 있습니다. 예를 들어, 인간은 날개가 없기 때문에 "날기" 행동을 할 수 없지만, "걷기", "달리기", "점프하기", "잡기"와 같은 **행동**은 수행할 수 있습니다.
 
-## 에이전트에는 어떤 AI 모델을 사용하나요?
+## 에이전트에는 어떤 AI 모델을 사용하나요? [[what-type-of-ai-models-do-we-use-for-agents]]
 
 에이전트에서 가장 일반적인 AI 모델은 **LLM (Large Language Model)**입니다. 이는 **텍스트**를 입력으로 받아 **텍스트**를 출력하는 모델입니다.
 
@@ -71,7 +71,7 @@
 에이전트의 핵심 모델로 텍스트 외 다른 입력을 받는 모델을 사용할 수도 있습니다. 예를 들어, 이미지를 입력으로 이해할 수 있는 **비전 언어 모델 (VLM)**이 있습니다. 이번 섹션에서는 LLM에 집중하도록 하고, 이후 다른 모델들에 대해서도 다룰 것입니다. 
 </Tip>
 
-## 이 환경에서 AI는 어떤 행동을 취하나요?
+## 이 환경에서 AI는 어떤 행동을 취하나요? [[how-does-an-ai-take-action-on-its-environment]]
 
 LLMs는 뛰어난 모델이지만, **텍스트**만 생성할 수 있습니다. 
 
@@ -87,7 +87,7 @@ LLMs는 뛰어난 모델이지만, **텍스트**만 생성할 수 있습니다.
 
 도구에 대해서는 [도구](tools) 섹션에서 더 깊게 배우도록 하겠습니다.
 
-## 에이전트는 어떤 작업을 수행할 수 있나요?
+## 에이전트는 어떤 작업을 수행할 수 있나요? [[what-type-of-tasks-can-an-agent-do]]
 
 에이전트는 **도구**를 통해 **행동**을 완수하도록 어떠한 작업도 수행 가능합니다. 
 
@@ -111,13 +111,13 @@ send_message_to("Manager", "오늘 미팅을 연기할 수 있을 까요?")
 
 에이전트가 환경과 상호작용할 수 있게 한다는 것은 **기업과 개인들이 실제로 사용할** 수 있도록 하는 것을 의미합니다.
 
-### 예시 1: 개인 가상 비서
+### 예시 1: 개인 가상 비서 [[example-1-personal-virtual-assistants]]
 
 Siri, Alexa, Google Assistant와 같은 가상 비서는 사용자를 대신해서 디지털 환경에서 에이전트로서 작동합니다.
 
 이들은 사용자 쿼리를 처리하고, 문맥을 분석하며, 데이터베이스에서 정보를 검색하고, 응답을 제공하거나 작업을 시작합니다 (예: 알림 설정, 메시지 전송, 스마트 디바이스 제어 등).
 
-### 예시 2: 고객 서비스 챗봇
+### 예시 2: 고객 서비스 챗봇 [[example-2-customer-service-chatbots]]
 
 많은 기업들이 고객과 자연어로 소통 가능한 챗봇을 에이전트로 배포하고 있습니다.
 
@@ -125,7 +125,7 @@ Siri, Alexa, Google Assistant와 같은 가상 비서는 사용자를 대신해�
 
 그들의 목표는 사용자 만족도를 높이거나, 대기 시간을 줄이거나, 판매 전환율을 높이는 것 등입니다. 고객과 직접 상호작용하고, 대화를 통해 학습하며, 시간이 지남에 따라 응답을 조정하는데, 이러한 에이전트들은 에이전트의 핵심 원칙을 보여줍니다.
 
-### 예시 3: 게임 속 AI NPC 캐릭터
+### 예시 3: 게임 속 AI NPC 캐릭터 [[example-3-ai-non-playable-character-in-a-video-game]]
 
 LLM 기반의 AI 에이전트는 비 플레이어 캐릭터(NPC)를 더 역동적이고 예측 불가능하게 만들 수 있습니다.
 

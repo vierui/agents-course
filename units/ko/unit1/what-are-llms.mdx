@@ -1,4 +1,4 @@
-# LLM이란?
+# LLM이란?[[what-are-llms]]
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-check-1.jpg" alt="Unit 1 planning"/>
 
@@ -8,7 +8,7 @@
 
 이 섹션에서는 LLM의 기술적 개요를 간결하게 설명합니다. 더 깊이 학습하고 싶으시다면 <a href="https://huggingface.co/learn/nlp-course/chapter1/1" target="_blank">자연어 처리 코스</a>를 확인해 주세요!
 
-## 대규모 언어 모델 (LLM)이란?
+## 대규모 언어 모델 (LLM)이란? [[what-is-a-large-language-model]]
 
 LLM은 **사람의 언어를 이해하고 생성**하는 능력에 뛰어난 AI 모델입니다. 모델은 방대한 양의 텍스트 데이터를 학습하여 언어의 패턴, 구조, 뉘앙스를 익히며, 일반적으로 수백만 개에서 수십억 개의 매개변수를 가집니다.
 
@@ -128,7 +128,7 @@ LLM은 다양한 형태가 있지만, 일반적으로 LLM은 수십억 개의 �
 
 </Tip>
 
-## 다음 토큰 예측
+## 다음 토큰 예측 [[understanding-next-token-prediction]]
 
 LLM은 **자기 회귀(autoregressive) ** 방식으로 작동합니다. 즉, **이전 출력이 다음 입력**이 되는 방식으로 동작하며, 이 과정이 반복됩니다. 모델이 다음 토큰을 EOS 토큰으로 예측하면, 텍스트 생성을 중단합니다.
 
@@ -167,7 +167,7 @@ LLM은 **자기 회귀(autoregressive) ** 방식으로 작동합니다. 즉, **�
 
 디코딩에 대해 더 자세히 알고 싶으시다면, [NLP 코스](https://huggingface.co/learn/nlp-course)를 참고해주세요!
 
-## 당신에게 필요한건 어텐션(Attention) 하나뿐 (Attention is all you need)
+## 당신에게 필요한건 어텐션(Attention) 하나뿐 (Attention is all you need) [[attention-is-all-you-need]]
 
 Transformer 아키텍처에서 가장 중요한 요소 중 하나는 **어텐션(Attention)** 입니다. 다음 단어를 예측할 때, 
 문장의 모든 단어가 동일한 중요도를 가지지는 않습니다. 예를 들어, *"The capital of France is ..."*라는 문장에서 "France"와 "capital"이 가장 중요한 의미를 가집니다.
@@ -180,13 +180,13 @@ GPT-2 이후로 LLM의 기본 원리인 '다음 토큰 예측'은 변하지 않�
 
 LLM을 사용해 본 경험이 있으시다면, *컨텍스트 길이(context length)* 라는 용어를 들어보셨을 것입니다. 이는 LLM이 처리할 수 있는 최대 토큰 수이자, 모델의 최대 _어텐션 스팬(attention span)_ 를 의미합니다.
 
-## LLM에 어떻게 프롬프트(Prompt)를 입력할지가 중요한 이유
+## LLM에 어떻게 프롬프트(Prompt)를 입력할지가 중요한 이유 [[prompting-the-llm-is-important]]
 
 LLM의 역할은 입력된 모든 토큰을 기반으로 다음 토큰을 예측하고, 어떤 토큰이 "중요한"지를 결정하는 것입니다. 따라서 입력하는 문장의 구성 방식이 매우 중요합니다.
 
 LLM에 제공하는 입력 시퀀스를 _프롬프트(prompt)_ 라고 합니다.**프롬프트를 신중하게 설계하면 원하는 출력**을 얻기 쉬워집니다.
 
-## LLM은 어떻게 학습될까?
+## LLM은 어떻게 학습될까? [[how-are-llms-trained]]
 
 LLM은 방대한 텍스트 데이터셋을 학습하며, 자기지도 학습(self-supervised learning) 또는 마스킹 언어 모델링(masked language modeling)을 이용해 문장 내 다음 단어를 예측하는 방식으로 훈련됩니다.
 
@@ -196,7 +196,7 @@ LLM은 방대한 텍스트 데이터셋을 학습하며, 자기지도 학습(sel
 
 
 
-## LLM을 어떻게 사용할 수 있을까?
+## LLM을 어떻게 사용할 수 있을까? [[how-can-i-use-llms]]
 
 LLM을 사용하는 방법은 크게 두가지로 나뉩니다:
 
@@ -206,7 +206,7 @@ LLM을 사용하는 방법은 크게 두가지로 나뉩니다:
 
 이 코스에서는 주로 Hugging Face Hub의 API를 사용하여 모델을 실행합니다. 추가로, 개인 하드웨어에서 직접 실행하는 방법도 살펴볼 예정입니다.
 
-## LLM은 AI 에이전트에서 어떻게 사용될까?
+## LLM은 AI 에이전트에서 어떻게 사용될까? [[how-are-llms-used-in-ai-agents]]
 
 LLM은 AI 에이전트의 핵심 구성 요소로, 자연어를 이해하고 생성하는 역할을 합니다.
 
