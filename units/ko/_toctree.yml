@@ -8,6 +8,8 @@
     title: (Optional) Discord 101
 - title: Live 1. How the course works and Q&A
   sections:
+  - local: communication/live1
+    title: Live 1. How the course works and Q&A
 - title: Unit 1. Introduction to Agents
   sections:
   - local: unit1/introduction
