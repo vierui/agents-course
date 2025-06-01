@@ -72,7 +72,7 @@
     title: 最终测验
   - local: unit2/smolagents/conclusion
     title: 结论
-- title: 第 2.2 单元. The LlamaIndex framework
+- title: 第 2.2 单元. LlamaIndex 框架
   sections:
   - local: unit2/llama-index/introduction
     title: LlamaIndex 简介
@@ -92,7 +92,7 @@
     title: 快速测验2
   - local: unit2/llama-index/conclusion
     title: 结论
-- title: 第 2.3 单元. LangGraph
+- title: 第 2.3 单元. LangGraph 框架
   sections:
   - local: unit2/langgraph/introduction
     title: LangGraph 是什么？
