@@ -24,7 +24,8 @@ You can access the course here 👉 <a href="https://hf.co/learn/agents-course" 
 | 2 Bonus | [Observability and Evaluation](https://huggingface.co/learn/agents-course/bonus-unit2/introduction)            | Learn how to trace and evaluate your agents.                                                                                           |
 | 3       | [Use Case for Agentic RAG](https://huggingface.co/learn/agents-course/unit3/agentic-rag/introduction)          | Learn how to use Agentic RAG to help agents respond to different use cases using various frameworks.                                                                   |
 | 4       | [Final Project - Create, Test and Certify Your Agent](https://huggingface.co/learn/agents-course/unit4/introduction)          | Automated evaluation of agents and leaderboard with student results.                                                                   |
-
+| 3 Bonus | [Agents in Games with Pokemon](https://huggingface.co/learn/agents-course/bonus-unit3/introduction)            | Explore the exciting intersection of AI Agents and games.        |
+                                                                                   
 ## Prerequisites
 
 - Basic knowledge of Python
