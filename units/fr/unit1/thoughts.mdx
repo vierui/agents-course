@@ -1,22 +1,22 @@
-# Pensée : Raisonnement Interne et l'Approche Re-Act
+# Raisonnement : Raisonnement Interne et l'Approche Re-Act
 
 <Tip> 
 Dans cette section, nous plongeons dans le fonctionnement interne d'un agent d'IA — sa capacité à raisonner et à planifier. Nous explorerons comment l'agent utilise son dialogue interne pour analyser l'information, décomposer des problèmes complexes en étapes gérables, et décider de l'action à entreprendre ensuite. De plus, nous présentons l'approche Re-Act, une technique d'invite qui encourage le modèle à réfléchir « étape par étape » avant d'agir. 
 </Tip>
 
-Les pensées représentent les **processus internes de raisonnement et de planification de l'agent** pour résoudre la tâche.
+Pour résoudre une tâche, l'agent raisonne et planifie.
 
 Cela exploite la capacité du Large Language Model (LLM) de l'agent **à analyser l'information lorsqu'elle est présentée dans son prompt**.
 
 Pensez-y comme le dialogue interne de l'agent, où il considère la tâche à accomplir et élabore sa stratégie.
 
-Les pensées de l'agent sont responsables d'accéder aux observations actuelles et de décider quelles seront les prochaines actions.
+La capacité à raisonner permet à l'agent d'analyser les observations actuelles et de décider quelles seront les prochaines actions.
 
 Grâce à ce processus, l'agent peut **décomposer des problèmes complexes en étapes plus petites et gérables**, réfléchir sur des expériences passées et ajuster continuellement ses plans en fonction des nouvelles informations.
 
-Voici quelques exemples de pensées courantes :
+Voici quelques exemples de raisonnements courants :
 
-| Type de Pensée         | Exemple                                                                                                   |
+| Type de Raisonnement         | Exemple                                                                                                   |
 |------------------------|-----------------------------------------------------------------------------------------------------------|
 | Planification          | "Je dois décomposer cette tâche en trois étapes : 1) recueillir les données, 2) analyser les tendances, 3) générer le rapport" |
 | Analyse                | "D'après le message d'erreur, le problème semble provenir des paramètres de connexion à la base de données" |
@@ -27,7 +27,7 @@ Voici quelques exemples de pensées courantes :
 | Définition d'Objectifs | "Pour accomplir cette tâche, je dois d'abord établir les critères d'acceptation"                           |
 | Priorisation           | "La vulnérabilité de sécurité doit être traitée avant d'ajouter de nouvelles fonctionnalités"               |
 
-> **Remarque :** Dans le cas des LLMs ajustés pour l'appel de fonction, le processus de pensée est optionnel.  
+> **Remarque :** Dans le cas des LLMs ajustés pour l'appel de fonction, le processus de raisonnement est optionnel.  
 > *Si vous n'êtes pas familier avec l'appel de fonction, plus de détails seront donnés dans la section Actions.*
 
 ## L'approche Re-Act
@@ -52,4 +52,4 @@ Ces modèles ont été entraînés pour inclure systématiquement des sections s
 </Tip>
 
 --- 
-Maintenant que nous comprenons mieux le processus de pensée, approfondissons la seconde partie du processus : l'Action.
+Maintenant que nous comprenons mieux le processus de raisonnement, approfondissons la seconde partie du processus : l'Action.

@@ -7,7 +7,7 @@ Dans ce module, nous explorerons les avantages et les inconvénients de l'utilis
 
 `smolagents` est un *framework* simple mais puissant pour construire des agents IA. Il fournit aux LLMs la capacité d'agir (_agency_) pour interagir avec le monde réel, comme effectuer des recherches ou générer des images.
 
-Comme nous l'avons appris dans l'unité 1, les agents IA sont des programmes qui utilisent des LLMs pour générer des **'pensées'** basées sur des **'observations'** afin d'effectuer des **'actions'**. Explorons comment cela est implémenté dans *smolagents*.
+Comme nous l'avons appris dans l'unité 1, les agents IA sont des programmes qui utilisent des LLMs pour générer des **'raisonnements'** basés sur des **'observations'** afin d'effectuer des **'actions'**. Explorons comment cela est implémenté dans *smolagents*.
 
 ### Principaux avantages de `smolagents`
 - **Simplicité :** Complexité de code et abstractions minimales, pour rendre le *framework* facile à comprendre, adopter et étendre
@@ -38,7 +38,7 @@ Pour revoir la différence entre les Actions Code vs JSON, vous pouvez revisiter
 Les agents dans `smolagents` fonctionnent comme des **agents multi-étapes**. 
 
 Chaque [`MultiStepAgent`](https://huggingface.co/docs/smolagents/main/en/reference/agents#smolagents.MultiStepAgent) effectue :
-- Une pensée
+- Un raisonnement
 - Un appel et une exécution d'outil
 
 En plus d'utiliser **[CodeAgent](https://huggingface.co/docs/smolagents/main/en/reference/agents#smolagents.CodeAgent)** comme type principal d'agent, *smolagents* supporte également **[ToolCallingAgent](https://huggingface.co/docs/smolagents/main/en/reference/agents#smolagents.ToolCallingAgent)**, qui écrit des appels d'outils en JSON.

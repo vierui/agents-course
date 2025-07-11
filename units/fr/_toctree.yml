@@ -27,9 +27,9 @@
   - local: unit1/quiz2
     title: Quiz rapide 2
   - local: unit1/agent-steps-and-structure
-    title: Comprendre les Agents IA à travers le cycle Pensée-Action-Observation
+    title: Comprendre les Agents IA à travers le cycle Raisonnement-Action-Observation
   - local: unit1/thoughts
-    title: Pensée, Raisonnement Interne et l'Approche Re-Act
+    title: Raisonnement, Raisonnement Interne et l'Approche Re-Act
   - local: unit1/actions
     title: Actions, permettant à l'Agent d'interagir avec son environnement
   - local: unit1/observations
