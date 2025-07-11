@@ -4,11 +4,11 @@ Maintenant que vous avez exploré le potentiel et les limitations de l'IA Agenti
 
 Nous décomposerons le système en quatre blocs de construction clés :
 
-- **Poke-env :** Une bibliothèque *Python* conçue pour entraîner des bots Pokémon basés sur des règles ou par apprentissage par renforcement.
+- **Poke-env :** Une bibliothèque Python conçue pour entraîner des bots Pokémon basés sur des règles ou par apprentissage par renforcement.
 
 - **Pokémon Showdown :** Un simulateur de combat en ligne où votre agent se battra.
 
-- **LLMAgentBase :** Une classe *Python* personnalisée que nous avons construite pour connecter votre LLM avec l'environnement de combat *Poke-env*.
+- **LLMAgentBase :** Une classe Python personnalisée que nous avons construite pour connecter votre LLM avec l'environnement de combat *Poke-env*.
 
 - **TemplateAgent :** Un template de démarrage que vous compléterez pour créer votre propre agent de combat unique.
 
@@ -18,7 +18,7 @@ Explorons chacun de ces composants plus en détail.
 
 ![Battle gif](https://github.com/hsahovic/poke-env/raw/master/rl-gif.gif)
 
-[Poke-env](https://github.com/hsahovic/poke-env) est une interface *Python* originellement construite pour entraîner des bots d'apprentissage par renforcement par [Haris Sahovic](https://huggingface.co/hsahovic), mais nous l'avons réutilisée pour l'IA Agentique.  
+[Poke-env](https://github.com/hsahovic/poke-env) est une interface Python originellement construite pour entraîner des bots d'apprentissage par renforcement par [Haris Sahovic](https://huggingface.co/hsahovic), mais nous l'avons réutilisée pour l'IA Agentique.  
 Elle permet à votre agent d'interagir avec *Pokémon Showdown* à travers une API simple.
 
 Elle fournit une classe `Player` de laquelle votre Agent héritera, couvrant tout ce qui est nécessaire pour communiquer avec l'interface graphique.
@@ -38,7 +38,7 @@ Nous avons déployé un serveur que tous les participants utiliseront pour comba
 
 ## 🔌 LLMAgentBase
 
-`LLMAgentBase` est une classe *Python* qui étend la classe `Player` de **Poke-env**.  
+`LLMAgentBase` est une classe Python qui étend la classe `Player` de **Poke-env**.  
 Elle sert de pont entre votre **LLM** et le **simulateur de combat Pokémon**, gérant le formatage d'entrée/sortie et maintenant le contexte de combat.
 
 Cet agent de base fournit un ensemble d'outils (définis dans `STANDARD_TOOL_SCHEMA`) pour interagir avec l'environnement, incluant :

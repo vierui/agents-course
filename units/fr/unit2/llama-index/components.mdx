@@ -33,7 +33,7 @@ Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/no
 
 Il y a cinq étapes clés dans le *RAG*, qui feront partie de la plupart des applications plus importantes que vous construirez. Ce sont :
 
-1. **Chargement** : cela se réfère à obtenir vos données d'où elles vivent -- qu'il s'agisse de fichiers texte, de *PDFs*, d'un autre site web, d'une base de données, ou d'une *API* -- dans votre *workflow*. *LlamaHub* fournit des centaines d'intégrations parmi lesquelles choisir.
+1. **Chargement** : cela se réfère à obtenir vos données d'où elles vivent -- qu'il s'agisse de fichiers texte, de *PDFs*, d'un autre site web, d'une base de données, ou d'une API -- dans votre *workflow*. *LlamaHub* fournit des centaines d'intégrations parmi lesquelles choisir.
 2. **Indexation** : cela signifie créer une structure de données qui permet d'interroger les données. Pour les *LLMs*, cela signifie presque toujours créer des *embeddings* vectoriels. Ce sont des représentations numériques de la signification des données. L'indexation peut également se référer à de nombreuses autres stratégies de métadonnées pour faciliter la recherche de données contextuellement pertinentes basées sur les propriétés.
 3. **Stockage** : une fois vos données indexées, vous voudrez stocker votre index, ainsi que d'autres métadonnées, pour éviter de devoir le ré-indexer.
 4. **Requête** : pour toute stratégie d'indexation donnée, il y a de nombreuses façons d'utiliser les *LLMs* et les structures de données LlamaIndex pour faire des requêtes, incluant des sous-requêtes, des requêtes multi-étapes et des stratégies hybrides.
@@ -47,7 +47,7 @@ Comme mentionné précédemment, LlamaIndex peut fonctionner au-dessus de vos pr
 Il y a trois façons principales de charger des données dans LlamaIndex :
 
 1. `SimpleDirectoryReader` : Un *loader* intégré pour divers types de fichiers d'un répertoire local.
-2. `LlamaParse` : *LlamaParse*, l'outil officiel de LlamaIndex pour l'analyse de *PDFs*, disponible comme une *API* gérée.
+2. `LlamaParse` : *LlamaParse*, l'outil officiel de LlamaIndex pour l'analyse de *PDFs*, disponible comme une API gérée.
 3. `LlamaHub` : Un registre de centaines de bibliothèques de chargement de données pour ingérer des données de n'importe quelle source.
 
 <Tip>Familiarisez-vous avec les *loaders* <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">*LlamaHub*</a> et le *parser* <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">*LlamaParse*</a> pour des sources de données plus complexes.</Tip>
@@ -174,7 +174,7 @@ Encore une fois, c'est entièrement personnalisable mais il y a trois stratégie
 - `compact` (par défaut) : similaire à l'affinement mais concaténant les morceaux au préalable, résultant en moins d'appels *LLM*.
 - `tree_summarize` : créer une réponse détaillée en parcourant chaque morceau de texte récupéré et créant une structure d'arbre de la réponse.
 
-<Tip>Prenez un contrôle fin de vos *workflows* de requête avec l'<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">*API* de composition de bas niveau</a>. Cette *API* vous permet de personnaliser et d'ajuster finement chaque étape du processus de requête pour correspondre à vos besoins exacts, ce qui se marie également très bien avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">*Workflows*</a> </Tip>
+<Tip>Prenez un contrôle fin de vos *workflows* de requête avec l'<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composition de bas niveau</a>. Cette API vous permet de personnaliser et d'ajuster finement chaque étape du processus de requête pour correspondre à vos besoins exacts, ce qui se marie également très bien avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">*Workflows*</a> </Tip>
 
 Le modèle de langage ne performera pas toujours de manière prévisible, donc nous ne pouvons pas être sûrs que la réponse que nous obtenons soit toujours correcte. Nous pouvons gérer cela en **évaluant la qualité de la réponse**.
 
@@ -217,10 +217,10 @@ Comme introduit dans la <a href="./llama-hub">section sur le *LlamaHub*</a>, nou
 pip install -U llama-index-callbacks-arize-phoenix
 ```
 
-De plus, nous devons définir la variable d'environnement `PHOENIX_API_KEY` avec notre clé *API* LlamaTrace. Nous pouvons l'obtenir en :
+De plus, nous devons définir la variable d'environnement `PHOENIX_API_KEY` avec notre clé API LlamaTrace. Nous pouvons l'obtenir en :
 - Créant un compte sur [LlamaTrace](https://llamatrace.com/login)
-- Générant une clé *API* dans les paramètres de votre compte
-- Utilisant la clé *API* dans le code ci-dessous pour activer le *tracing*
+- Générant une clé API dans les paramètres de votre compte
+- Utilisant la clé API dans le code ci-dessous pour activer le *tracing*
 
 </details>
 

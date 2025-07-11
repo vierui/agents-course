@@ -1,8 +1,8 @@
 # Qu'est-ce que l'Appel de Fonctions ?
 
-L'appel de fonctions (*function-calling*) est une **façon pour un LLM de prendre des actions sur son environnement**. Il a d'abord été [introduit dans GPT-4](https://openai.com/index/function-calling-and-other-api-updates/), et a ensuite été reproduit dans d'autres modèles.
+L'appel de fonctions (*function-calling*) est une **façon pour un *LLM* de prendre des actions sur son environnement**. Il a d'abord été [introduit dans GPT-4](https://openai.com/index/function-calling-and-other-api-updates/), et a ensuite été reproduit dans d'autres modèles.
 
-Tout comme les outils d'un Agent, l'appel de fonctions donne au modèle la capacité de **prendre une action sur son environnement**. Cependant, la capacité d'appel de fonctions **est apprise par le modèle**, et repose **moins sur le prompting que d'autres techniques d'agents**.
+Tout comme les outils d'un Agent, l'appel de fonctions donne au modèle la capacité de **prendre une action sur son environnement**. Cependant, la capacité d'appel de fonctions **est apprise par le modèle**, et repose **moins sur le *prompting* que d'autres techniques d'agents**.
 
 Durant l'Unité 1, l'Agent **n'a pas appris à utiliser les Outils**, nous avons juste fourni la liste, et nous nous sommes appuyés sur le fait que le modèle **était capable de généraliser sur la définition d'un plan utilisant ces Outils**. 
 
@@ -61,7 +61,7 @@ conversation = [
 
 > ... Mais vous avez dit qu'il y a un nouveau rôle pour les appels de fonctions ?
 
-**Oui et non**, dans ce cas et dans beaucoup d'autres APIs, le modèle formate l'action à prendre comme un message "assistant". Le template de chat représentera ensuite cela comme des **tokens spéciaux** pour l'appel de fonctions.
+**Oui et non**, dans ce cas et dans beaucoup d'autres API, le modèle formate l'action à prendre comme un message "assistant". Le template de chat représentera ensuite cela comme des ***tokens* spéciaux** pour l'appel de fonctions.
 
 - `[AVAILABLE_TOOLS]` – Démarre la liste des outils disponibles  
 - `[/AVAILABLE_TOOLS]` – Termine la liste des outils disponibles  
@@ -72,6 +72,6 @@ conversation = [
 Nous reparlerons de l'appel de fonctions dans ce cours, mais si vous voulez approfondir, vous pouvez consulter [cette excellente section de documentation](https://docs.mistral.ai/capabilities/function_calling/).
 
 ---
-Maintenant que nous avons appris ce qu'est l'appel de fonctions et comment il fonctionne, **ajoutons quelques capacités d'appel de fonctions à un modèle qui n'a pas encore ces capacités** : [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it), en ajoutant quelques nouveaux tokens spéciaux au modèle.
+Maintenant que nous avons appris ce qu'est l'appel de fonctions et comment il fonctionne, **ajoutons quelques capacités d'appel de fonctions à un modèle qui n'a pas encore ces capacités** : [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it), en ajoutant quelques nouveaux *tokens* spéciaux au modèle.
 
 Pour pouvoir faire cela, **nous devons d'abord comprendre l'ajustement fin et LoRA**.

@@ -25,9 +25,9 @@ Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/no
 </Tip>
 
 Pour créer un agent, nous commençons par lui fournir un **ensemble de fonctions/*tools* qui définissent ses capacités**.
-Regardons comment créer un agent avec quelques *tools* de base. Au moment de la rédaction, l'agent utilisera automatiquement l'*API* d'appel de fonctions (si disponible), ou une boucle d'agent *ReAct* standard.
+Regardons comment créer un agent avec quelques *tools* de base. Au moment de la rédaction, l'agent utilisera automatiquement l'API d'appel de fonctions (si disponible), ou une boucle d'agent *ReAct* standard.
 
-Les *LLMs* qui prennent en charge une *API* *tools*/fonctions sont relativement nouveaux, mais ils fournissent un moyen puissant d'appeler des *tools* en évitant le *prompting* spécifique et permettant au *LLM* de créer des appels de *tools* basés sur des schémas fournis.
+Les *LLMs* qui prennent en charge une API *tools*/fonctions sont relativement nouveaux, mais ils fournissent un moyen puissant d'appeler des *tools* en évitant le *prompting* spécifique et permettant au *LLM* de créer des appels de *tools* basés sur des schémas fournis.
 
 Les agents *ReAct* sont également bons pour les tâches de raisonnement complexes et peuvent fonctionner avec n'importe quel *LLM* qui a des capacités de *chat* ou de complétion de texte. Ils sont plus verbeux et montrent le raisonnement derrière certaines actions qu'ils prennent.
 

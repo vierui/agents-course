@@ -7,10 +7,10 @@ Maintenant que nous comprenons les composants de base, mettons-les en pratique e
 3. Rédiger une réponse préliminaire pour les *e-mails* légitimes
 4. Envoyer les informations à M. Wayne quand c'est légitime (impression seulement)
 
-Cet exemple démontre comment structurer un *workflow* avec LangGraph qui implique une prise de décision basée sur LLM. Bien que cela ne puisse pas être considéré comme un agent car aucun outil n'est impliqué, cette section se concentre plus sur l'apprentissage du framework LangGraph que sur les agents.
+Cet exemple démontre comment structurer un *workflow* avec LangGraph qui implique une prise de décision basée sur LLM. Bien que cela ne puisse pas être considéré comme un agent car aucun outil n'est impliqué, cette section se concentre plus sur l'apprentissage du *framework* LangGraph que sur les agents.
 
 <Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/langgraph/mail_sorting.ipynb" target="_blank">ce notebook</a> que vous pouvez exécuter avec *Google Colab*.
+Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/langgraph/mail_sorting.ipynb" target="_blank">ce *notebook*</a> que vous pouvez exécuter avec *Google Colab*.
 </Tip>
 
 ## Notre *workflow*
@@ -20,13 +20,13 @@ Voici le *workflow* que nous allons construire :
 
 ## Configuration de notre environnement
 
-Tout d'abord, installons les packages requis :
+Tout d'abord, installons les *packages* requis :
 
 ```python
 %pip install langgraph langchain_openai
 ```
 
-Ensuite, importons les modules nécessaires :
+Ensuite, importons les *modules* nécessaires :
 
 ```python
 import os
@@ -303,12 +303,12 @@ Premièrement, nous installons *Langfuse* avec *pip* :
 %pip install -q langfuse
 ```
 
-Deuxièmement, nous installons *Langchain* avec *pip* (*LangChain* est requis car nous utilisons *LangFuse*) :
+Deuxièmement, nous installons *LangChain* avec *pip* (*LangChain* est requis car nous utilisons *LangFuse*) :
 ```python
 %pip install langchain
 ```
 
-Ensuite, nous ajoutons les clés *API* *Langfuse* et l'adresse de l'hôte comme variables d'environnement. Vous pouvez obtenir vos identifiants *Langfuse* en vous inscrivant sur [Langfuse Cloud](https://cloud.langfuse.com) ou en [auto-hébergeant Langfuse](https://langfuse.com/self-hosting).
+Ensuite, nous ajoutons les clés API *LangFuse* et l'adresse de l'hôte comme variables d'environnement. Vous pouvez obtenir vos identifiants *LangFuse* en vous inscrivant sur [LangFuse Cloud](https://cloud.langfuse.com) ou en [auto-hébergeant LangFuse](https://langfuse.com/self-hosting).
 
 ```python
 import os
@@ -320,7 +320,7 @@ os.environ["LANGFUSE_HOST"] = "https://cloud.langfuse.com" # 🇪🇺 région EU
 # os.environ["LANGFUSE_HOST"] = "https://us.cloud.langfuse.com" # 🇺🇸 région US
 ```
 
-Ensuite, nous configurons le [*Langfuse* `callback_handler`](https://langfuse.com/docs/integrations/langchain/tracing#add-langfuse-to-your-langchain-application) et instrumentons l'agent en ajoutant le `langfuse_callback` à l'invocation du graphe : `config={"callbacks": [langfuse_handler]}`.
+Ensuite, nous configurons le [*LangFuse* `callback_handler`](https://langfuse.com/docs/integrations/langchain/tracing#add-langfuse-to-your-langchain-application) et instrumentons l'agent en ajoutant le `langfuse_callback` à l'invocation du graphe : `config={"callbacks": [langfuse_handler]}`.
 
 ```python   
 from langfuse.langchain import CallbackHandler
@@ -335,7 +335,7 @@ legitimate_result = compiled_graph.invoke(
 )
 ```
 
-Alfred est maintenant connecté 🔌 ! Les exécutions de LangGraph sont enregistrées dans *Langfuse*, lui donnant une visibilité complète sur le comportement de l'agent. Avec cette configuration, il est prêt à revisiter les exécutions précédentes et à affiner encore plus son agent de tri de courrier.
+Alfred est maintenant connecté 🔌 ! Les exécutions de LangGraph sont enregistrées dans *LangFuse*, lui donnant une visibilité complète sur le comportement de l'agent. Avec cette configuration, il est prêt à revisiter les exécutions précédentes et à affiner encore plus son agent de tri de courrier.
 
 ![Example trace in Langfuse](https://langfuse.com/images/cookbook/huggingface-agent-course/langgraph-trace-legit.png)
 

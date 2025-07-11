@@ -1,18 +1,18 @@
 # Qu'est-ce que `LangGraph` ?
 
-`LangGraph` est un framework développé par [LangChain](https://www.langchain.com/) **pour gérer le flux de contrôle des applications qui intègrent un LLM**.
+`LangGraph` est un *framework* développé par [LangChain](https://www.langchain.com/) **pour gérer le flux de contrôle des applications qui intègrent un LLM**.
 
 ## `LangGraph` est-il différent de `LangChain` ?
 
 LangChain fournit une interface standard pour interagir avec les modèles et autres composants, utile pour la récupération, les appels de LLM et les appels d'outils.
 Les classes de LangChain peuvent être utilisées dans LangGraph, mais ne DOIVENT PAS nécessairement être utilisées.
 
-Les packages sont différents et peuvent être utilisés de manière isolée, mais, au final, toutes les ressources que vous trouverez en ligne utilisent les deux packages main dans la main.
+Les *packages* sont différents et peuvent être utilisés de manière isolée, mais, au final, toutes les ressources que vous trouverez en ligne utilisent les deux *packages* main dans la main.
 
 ## Quand dois-je utiliser `LangGraph` ?
 ### Contrôle vs liberté
 
-Lors de la conception d'applications *AI*, vous faites face à un compromis fondamental entre **contrôle** et **liberté** :
+Lors de la conception d'applications *IA*, vous faites face à un compromis fondamental entre **contrôle** et **liberté** :
 
 - La **liberté** donne à votre LLM plus d'espace pour être créatif et s'attaquer à des problèmes inattendus.
 - Le **contrôle** vous permet d'assurer un comportement prévisible et de maintenir des garde-fous.
@@ -41,13 +41,13 @@ Les scénarios clés où LangGraph excelle incluent :
 
 - **Processus de raisonnement en plusieurs étapes** qui nécessitent un contrôle explicite sur le flux
 - **Applications nécessitant la persistance de l'état** entre les étapes
-- **Systèmes qui combinent la logique déterministe avec les capacités *AI***
+- **Systèmes qui combinent la logique déterministe avec les capacités *IA***
 - ***Workflows* qui nécessitent des interventions *human-in-the-loop***
 - **Architectures d'agents complexes** avec plusieurs composants travaillant ensemble
 
-En essence, chaque fois que possible, **en tant qu'humain**, concevez un flux d'actions basé sur la sortie de chaque action, et décidez quoi exécuter ensuite en conséquence. Dans ce cas, LangGraph est le bon framework pour vous !
+En essence, chaque fois que possible, **en tant qu'humain**, concevez un flux d'actions basé sur la sortie de chaque action, et décidez quoi exécuter ensuite en conséquence. Dans ce cas, LangGraph est le bon *framework* pour vous !
 
-`LangGraph` est, à mon avis, le framework d'agents le plus prêt pour la production sur le marché.
+`LangGraph` est, à mon avis, le *framework* d'agents le plus prêt pour la production sur le marché.
 
 ## Comment fonctionne LangGraph ?
 
@@ -59,7 +59,7 @@ Au cœur de `LangGraph` se trouve une structure de graphe dirigé pour définir 
 
 Nous explorerons ces blocs fondamentaux plus en détail dans le prochain chapitre !
 
-## En quoi est-ce différent du python régulier ? Pourquoi ai-je besoin de LangGraph ?
+## En quoi est-ce différent du Python régulier ? Pourquoi ai-je besoin de LangGraph ?
 
 Vous pourriez vous demander : "Je pourrais juste écrire du code Python régulier avec des instructions *if-else* pour gérer tous ces flux, non ?"
 
