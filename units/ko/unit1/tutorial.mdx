@@ -8,7 +8,6 @@
 
 시작해 볼까요!
 
-
 ## smolagents란 무엇인가요? [[what-is-smolagents]]
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/smolagents.png" alt="smolagents"/>
@@ -34,10 +33,11 @@
 ## 에이전트 만들기! [[lets-build-our-agent]]
 
 시작하려면 이 Space를 복제하세요: <a href="https://huggingface.co/spaces/agents-course/First_agent_template" target="_blank">https://huggingface.co/spaces/agents-course/First_agent_template</a>
+
 > 이 템플릿을 만들어준 <a href="https://huggingface.co/m-ric" target="_blank">Aymeric</a>에게 감사드립니다! 🙌
 
-
 Space를 복제한다는 것은 **자신의 프로필에 개인 사본을 만드는 것**을 의미합니다:
+
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/duplicate-space.gif" alt="Duplicate"/>
 
 이 강의를 통틀어 여러분이 수정해야 할 파일은 (현재 미완성 상태인) **"app.py"** 하나뿐입니다. 여기서 [템플릿의 원본 파일](https://huggingface.co/spaces/agents-course/First_agent_template/blob/main/app.py)을 확인할 수 있습니다. 여러분의 파일을 찾으려면, 복제한 Space로 이동한 다음 `Files` 탭을 클릭하고 디렉토리 목록에서 `app.py`를 클릭하세요.
@@ -47,7 +47,7 @@ Space를 복제한다는 것은 **자신의 프로필에 개인 사본을 만드
 - 파일은 몇 가지 필요한 라이브러리 불러오기로 시작합니다
 
 ```python
-from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel, load_tool, tool
+from smolagents import CodeAgent, DuckDuckGoSearchTool, InferenceClientModel, load_tool, tool
 import datetime
 import requests
 import pytz
@@ -57,7 +57,6 @@ from tools.final_answer import FinalAnswerTool
 
 앞서 설명했듯이, **smolagents**에서 직접 **CodeAgent** 클래스를 사용할 것입니다.
 
-
 ### 도구 [[the-tools]]
 
 이제 도구에 대해 알아봅시다! 도구에 관한 내용을 다시 복습하고 싶다면, 강의의 [도구](tools) 섹션을 참고하세요.
@@ -66,7 +65,7 @@ from tools.final_answer import FinalAnswerTool
 @tool
 def my_custom_tool(arg1:str, arg2:int)-> str: # 반환 타입을 명시하는 것이 중요합니다
     # 도구 설명/인수 설명 형식은 유지하되, 도구 자체는 자유롭게 수정하세요
-    """아직 아무 기능이 없는 도구입니다 
+    """아직 아무 기능이 없는 도구입니다
     Args:
         arg1: 첫 번째 인수
         arg2: 두 번째 인수
@@ -89,7 +88,6 @@ def get_current_time_in_timezone(timezone: str) -> str:
         return f"'{timezone}' 시간대 정보를 가져오는 중 오류 발생: {str(e)}"
 ```
 
-
 도구는 이 섹션에서 여러분이 직접 만들어볼 것입니다! 두 가지 예시를 제공해드립니다:
 
 1. 실제로는 아무것도 하지 않는 **더미 도구** - 이것을 유용한 기능으로 수정해보세요.
@@ -106,7 +104,7 @@ def get_current_time_in_timezone(timezone: str) -> str:
 
 ```python
 final_answer = FinalAnswerTool()
-model = HfApiModel(
+model = InferenceClientModel(
     max_tokens=2096,
     temperature=0.5,
     model_id='Qwen/Qwen2.5-Coder-32B-Instruct',
@@ -115,7 +113,7 @@ model = HfApiModel(
 
 with open("prompts.yaml", 'r') as stream:
     prompt_templates = yaml.safe_load(stream)
-    
+
 # CodeAgent 생성
 agent = CodeAgent(
     model=model,
@@ -132,7 +130,7 @@ agent = CodeAgent(
 GradioUI(agent).launch()
 ```
 
-이 에이전트는 이전 섹션에서 살펴본 `InferenceClient`를 **HfApiModel** 클래스 내부에서 사용하고 있습니다!
+이 에이전트는 이전 섹션에서 살펴본 `InferenceClient`를 **InferenceClientModel** 클래스 내부에서 사용하고 있습니다!
 
 Unit 2에서 이 프레임워크에 대해 더 자세한 예시를 제공할 예정입니다. 지금은 에이전트의 `tools` 매개변수를 사용해 **도구 목록에 새로운 도구를 추가**하는 데 집중하세요.
 
@@ -140,10 +138,10 @@ Unit 2에서 이 프레임워크에 대해 더 자세한 예시를 제공할 예
 
 **도구를 추가하면 에이전트에 새로운 능력이 생깁니다**. 창의성을 발휘해 보세요!
 
-완성된 "app.py" 코드: 
+완성된 "app.py" 코드:
 
 ```python
-from smolagents import CodeAgent, DuckDuckGoSearchTool, HfApiModel, load_tool, tool
+from smolagents import CodeAgent, DuckDuckGoSearchTool, InferenceClientModel, load_tool, tool
 import datetime
 import requests
 import pytz
@@ -180,7 +178,7 @@ def get_current_time_in_timezone(timezone: str) -> str:
 
 
 final_answer = FinalAnswerTool()
-model = HfApiModel(
+model = InferenceClientModel(
 max_tokens=2096,
 temperature=0.5,
 model_id='Qwen/Qwen2.5-Coder-32B-Instruct',
@@ -193,7 +191,7 @@ image_generation_tool = load_tool("agents-course/text-to-image", trust_remote_co
 
 with open("prompts.yaml", 'r') as stream:
     prompt_templates = yaml.safe_load(stream)
-    
+
 agent = CodeAgent(
     model=model,
     tools=[final_answer], # 여기에 도구들을 추가하세요 (final_answer는 제거하지 마세요)
@@ -216,8 +214,8 @@ GradioUI(agent).launch()
 
 디스코드 채널 **#agents-course-showcase**에서 여러분이 만든 멋진 에이전트 결과물을 기다리고 있습니다!
 
-
 ---
+
 축하합니다! 첫 번째 에이전트를 만드셨네요! 친구나 동료들과 자유롭게 공유해보세요.
 
 첫 시도이니만큼 약간의 버그가 있거나 속도가 느릴 수 있는 건 매우 자연스러운 일입니다. 앞으로의 단원에서는 더 나은 에이전트를 만드는 방법을 배울 예정입니다.
@@ -225,4 +223,3 @@ GradioUI(agent).launch()
 가장 좋은 학습 방법은 직접 시도해보는 것입니다. 에이전트를 업데이트하거나, 더 많은 도구를 추가하거나, 다른 모델을 시험해보는 것을 망설이지 마세요.
 
 다음 섹션에서는 최종 퀴즈를 풀고 수료증을 받게 됩니다!
-
