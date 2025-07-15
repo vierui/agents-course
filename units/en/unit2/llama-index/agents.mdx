@@ -51,7 +51,7 @@ agent = AgentWorkflow.from_tools_or_functions(
 )
 ```
 
-**Agents are stateless by default**, add remembering past interactions is opt-in using a `Context` object
+**Agents are stateless by default**, however, they can remember past interactions using a `Context` object.
 This might be useful if you want to use an agent that needs to remember previous interactions, like a chatbot that maintains context across multiple messages or a task manager that needs to track progress over time.
 
 ```python
