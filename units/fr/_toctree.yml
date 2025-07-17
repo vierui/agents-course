@@ -10,6 +10,8 @@
   sections:
   - local: communication/live1
     title: Live 1. Comment fonctionne le cours et Q&R
+  - local: communication/next-units
+    title: Prochaines unités
 - title: Unité 1. Introduction aux Agents
   sections:
   - local: unit1/introduction
