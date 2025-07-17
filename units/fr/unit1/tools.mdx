@@ -287,10 +287,29 @@ Dans la section [Actions](actions), nous en apprendrons plus sur la façon dont 
 
 Les outils jouent un rôle crucial dans l'amélioration des capacités des agents d'IA.
 
+### Model Context Protocol (MCP) : une interface d'outils unifiée
+
+Model Context Protocol (MCP) est un **protocole ouvert** qui standardise la manière dont les applications **fournissent des outils aux LLMs**.
+MCP offre :
+
+- Une liste croissante d'intégrations pré-construites que votre LLM peut directement utiliser
+- La flexibilité de changer entre fournisseurs et vendeurs de LLM
+- Les meilleures pratiques pour sécuriser vos données dans votre infrastructure
+
+Cela signifie que **tout framework implémentant MCP peut utiliser les outils définis dans le protocole**, éliminant le besoin de réimplémenter la même interface d'outils pour chaque framework.
+
+Si vous voulez approfondir MCP, vous pouvez consulter notre [cours gratuit MCP](https://huggingface.co/learn/mcp-course/).
+
+---
+
+Les outils jouent un rôle crucial dans l'amélioration des capacités des agents IA.
+
 Pour résumer, nous avons appris :
 
 - *Ce que sont les outils* : des fonctions qui offrent des capacités supplémentaires aux LLMs, comme effectuer des calculs ou accéder à des données externes.
+
 - *Comment définir un outil* : en fournissant une description textuelle claire, des entrées, des sorties, et une fonction exécutable.
+
 - *Pourquoi les outils sont essentiels* : ils permettent aux Agents de surmonter les limites de l'entraînement statique des modèles, de gérer des tâches en temps réel, et d'effectuer des actions spécialisées.
 
 Maintenant, nous pouvons passer au [Workflow de l'Agent](agent-steps-and-structure) où vous verrez comment un Agent observe, réfléchit et agit. Cela **rassemble tout ce que nous avons vu jusqu'à présent** et prépare le terrain pour créer votre propre Agent IA entièrement fonctionnel.

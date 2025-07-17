@@ -49,4 +49,49 @@ Aidez-nous à rendre ce cours plus visible ! Il y a deux façons de nous aider :
 
 2. Partagez votre parcours d'apprentissage : Faites savoir aux autres **que vous suivez ce cours** ! Nous avons préparé une illustration que vous pouvez utiliser dans vos publications sur les réseaux sociaux.
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/share.png
+<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/share.png" alt="Partagez votre parcours d'apprentissage" width="100%"/>
+
+Vous pouvez télécharger l'image en cliquant 👉 [ici](https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/share.png?download=true)
+
+### Étape 5 : Exécuter des modèles localement avec Ollama (En cas de limites de crédits)
+
+1. **Installez Ollama**
+
+    Suivez les instructions officielles <a href="https://ollama.com/download" target="_blank">ici.</a>
+
+2. **Téléchargez un modèle localement**
+``` bash
+    ollama pull qwen2:7b #Consultez le site web d'Ollama pour plus de modèles
+```
+3. **Démarrez Ollama en arrière-plan (Dans un terminal)**
+``` bash
+    ollama serve
+``` 
+    Si vous rencontrez l'erreur "listen tcp 127.0.0.1:11434: bind: address already in use", vous pouvez utiliser la commande `sudo lsof -i :11434` pour identifier l'ID du processus (PID) qui utilise actuellement ce port. Si le processus est `ollama`, il est probable que le script d'installation ci-dessus ait démarré le service ollama, vous pouvez donc ignorer cette commande pour démarrer Ollama.
+
+4. **Utilisez `LiteLLMModel` au lieu de `InferenceClientModel`**
+
+   Pour utiliser le module `LiteLLMModel` dans `smolagents`, vous pouvez exécuter la commande `pip` pour installer le module.
+
+``` bash
+    pip install 'smolagents[litellm]'
+```
+
+``` python
+    from smolagents import LiteLLMModel
+
+    model = LiteLLMModel(
+        model_id="ollama_chat/qwen2:7b",  # Ou essayez d'autres modèles supportés par Ollama
+        api_base="http://127.0.0.1:11434",  # Serveur local Ollama par défaut
+        num_ctx=8192,
+    )
+```
+
+5. **Pourquoi cela fonctionne-t-il ?**
+- Ollama sert des modèles localement en utilisant une API compatible OpenAI à `http://localhost:11434`.
+- `LiteLLMModel` est conçu pour communiquer avec tout modèle qui supporte le format d'API OpenAI chat/completion.
+- Cela signifie que vous pouvez simplement remplacer `InferenceClientModel` par `LiteLLMModel` sans autres changements de code nécessaires. C'est une solution transparente et prête à l'emploi.
+
+Félicitations ! 🎉 **Vous avez terminé le processus d'intégration** ! Vous êtes maintenant prêt à commencer à apprendre sur les agents IA. Amusez-vous bien !
+
+Continuez à apprendre, restez formidable 🤗
