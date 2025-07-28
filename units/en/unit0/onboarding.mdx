@@ -60,13 +60,18 @@ You can download the image by clicking 👉 [here](https://huggingface.co/datase
     Follow the official Instructions <a href="https://ollama.com/download" target="_blank"> here.</a>
 
 2. **Pull a model Locally**
-``` bash
-    ollama pull qwen2:7b #Check out ollama website for more models
-```
+
+    ```bash
+    ollama pull qwen2:7b
+    ```
+
+    Here, we pull the <a href="https://ollama.com/library/qwen2:7b" target="_blank"> qwen2:7b model</a>. Check out <a href="https://ollama.com/search" target="_blank">the ollama website</a> for more models.
+
 3. **Start Ollama in the background (In one terminal)**
-``` bash
+    ``` bash
     ollama serve
-``` 
+    ``` 
+
     If you run into the error "listen tcp 127.0.0.1:11434: bind: address already in use", you can use command `sudo lsof -i :11434` to identify the process
     ID (PID) that is currently using this port. If the process is `ollama`, it is likely that the installation script above has started ollama
     service, so you can skip this command to start Ollama.
