@@ -1,16 +1,16 @@
-# Construisez votre propre Agent de Combat Pokémon
+# Construire un agent de combat Pokémon
 
-Maintenant que vous avez exploré le potentiel et les limitations de l'IA Agentique dans les jeux, il est temps de passer à la pratique. Dans cette section, vous **construirez votre propre Agent IA pour combattre dans un combat au tour par tour de style Pokémon**, en utilisant tout ce que vous avez appris à travers le cours.
+Maintenant que vous avez exploré le potentiel et les limitations de l'IA agentique dans les jeux vidéos, il est temps de passer à la pratique. Dans cette section, vous allez **construire votre propre agent pour combattre dans un combat au tour par tour dans le style de Pokémon**, en utilisant tout ce que vous avez appris à travers le cours.
 
 Nous décomposerons le système en quatre blocs de construction clés :
 
 - **Poke-env :** Une bibliothèque Python conçue pour entraîner des bots Pokémon basés sur des règles ou par apprentissage par renforcement.
 
-- **Pokémon Showdown :** Un simulateur de combat en ligne où votre agent se battra.
+- **Pokémon Showdown :** Un simulateur de combat en ligne où votre agent combattra.
 
 - **LLMAgentBase :** Une classe Python personnalisée que nous avons construite pour connecter votre LLM avec l'environnement de combat *Poke-env*.
 
-- **TemplateAgent :** Un template de démarrage que vous compléterez pour créer votre propre agent de combat unique.
+- **TemplateAgent :** Un *template* de démarrage que vous compléterez pour créer votre propre agent de combat personnalisé.
 
 Explorons chacun de ces composants plus en détail.
 
@@ -18,10 +18,10 @@ Explorons chacun de ces composants plus en détail.
 
 ![Battle gif](https://github.com/hsahovic/poke-env/raw/master/rl-gif.gif)
 
-[Poke-env](https://github.com/hsahovic/poke-env) est une interface Python originellement construite pour entraîner des bots d'apprentissage par renforcement par [Haris Sahovic](https://huggingface.co/hsahovic), mais nous l'avons réutilisée pour l'IA Agentique.  
+[Poke-env](https://github.com/hsahovic/poke-env) est une interface Python originellement construite pour entraîner des bots d'apprentissage par renforcement par [Haris Sahovic](https://huggingface.co/hsahovic), mais nous l'avons réutilisée pour l'IA agentique.  
 Elle permet à votre agent d'interagir avec *Pokémon Showdown* à travers une API simple.
 
-Elle fournit une classe `Player` de laquelle votre Agent héritera, couvrant tout ce qui est nécessaire pour communiquer avec l'interface graphique.
+Elle fournit une classe `Player` de laquelle votre agent héritera, couvrant tout ce qui est nécessaire pour communiquer avec l'interface graphique.
 
 **Documentation** : [poke-env.readthedocs.io](https://poke-env.readthedocs.io/en/stable/)  
 **Dépôt** : [github.com/hsahovic/poke-env](https://github.com/hsahovic/poke-env)
@@ -29,9 +29,9 @@ Elle fournit une classe `Player` de laquelle votre Agent héritera, couvrant tou
 ## ⚔️ Pokémon Showdown
 
 [Pokémon Showdown](https://pokemonshowdown.com/) est un simulateur de combat [*open-source*](https://github.com/smogon/Pokemon-Showdown) où votre agent jouera des combats Pokémon en direct.  
-Il fournit une interface complète pour simuler et afficher des combats en temps réel. Dans notre défi, votre bot agira exactement comme un joueur humain, choisissant des mouvements tour par tour.
+Il fournit une interface complète pour simuler et afficher des combats en temps réel. Dans notre défi, le bot agira exactement comme un joueur humain, choisissant des mouvements tour par tour.
 
-Nous avons déployé un serveur que tous les participants utiliseront pour combattre. Voyons qui construit le meilleur Agent IA de combat !
+Nous avons déployé un serveur que tous les participants utiliseront pour combattre. Voyons qui construit le meilleur agent de combat !
 
 **Dépôt** : [github.com/smogon/Pokemon-Showdown](https://github.com/smogon/Pokemon-Showdown)  
 **Site web** : [pokemonshowdown.com](https://pokemonshowdown.com/)
@@ -50,7 +50,7 @@ Le LLM devrait utiliser ces outils pour prendre des décisions pendant un match.
 
 ### 🧠 Logique centrale
 
-- `choose_move(battle: Battle)` : C'est la méthode principale invoquée à chaque tour. Elle prend un objet `Battle` et retourne une chaîne d'action basée sur la sortie du LLM.
+- `choose_move(battle: Battle)` : La méthode principale invoquée à chaque tour. Elle prend un objet `Battle` et retourne une chaîne d'action basée sur la sortie du LLM.
 
 ### 🔧 Méthodes internes clés
 
@@ -213,15 +213,15 @@ class LLMAgentBase(Player):
 
 ## 🧪 TemplateAgent
 
-Maintenant vient la partie amusante ! Avec *LLMAgentBase* comme votre fondation, il est temps d'implémenter votre propre agent, avec votre propre stratégie pour grimper dans le classement.
+Maintenant vient la partie amusante ! Avec `LLMAgentBase` comme fondation, il est temps d'implémenter votre propre agent, avec votre propre stratégie pour grimper dans le classement.
 
-Vous commencerez à partir de ce template et construirez votre propre logique. Nous avons aussi fourni trois [exemples complets](https://huggingface.co/spaces/Jofthomas/twitch_streaming/blob/main/agents.py) utilisant les modèles **OpenAI**, **Mistral** et **Gemini** pour vous guider.
+Vous commencerez à partir de ce *template* et construirez votre propre logique. Nous avons aussi fourni trois [exemples complets](https://huggingface.co/spaces/Jofthomas/twitch_streaming/blob/main/agents.py) utilisant les modèles **OpenAI**, **Mistral** et **Gemini** pour vous guider.
 
-Voici une version simplifiée du template :
+Voici une version simplifiée du *template* :
 
 ```python
 class TemplateAgent(LLMAgentBase):
-    """Uses Template AI API for decisions."""
+    """Utilise l'API Template AI pour prendre des décisions."""
     def __init__(self, api_key: str = None, model: str = "model-name", *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.model = model
@@ -229,7 +229,7 @@ class TemplateAgent(LLMAgentBase):
         self.template_tools = list(self.standard_tools.values())
 
     async def _get_llm_decision(self, battle_state: str) -> Dict[str, Any]:
-        """Sends state to the LLM and gets back the function call decision."""
+        """Envoie l'état au LLM et reçoit en retour la décision relative à l'appel de fonction."""
         system_prompt = (
             "You are a ..."
         )
@@ -252,7 +252,7 @@ class TemplateAgent(LLMAgentBase):
             return {"error": f"Unexpected error: {e}"}
 ```
 
-Ce code ne fonctionnera pas directement, c'est un blueprint pour votre logique personnalisée.
+Ce code ne fonctionnera pas directement, c'est un plan pour votre cas personnalisé.
 
 Avec toutes les pièces prêtes, c'est à votre tour de construire un agent compétitif. Dans la prochaine section, nous montrerons comment déployer votre agent sur notre serveur et combattre d'autres en temps réel.
 

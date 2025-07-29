@@ -1,51 +1,51 @@
-# Comprendre les agents d'IA à travers le cycle Raisonnement-Action-Observation
+# Comprendre les agents à travers le cycle Réflexion-Action-Observation
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-check-3.jpg" alt="Planification de l'Unité 1"/>
 
 Dans les sections précédentes, nous avons appris :
 
-- **Comment les outils sont mis à disposition de l'agent dans le prompt système**.
-- **Comment les agents d'IA sont des systèmes capables de "raisonner", planifier et interagir avec leur environnement**.
+- **Comment les outils sont mis à disposition de l'agent dans le *prompt* système**.
+- **Comment les agents sont des systèmes capables de « raisonner », planifier et interagir avec leur environnement**.
 
-Dans cette section, **nous explorerons l'ensemble du Workflow de l'Agent IA**, un cycle que nous avons défini comme Raisonnement-Action-Observation (Thought-Action-Observation).
+Dans cette section, **nous explorerons l'ensemble du *workflow* de l'agent**, un cycle que nous avons défini comme Réflexion-Action-Observation (*Thought-Action-Observation*).
 
 Puis, nous approfondirons chacune de ces étapes.
 
-## Les Composants de Base
+## Les composants de base
 
-Les agents fonctionnent selon un cycle continu de : **raisonner (Raisonnement) → agir (Action) et observer (Observation)** (**thinking (Thought) → acting (Act) and observing (Observe)**).
+Les agents fonctionnent selon un cycle continu : **réfléchir (Réflexion) → agir (Action) et observer (Observation)** (***thinking (Thought) → acting (Act) and observing (Observe)***).
 
 Décomposons ensemble ces actions :
 
-1. **Raisonnement** : La partie LLM de l'agent décide de la prochaine étape.
+1. **Réflexion** : La partie LLM de l'agent décide de la prochaine étape.
 2. **Action** : L'agent passe à l'action en appelant les outils avec les arguments associés.
 3. **Observation** : Le modèle analyse la réponse renvoyée par l'outil.
 
-## Le Cycle Thought-Action-Observation
+## Le cycle Réflexion-Action-Observation
 
 Les trois composants fonctionnent ensemble dans une boucle continue. Pour utiliser une analogie issue de la programmation, l'agent utilise une **boucle while** : la boucle continue jusqu'à ce que l'objectif de l'agent soit atteint.
 
 Visuellement, cela ressemble à ceci :
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/AgentCycle.gif" alt="Cycle Raisonnement, Action, Observation"/>
+<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/AgentCycle.gif" alt="Cycle Réflexion, Action, Observation"/>
 
-Dans de nombreux frameworks d'agents, **les règles et directives sont intégrées directement dans le prompt système**, garantissant que chaque cycle respecte une logique définie.
+Dans de nombreux *frameworks* d'agents, **les règles et directives sont intégrées directement dans le *prompt* système**, garantissant que chaque cycle respecte une logique définie.
 
-Dans une version simplifiée, notre prompt système pourrait ressembler à ceci :
+Dans une version simplifiée, notre *prompt* système pourrait ressembler à ceci :
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/system_prompt_cycle.png" alt="Cycle Raisonnement, Action, Observation"/>
+<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/system_prompt_cycle.png" alt="Cycle Réflexion, Action, Observation"/>
 
-Nous voyons ici que dans le Message Système, nous avons défini :
+Nous voyons ici que dans le message système, nous avons défini :
 
-- Le *comportement de l'Agent*.
-- Les *outils auxquels notre Agent a accès*, comme nous l'avons décrit dans la section précédente.
-- Le *Cycle Raisonnement-Action-Observation*, que nous intégrons dans les instructions du LLM.
+- Le *comportement de l'agent*.
+- Les *outils auxquels il a accès*, comme nous l'avons décrit dans la section précédente.
+- Le *cycle Réflexion-Action-Observation*, que nous intégrons dans les instructions du LLM.
 
 Prenons un petit exemple pour comprendre le processus avant d'approfondir chacune des étapes.
 
-## Alfred, l'Agent météo
+## Alfred, l'agent météorologiste
 
-Nous avons créé Alfred, l'Agent météo.
+Nous avons créé Alfred, l'agent météorologiste.
 
 Un utilisateur demande à Alfred : « Quel temps fait-il à New York aujourd'hui ? »
 
@@ -55,9 +55,9 @@ La mission d'Alfred est de répondre à cette question en utilisant un outil d'A
 
 Voici comment le cycle se déroule :
 
-### Raisonnement
+### Réflexion
 
-**Raisonnement Interne :**
+**Raisonnement interne :**
 
 Après avoir reçu la requête, le dialogue interne d'Alfred pourrait être :
 
@@ -69,7 +69,7 @@ Cette étape montre l'agent décomposant le problème en étapes : d'abord, rass
 
 ### Action
 
-**Utilisation de l'Outil :**
+**Utilisation d'un outil :**
 
 En se basant sur son raisonnement et sur le fait qu'Alfred connaît l'outil `get_weather`, Alfred prépare une commande au format JSON qui appelle l'outil API météo. Par exemple, sa première action pourrait être :
 
@@ -84,13 +84,13 @@ Raisonnement : Je dois vérifier la météo actuelle pour New York.
 }
 ```
 
-Ici, l'action précise clairement quel outil appeler (par exemple, get_weather) et quel paramètre passer (la « location » : « New York »).
+Ici, l'action précise clairement quel outil appeler (par exemple, `get_weather`) et quel paramètre passer (la « location » : « New York »).
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-2.jpg" alt="Agent Alfred"/>
 
 ### Observation
 
-**Retour d'information de l'Environnement :**
+**Retour d'information de l'environnement :**
 
 Après l'appel à l'outil, Alfred reçoit une observation. Cela pourrait être les données météo brutes renvoyées par l'API, par exemple :
 
@@ -98,7 +98,7 @@ Après l'appel à l'outil, Alfred reçoit une observation. Cela pourrait être l
 
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-3.jpg" alt="Agent Alfred"/>
 
-Cette observation est ensuite ajoutée au prompt en tant que contexte supplémentaire. Elle agit comme un retour du monde réel, confirmant si l'action a réussi et fournissant les détails nécessaires.
+Cette observation est ensuite ajoutée au *prompt* en tant que contexte supplémentaire. Elle agit comme un retour du monde réel, confirmant si l'action a réussi et fournissant les détails nécessaires.
 
 ### Raisonnement mis à jour
 
@@ -128,15 +128,15 @@ Ce que nous voyons dans cet exemple :
   Le processus d'Alfred est cyclique. Il commence par un raisonnement, passe à l'action en appelant un outil, puis observe le résultat. Si l'observation avait indiqué une erreur ou des données incomplètes, Alfred aurait pu reprendre le cycle pour corriger son approche.
     
 - **Intégration des outils :**  
-  La capacité d'appeler un outil (comme une API météo) permet à Alfred d'aller **au-delà de la connaissance statique et de récupérer des données en temps réel**, un aspect essentiel de nombreux agents d'IA.
+  La capacité d'appeler un outil (comme une API météo) permet à Alfred d'aller **au-delà de la connaissance statique et de récupérer des données en temps réel**, un aspect essentiel de nombreux agents.
 
 - **Adaptation dynamique :**  
-  Chaque cycle permet à l'agent d'intégrer des informations fraîches (observations) dans son raisonnement, garantissant que la réponse finale est bien informée et précise.
+  Chaque cycle permet à l'agent d'intégrer des informations fraîches (observations) dans son raisonnement (réflexions), garantissant que la réponse finale est bien informée et précise.
     
-Cet exemple illustre le concept fondamental du *cycle ReAct* (un concept que nous allons développer dans la section suivante) : **l'interaction entre Raisonnement, Action et Observation permet aux agents d'IA de résoudre de manière itérative des tâches complexes**.
+Cet exemple illustre le concept fondamental du *cycle ReAct* (un concept que nous allons développer dans la section suivante) : **l'interaction entre Réflexion, Action et Observation permet aux agents de résoudre de manière itérative des tâches complexes**.
 
 En comprenant et en appliquant ces principes, vous pouvez concevoir des agents qui non seulement réfléchissent à leurs tâches, mais utilisent également efficacement des outils externes pour les accomplir, tout en affinant continuellement leur production en fonction des retours de l'environnement.
 
 ---
 
-Plongeons maintenant plus en profondeur dans le Raisonnement, l'Action et l'Observation en tant qu'étapes individuelles du processus.
+Plongeons maintenant plus en profondeur dans le Réflexion, l'Action et l'Observation en tant qu'étapes individuelles du processus.

@@ -1,10 +1,10 @@
-# Création de votre agent de gala
+# Création de l'agent pour le gala
 
-Maintenant que nous avons construit tous les composants nécessaires pour Alfred, il est temps de tout rassembler en un agent complet qui peut aider à organiser notre gala extravagant.
+Maintenant que nous avons construit tous les composants nécessaires pour Alfred, il est temps de tout rassembler en un agent complet qui peut aider à organiser notre gala.
 
-Dans cette section, nous allons combiner les outils de récupération d'informations sur les invités, de recherche web, d'informations météorologiques et de statistiques *Hub* en un seul agent puissant.
+Dans cette section, nous allons combiner les outils de récupération d'informations sur les invités, de recherche web, d'informations météorologiques et de statistiques  du Hub en un seul agent puissant.
 
-## Assemblage d'Alfred : L'agent complet
+## Assemblage d'Alfred : l'agent complet
 
 Au lieu de réimplémenter tous les outils que nous avons créés dans les sections précédentes, nous les importerons à partir de leurs modules respectifs que nous avons sauvegardés dans les fichiers `tools.py` et `retriever.py`.
 
@@ -143,11 +143,11 @@ alfred = builder.compile()
 
 Votre agent est maintenant prêt à être utilisé !
 
-## Utilisation d'Alfred : Exemples de bout en bout
+## Utilisation d'Alfred : exemples de bout en bout
 
 Maintenant qu'Alfred est entièrement équipé de tous les outils nécessaires, voyons comment il peut aider avec diverses tâches pendant le gala.
 
-### Exemple 1 : Trouver des informations sur les invités
+### Exemple 1 : trouver des informations sur les invités
 
 Voyons comment Alfred peut nous aider avec nos informations sur les invités.
 
@@ -155,7 +155,7 @@ Voyons comment Alfred peut nous aider avec nos informations sur les invités.
 <hfoption id="smolagents">
 
 ```python
-query = "Parlez-moi de 'Lady Ada Lovelace'"
+query = "Parle-moi de Lady Ada Lovelace"
 response = alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -166,14 +166,14 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-Basé sur les informations que j'ai récupérées, Lady Ada Lovelace est une mathématicienne estimée et amie. Elle est renommée pour son travail pionnier en mathématiques et en informatique, souvent célébrée comme la première programmeuse informatique en raison de son travail sur la machine analytique de Charles Babbage. Son adresse e-mail est ada.lovelace@example.com.
+Basé sur les informations que j'ai récupérées, Lady Ada Lovelace est une mathématicienne estimée et une amie. Elle est renommée pour son travail pionnier en mathématiques et en informatique, souvent célébrée comme la première programmeuse informatique en raison de son travail sur la machine analytique de Charles Babbage. Son adresse email est ada.lovelace@example.com.
 ```
 
 </hfoption>
 <hfoption id="llama-index">
 
 ```python
-query = "Parlez-moi de Lady Ada Lovelace. Quel est son arrière-plan ?"
+query = "Parle-moi de Lady Ada Lovelace. Quel est son parcours ?"
 response = await alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -191,7 +191,7 @@ Lady Ada Lovelace était une mathématicienne et écrivaine anglaise, mieux conn
 <hfoption id="langgraph">
 
 ```python
-response = alfred.invoke({"messages": "Parlez-moi de 'Lady Ada Lovelace'"})
+response = alfred.invoke({"messages": "Parle-moi de Lady Ada Lovelace"})
 
 print("🎩 Réponse d'Alfred :")
 print(response['messages'][-1].content)
@@ -207,7 +207,7 @@ Ada Lovelace, aussi connue sous le nom d'Augusta Ada King, Comtesse de Lovelace,
 </hfoption>
 </hfoptions>
 
-### Exemple 2 : Vérifier la météo pour les feux d'artifice
+### Exemple 2 : Vérifier la météo pour le feu d'artifice
 
 Voyons comment Alfred peut nous aider avec la météo.
 
@@ -215,7 +215,7 @@ Voyons comment Alfred peut nous aider avec la météo.
 <hfoption id="smolagents">
 
 ```python
-query = "Quel temps fait-il à Paris ce soir ? Sera-t-il approprié pour notre spectacle de feux d'artifice ?"
+query = "Quel temps fait-il à Paris ce soir ? Sera-t-il approprié pour notre spectacle pyrotechnique ?"
 response = alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -232,7 +232,7 @@ J'ai vérifié la météo à Paris pour vous. Actuellement, il fait clair avec u
 <hfoption id="llama-index">
 
 ```python
-query = "Quel temps fait-il à Paris ce soir ? Sera-t-il approprié pour notre spectacle de feux d'artifice ?"
+query = "Quel temps fait-il à Paris ce soir ? Sera-t-il approprié pour notre spectacle pyrotechnique ?"
 response = await alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -243,14 +243,14 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-La météo à Paris ce soir est pluvieuse avec une température de 15°C. Étant donné la pluie, il se peut que ce ne soit pas approprié pour un spectacle de feux d'artifice.
+La météo à Paris ce soir est pluvieuse avec une température de 15°C. Étant donné la pluie, il se peut que ce ne soit pas approprié pour un spectacle pyrotechnique.
 ```
 
 </hfoption>
 <hfoption id="langgraph">
 
 ```python
-response = alfred.invoke({"messages": "Quel temps fait-il à Paris ce soir ? Sera-t-il approprié pour notre spectacle de feux d'artifice ?"})
+response = alfred.invoke({"messages": "Quel temps fait-il à Paris ce soir ? Sera-t-il approprié pour notre spectacle pyrotechnique ?"})
 
 print("🎩 Réponse d'Alfred :")
 print(response['messages'][-1].content)
@@ -260,12 +260,12 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-La météo à Paris ce soir est pluvieuse avec une température de 15°C, ce qui peut ne pas être approprié pour votre spectacle de feux d'artifice.
+La météo à Paris ce soir est pluvieuse avec une température de 15°C, ce qui peut ne pas être approprié pour votre spectacle pyrotechnique.
 ```
 </hfoption>
 </hfoptions>
 
-### Exemple 3 : Impressionner les chercheurs en IA
+### Exemple 3 : impressionner les chercheurs en IA
 
 Voyons comment Alfred peut nous aider à impressionner les chercheurs en IA.
 
@@ -273,7 +273,7 @@ Voyons comment Alfred peut nous aider à impressionner les chercheurs en IA.
 <hfoption id="smolagents">
 
 ```python
-query = "Un de nos invités vient de Qwen. Que pouvez-vous me dire sur leur modèle le plus populaire ?"
+query = "Un de nos invités vient de Qwen. Que peux-tu me dire sur leur modèle le plus populaire ?"
 response = alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -284,13 +284,13 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-Le modèle Qwen le plus populaire est Qwen/Qwen2.5-VL-7B-Instruct avec 3,313,345 téléchargements.
+Le modèle Qwen le plus populaire est Qwen/Qwen2.5-VL-7B-Instruct avec 3 313 345 téléchargements.
 ```
 </hfoption>
 <hfoption id="llama-index">
 
 ```python
-query = "Un de nos invités vient de Google. Que pouvez-vous me dire sur leur modèle le plus populaire ?"
+query = "Un de nos invités vient de Google. Que peux-tu me dire sur leur modèle le plus populaire ?"
 response = await alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -301,14 +301,14 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-Le modèle le plus populaire par Google sur le Hugging Face Hub est google/electra-base-discriminator, avec 28,546,752 téléchargements.
+Le modèle le plus populaire par Google sur le Hugging Face Hub est google/electra-base-discriminator, avec 28 546 752 téléchargements.
 ```
 
 </hfoption>
 <hfoption id="langgraph">
 
 ```python
-response = alfred.invoke({"messages": "Un de nos invités vient de Qwen. Que pouvez-vous me dire sur leur modèle le plus populaire ?"})
+response = alfred.invoke({"messages": "Un de nos invités vient de Qwen. Que peux-tu me dire sur leur modèle le plus populaire ?"})
 
 print("🎩 Réponse d'Alfred :")
 print(response['messages'][-1].content)
@@ -318,12 +318,12 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-Le modèle le plus téléchargé par Qwen est Qwen/Qwen2.5-VL-7B-Instruct avec 3,313,345 téléchargements.
+Le modèle le plus téléchargé par Qwen est Qwen/Qwen2.5-VL-7B-Instruct avec 3 313 345 téléchargements.
 ```
 </hfoption>
 </hfoptions>
 
-### Exemple 4 : Combiner plusieurs outils
+### Exemple 4 : combiner plusieurs outils
 
 Voyons comment Alfred peut nous aider à préparer une conversation avec le Dr. Nikola Tesla.
 
@@ -331,7 +331,7 @@ Voyons comment Alfred peut nous aider à préparer une conversation avec le Dr. 
 <hfoption id="smolagents">
 
 ```python
-query = "J'ai besoin de parler avec le Dr. Nikola Tesla des avancées récentes en énergie sans fil. Pouvez-vous m'aider à préparer cette conversation ?"
+query = "J'ai besoin de parler avec le Dr. Nikola Tesla des avancées récentes en énergie sans fil. Peux-tu m'aider à préparer cette conversation ?"
 response = alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -346,9 +346,9 @@ J'ai rassemblé des informations pour vous aider à préparer votre conversation
 
 Informations sur l'invité :
 Nom : Dr. Nikola Tesla
-Relation : vieil ami des jours d'université
-Description : Le Dr. Nikola Tesla est un vieil ami de vos jours d'université. Il vient récemment de breveter un nouveau système de transmission d'énergie sans fil et serait ravi d'en discuter avec vous. N'oubliez pas qu'il est passionné par les pigeons, donc cela pourrait faire une bonne conversation.
-E-mail : nikola.tesla@gmail.com
+Relation : vieil ami de la période à l'université
+Description : Le Dr. Nikola Tesla est un vieil ami de votre période à l'université. Il vient récemment de breveter un nouveau système de transmission d'énergie sans fil et serait ravi d'en discuter avec vous. N'oubliez pas qu'il est passionné par les pigeons, donc cela pourrait faire une bonne conversation.
+Email : nikola.tesla@gmail.com
 
 Avancées récentes en énergie sans fil :
 Basé sur ma recherche web, voici quelques développements récents en transmission d'énergie sans fil :
@@ -357,18 +357,18 @@ Basé sur ma recherche web, voici quelques développements récents en transmiss
 3. Il y a de nouvelles applications dans la recharge de véhicules électriques sans connexions physiques
 
 Amorces de conversation :
-1. "J'adorerais entendre parler de votre nouveau brevet sur la transmission d'énergie sans fil. Comment se compare-t-il à vos concepts originaux de nos jours d'université ?"
+1. "J'adorerais entendre parler de votre nouveau brevet sur la transmission d'énergie sans fil. Comment se compare-t-il à vos concepts originaux de votre période à l'université ?"
 2. "Avez-vous vu les développements récents en couplage inductif résonnant pour l'électronique grand public ? Que pensez-vous de leur approche ?"
 3. "Comment vont vos pigeons ? Je me souviens de votre fascination pour eux."
 
-Cela devrait vous donner beaucoup à discuter avec le Dr. Tesla tout en démontrant votre connaissance de ses intérêts et des développements récents dans son domaine.
+Cela devrait vous donner de quoi discuter avec le Dr. Tesla tout en démontrant votre connaissance de ses intérêts et des développements récents dans son domaine.
 ```
 
 </hfoption>
 <hfoption id="llama-index">
 
 ```python
-query = "J'ai besoin de parler avec le Dr. Nikola Tesla des avancées récentes en énergie sans fil. Pouvez-vous m'aider à préparer cette conversation ?"
+query = "J'ai besoin de parler avec le Dr. Nikola Tesla des avancées récentes en énergie sans fil. Peux-tu m'aider à préparer cette conversation ?"
 response = await alfred.run(query)
 
 print("🎩 Réponse d'Alfred :")
@@ -394,7 +394,7 @@ Voici quelques avancées récentes en énergie sans fil que vous pourriez trouve
 <hfoption id="langgraph">
 
 ```python
-response = alfred.invoke({"messages":"J'ai besoin de parler avec le 'Dr. Nikola Tesla' des avancées récentes en énergie sans fil. Pouvez-vous m'aider à préparer cette conversation ?"})
+response = alfred.invoke({"messages":"J'ai besoin de parler avec le 'Dr. Nikola Tesla' des avancées récentes en énergie sans fil. Peux-tu m'aider à préparer cette conversation ?"})
 
 print("🎩 Réponse d'Alfred :")
 print(response['messages'][-1].content)
@@ -408,15 +408,15 @@ Basé sur les informations fournies, voici les points clés pour préparer la co
 </hfoption>
 </hfoptions>
 
-## Fonctionnalités avancées : Mémoire de conversation
+## Fonctionnalités avancées : une mémoire de la conversation
 
-Pour rendre Alfred encore plus utile pendant le gala, nous pouvons activer la mémoire de conversation pour qu'il se souvienne des interactions précédentes :
+Pour rendre Alfred encore plus utile pendant le gala, nous pouvons activer une mémoire de la conversation pour qu'il se souvienne des interactions précédentes :
 
 <hfoptions id="agents-frameworks">
 <hfoption id="smolagents">
 
 ```python
-# Créer Alfred avec mémoire de conversation
+# Créer Alfred avec une mémoire de la conversation
 alfred_with_memory = CodeAgent(
     tools=[guest_info_tool, weather_info_tool, hub_stats_tool, search_tool], 
     model=model,
@@ -425,7 +425,7 @@ alfred_with_memory = CodeAgent(
 )
 
 # Première interaction
-response1 = alfred_with_memory.run("Parlez-moi de Lady Ada Lovelace.")
+response1 = alfred_with_memory.run("Parle-moi de Lady Ada Lovelace.")
 print("🎩 Première réponse d'Alfred :")
 print(response1)
 
@@ -450,7 +450,7 @@ alfred = AgentWorkflow.from_tools_or_functions(
 ctx = Context(alfred)
 
 # Première interaction
-response1 = await alfred.run("Parlez-moi de Lady Ada Lovelace.", ctx=ctx)
+response1 = await alfred.run("Parle-moi de Lady Ada Lovelace.", ctx=ctx)
 print("🎩 Première réponse d'Alfred :")
 print(response1)
 
@@ -465,7 +465,7 @@ print(response2)
 
 ```python
 # Première interaction
-response = alfred.invoke({"messages": [HumanMessage(content="Parlez-moi de 'Lady Ada Lovelace'. Quel est son arrière-plan et comment est-elle liée à moi ?")]})
+response = alfred.invoke({"messages": [HumanMessage(content="Parle-moi de 'Lady Ada Lovelace'. Quel est son parcours et comment est-elle liée à moi ?")]})
 
 
 print("🎩 Réponse d'Alfred :")
@@ -482,18 +482,18 @@ print(response['messages'][-1].content)
 </hfoption>
 </hfoptions>
 
-Remarquez qu'aucune de ces trois approches d'agent ne couple directement la mémoire avec l'agent. Y a-t-il une raison spécifique pour ce choix de conception 🧐 ?
-* smolagents : La mémoire n'est pas préservée entre différentes exécutions, vous devez explicitement le déclarer en utilisant `reset=False`.
+Remarquez qu'aucune de ces trois approches ne couple directement la mémoire avec l'agent. Y a-t-il une raison spécifique pour ce choix de conception 🧐 ?
+* smolagents : La mémoire n'est pas préservée entre différentes exécutions, vous devez explicitement la déclarer en utilisant `reset=False`.
 * LlamaIndex : Nécessite d'ajouter explicitement un objet de contexte pour la gestion de la mémoire au sein d'une exécution.
 * LangGraph : Offre des options pour récupérer les messages précédents ou utiliser un composant [MemorySaver](https://langchain-ai.github.io/langgraph/tutorials/introduction/#part-3-adding-memory-to-the-chatbot) dédié.
 
 ## Conclusion
 
-Félicitations ! Vous avez réussi à construire Alfred, un agent sophistiqué équipé de plusieurs outils pour aider à organiser le gala le plus extravagant du siècle. Alfred peut maintenant :
+Félicitations ! Vous avez réussi à construire Alfred, un agent sophistiqué équipé de plusieurs outils pour aider à organiser le gala le plus extravagant du siècle. Il peut maintenant :
 
 1. Récupérer des informations détaillées sur les invités
 2. Vérifier les conditions météorologiques pour planifier les activités en plein air
-3. Fournir des insights sur les constructeurs d'IA influents et leurs modèles
+3. Fournir des informations sur les constructeurs d'IA influents et leurs modèles
 4. Rechercher sur le web les dernières informations
 5. Maintenir le contexte de conversation avec la mémoire
 

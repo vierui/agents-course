@@ -25,7 +25,7 @@ L'état est **défini par l'utilisateur**, donc les champs doivent être soigneu
 
 ## 2. Nœuds
 
-Les **nœuds** sont des fonctions python. Chaque nœud :
+Les **nœuds** sont des fonctions Python. Chaque nœud :
 - Prend l'état en entrée
 - Effectue une opération
 - Retourne des mises à jour de l'état
@@ -50,7 +50,7 @@ Par exemple, les nœuds peuvent contenir :
 - **Logique conditionnelle** : Déterminer les prochaines étapes
 - **Intervention humaine** : Obtenir des contributions des utilisateurs
 
-> 💡 **Info :** Certains nœuds nécessaires pour l'ensemble du *workflow* comme *START* et *END* existent directement dans *langGraph*.
+> 💡 **Info :** Certains nœuds nécessaires pour l'ensemble du *workflow* comme *START* et *END* existent directement dans *LangGraph*.
 
 ## 3. Arêtes
 
@@ -81,7 +81,7 @@ Les arêtes peuvent être :
 
 ## 4. StateGraph
 
-Le **StateGraph** est le conteneur qui détient l'ensemble de votre *workflow* d'agent :
+Le **StateGraph** est le conteneur qui détient l'ensemble du *workflow* de votre agent :
 
 ```python
 from IPython.display import Image, display
@@ -104,17 +104,22 @@ graph = builder.compile()
 ```
 
 Qui peut ensuite être visualisé !
+
 ```python
 # Visualiser
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
+
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/basic_graph.jpeg" alt="Graph Visualization"/>
 
-Mais plus important encore, invoqué :
+Mais plus important encore, l'invocation :
+
 ```python
 graph.invoke({"graph_state" : "Hi, this is Lance."})
 ```
-sortie :
+
+ressort :
+
 ```
 ---Node 1---
 ---Node 3---
@@ -123,4 +128,4 @@ sortie :
 
 ## Et maintenant ?
 
-Dans la prochaine section, nous mettrons ces concepts en pratique en construisant notre premier graphe. Ce graphe permet à Alfred de prendre vos *e-mails*, les classifier, et rédiger une réponse préliminaire s'ils sont authentiques.
+Dans la prochaine section, nous mettrons ces concepts en pratique en construisant notre premier graphe. Ce graphe permet à Alfred de prendre vos emails, les classifier, et rédiger une réponse préliminaire s'ils sont authentiques.
