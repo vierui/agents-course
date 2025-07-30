@@ -9,7 +9,7 @@ Pourquoi ? Parce qu'il peut être utilisé comme un outil de *Retrieval-Augmente
 
 Alors, qu'est-ce que le RAG ? Les LLM sont entraînés sur d'énormes corpus de données pour apprendre les connaissances générales.
 Cependant, ils peuvent ne pas être entraînés sur des données pertinentes et à jour.
-Le *RAG* résout ce problème en trouvant et récupérant des informations pertinentes de vos données et en les donnant au LLM.
+Le RAG résout ce problème en trouvant et récupérant des informations pertinentes de vos données et en les donnant au LLM.
 
 ![RAG](https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/rag.png)
 
@@ -174,7 +174,7 @@ Encore une fois, c'est entièrement personnalisable mais il y a trois stratégie
 - `compact` (par défaut) : similaire à l'affinement mais concaténant les morceaux au préalable, résultant en moins d'appels au LLM.
 - `tree_summarize` : créer une réponse détaillée en parcourant chaque morceau de texte récupéré et créant une structure d'arbre de la réponse.
 
-<Tip>Prenez un contrôle fin de vos <i>workflows</i> de requête avec l'<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composition de bas niveau</a>. Cette API vous permet de personnaliser et de finetuner chaque étape du processus de requête pour correspondre à vos besoins exacts, ce qui se marie également très bien avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/"><i>Workflows</i></a> </Tip>
+<Tip>Prenez un contrôle fin de vos <i>workflows</i> de requête avec l'<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composition de bas niveau</a>. Cette API vous permet de personnaliser et de finetuner chaque étape du processus de requête pour correspondre à vos besoins exacts, ce qui se marie également très bien avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/"><i>Workflows</i></a>.</Tip>
 
 Le modèle de langage ne performera pas toujours de manière prévisible, donc nous ne pouvons pas être sûrs que la réponse que nous obtenons soit toujours correcte. Nous pouvons gérer cela en **évaluant la qualité de la réponse**.
 
