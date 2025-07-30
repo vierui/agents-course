@@ -6,9 +6,9 @@ Avant de partir, il a laissé une note avec son programme d'entraînement de la 
 
 Pour de futurs événements similaires, créons un système d'analyse de documents utilisant LangGraph pour servir les besoins de M. Wayne. Ce système peut :
 
-1. Traiter des documents image
+1. Traiter des documents sous forme d'image
 2. Extraire du texte en utilisant des modèles de vision (*Vision Language Model*)
-3. Effectuer des calculs quand nécessaire (pour démontrer les outils normaux)
+3. Effectuer des calculs quand nécessaire (pour démontrer l'utilisation d'outils normaux)
 4. Analyser le contenu et fournir des résumés concis
 5. Exécuter des instructions spécifiques liées aux documents
 
@@ -19,7 +19,7 @@ Le *workflow* que nous allons construire suit ce schéma structuré :
 ![Butler's Document Analysis Workflow](https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/alfred_flow.png)
 
 <Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/langgraph/agent.ipynb" target="_blank">ce notebook</a> que vous pouvez exécuter avec *Google Colab*.
+Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/langgraph/agent.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 </Tip>
 
 ## Configuration de l'environnement
@@ -28,6 +28,7 @@ Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/no
 %pip install langgraph langchain_openai langchain_core
 ```
 et les imports :
+
 ```python
 import base64
 from typing import List, TypedDict, Annotated, Optional
@@ -42,7 +43,7 @@ from IPython.display import Image, display
 ## Définir l'état de l'agent
 
 Cet état est un peu plus complexe que les précédents que nous avons vus.
-`AnyMessage` est une classe de *Langchain* qui définit les messages, et `add_messages` est un opérateur qui ajoute le dernier message plutôt que de l'écraser avec le dernier état.
+`AnyMessage` est une classe de LangChain qui définit les messages, et `add_messages` est un opérateur qui ajoute le dernier message plutôt que de l'écraser avec le dernier état.
 
 C'est un nouveau concept dans LangGraph, où vous pouvez ajouter des opérateurs dans votre état pour définir la façon dont ils doivent interagir ensemble.
 
@@ -94,7 +95,7 @@ def extract_text(img_path: str) -> str:
             )
         ]
 
-        # Appeler le modèle capable de vision
+        # Appeler le VLM
         response = vision_llm.invoke(message)
 
         # Ajouter le texte extrait
@@ -151,7 +152,7 @@ divide(a: int, b: int) -> float:
 
 Permettez-moi d'expliquer l'approche dans cet agent. L'agent suit ce qu'on appelle le modèle *ReAct* (*Reason-Act-Observe*)
 
-1. **Raisonner** sur ses documents et demandes
+1. **Réfléchir** sur ses documents et demandes
 2. **Agir** en utilisant les outils appropriés
 3. **Observer** les résultats
 4. **Répéter** si nécessaire jusqu'à ce que j'aie pleinement répondu à ses besoins
@@ -218,9 +219,9 @@ La conversation se déroulerait :
 ```
 Humain : Divisez 6790 par 5
 
-*AI* *Tool* *Call* : divide(a=6790, b=5)
+Appel d'un outil : divide(a=6790, b=5)
 
-*Tool* *Response* : 1358.0
+Réponse de l'outil : 1358.0
 
 Alfred : Le résultat de la division de 6790 par 5 est 1358.0.
 ```
@@ -239,9 +240,9 @@ L'interaction se déroulerait :
 ```
 Humain : Selon la note fournie par M. Wayne dans les images fournies. Quelle est la liste des articles que je dois acheter pour le menu du dîner ?
 
-*AI* *Tool* *Call* : extract_text(img_path="Batman_training_and_meals.png")
+Appel d'un outil : extract_text(img_path="Batman_training_and_meals.png")
 
-*Tool* *Response* : [Texte extrait avec le programme d'entraînement et les détails du menu]
+Réponse de l'outil : [Texte extrait avec le programme d'entraînement et les détails du menu]
 
 Alfred : Pour le menu du dîner, vous devriez acheter les articles suivants :
 
@@ -263,6 +264,6 @@ Si vous souhaitez créer votre propre majordome d'analyse de documents, voici le
 3. **Considérer la gestion d'erreurs** pour les échecs d'outils
 4. **Maintenir la conscience contextuelle** des interactions précédentes (assurée par l'opérateur `add_messages`)
 
-Avec ces principes, vous aussi pouvez fournir un service d'analyse de documents exemplaire digne du manoir Wayne.
+Avec ces principes, vous pouvez vous aussi fournir un service d'analyse de documents exemplaire digne du manoir Wayne.
 
 *J'espère que cette explication a été satisfaisante. Maintenant, si vous voulez bien m'excuser, la cape de Maître Wayne nécessite un repassage avant les activités de ce soir.*

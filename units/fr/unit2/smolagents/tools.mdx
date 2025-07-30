@@ -1,13 +1,13 @@
 <CourseFloatingBanner 
   classNames="absolute z-10 right-0 top-0"
   notebooks={[
-    {label: "Google Colab", value: "https://colab.research.google.com/#fileId=https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/tools.ipynb"},
+    {label: "Google Colab", value: "https://colab.research.google.com/#fileId=https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/tools.ipynb"},
 ]} 
 askForHelpUrl="http://hf.co/join/discord" />
 
 # Outils
 
-Comme nous l'avons exploré dans [l'unité 1](https://huggingface.co/learn/agents-course/unit1/tools), les agents utilisent des outils pour effectuer diverses actions. Dans `smolagents`, les outils sont traités comme des **fonctions qu'un *LLM* peut appeler au sein d'un système d'agent**.
+Comme nous l'avons exploré dans [l'Unité 1](https://huggingface.co/learn/agents-course/fr/unit1/introduction), les agents utilisent des outils pour effectuer diverses actions. Dans `smolagents`, les outils sont traités comme des **fonctions qu'un *LLM* peut appeler au sein d'un système d'agent**.
 
 Pour interagir avec un outil, le *LLM* a besoin d'une **description d'interface** avec ces composants clés :
 
@@ -16,7 +16,7 @@ Pour interagir avec un outil, le *LLM* a besoin d'une **description d'interface*
 - **Types et descriptions des entrées** : Quels arguments l'outil accepte
 - **Type de sortie** : Ce que l'outil retourne
 
-Par exemple, pendant qu'il se prépare pour une fête au Wayne Manor, Alfred a besoin de divers outils pour recueillir des informations - de la recherche de services de traiteur à la recherche d'idées de thèmes de fête. Voici à quoi pourrait ressembler l'interface d'un simple outil de recherche :
+Par exemple, pendant qu'il se prépare pour une fête au manoir Wayne, Alfred a besoin de divers outils pour recueillir des informations : de la recherche de services de traiteur à la recherche d'idées de thèmes de fête. Voici à quoi pourrait ressembler l'interface d'un simple outil de recherche :
 
 - **Nom :** `web_search`
 - **Description de l'outil :** Recherche sur le web des requêtes spécifiques
@@ -37,7 +37,7 @@ Dans `smolagents`, les outils peuvent être définis de deux façons :
 
 ### Le décorateur `@tool`
 
-Le décorateur `@tool` est la **méthode recommandée pour définir des outils simples**. Sous le capot, smolagents analysera les informations de base sur la fonction à partir de Python. Donc si vous nommez votre fonction clairement et écrivez une bonne docstring, il sera plus facile pour le *LLM* de l'utiliser.
+Le décorateur `@tool` est la **méthode recommandée pour définir des outils simples**. Sous le capot, `smolagents` analysera les informations de base sur la fonction à partir de Python. Donc si vous nommez votre fonction clairement et écrivez une bonne *docstring*, il sera plus facile pour le *LLM* de l'utiliser.
 
 En utilisant cette approche, nous définissons une fonction avec :
 
@@ -50,17 +50,17 @@ En utilisant cette approche, nous définissons une fonction avec :
 <img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/alfred-catering.jpg" alt="Alfred Catering"/>
 
 <Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/tools.ipynb" target="_blank">ce notebook</a> que vous pouvez exécuter avec Google Colab.
+Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/tools.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 </Tip>
 
-Imaginons qu'Alfred ait déjà décidé du menu pour la fête, mais qu'il ait maintenant besoin d'aide pour préparer la nourriture pour un si grand nombre d'invités. Pour ce faire, il aimerait engager un service de traiteur et doit identifier les options les mieux notées disponibles. Alfred peut utiliser un outil pour rechercher les meilleurs services de traiteur dans sa région.
+Imaginons qu'Alfred ait déjà décidé du menu pour la fête, mais qu'il ait maintenant besoin d'aide pour préparer la nourriture pour un si grand nombre d'invités. Pour ce faire, il aimerait engager un service de traiteur et doit identifier les options les mieux notées disponibles. Alfred peut utiliser un outil pour rechercher les meilleurs services de traiteur proche de chez lui.
 
 Voici un exemple de la façon dont Alfred peut utiliser le décorateur `@tool` pour y parvenir :
 
 ```python
 from smolagents import CodeAgent, InferenceClientModel, tool
 
-# Faisons semblant d'avoir une fonction qui récupère les services de traiteur les mieux notés.
+# Supposons que nous ayons une fonction qui recherche les services de restauration les mieux notés
 @tool
 def catering_service_tool(query: str) -> str:
     """
@@ -104,11 +104,11 @@ Cette approche implique de créer une sous-classe de [`Tool`](https://huggingfac
 
 Ci-dessous, nous pouvons voir un exemple d'un outil construit en utilisant `Tool` et comment l'intégrer dans un `CodeAgent`.
 
-#### Générer un outil pour générer des idées sur la fête à thème de super-héros
+#### Générer un outil pour générer des idées pour une fête sur le thème des super-héros
 
-La fête d'Alfred au manoir est un **événement à thème de super-héros**, mais il a besoin d'idées créatives pour la rendre vraiment spéciale. En tant qu'hôte fantastique, il veut surprendre les invités avec un thème unique.
+La fête d'Alfred au manoir est un **événement à thème portant sur les super-héros**, mais il a besoin d'idées créatives pour la rendre vraiment spéciale. En tant qu'hôte fantastique, il veut surprendre les invités avec un thème unique.
 
-Pour ce faire, il peut utiliser un agent qui génère des idées de fête à thème de super-héros basées sur une catégorie donnée. De cette façon, Alfred peut trouver le thème de fête parfait pour épater ses invités.
+Pour ce faire, il peut utiliser un agent qui génère des idées de fêtes sur le thème des super-héros en fonction d'une catégorie donnée. De cette façon, Alfred peut trouver le thème de fête parfait pour épater ses invités.
 
 ```python
 from smolagents import Tool, CodeAgent, InferenceClientModel
@@ -116,7 +116,7 @@ from smolagents import Tool, CodeAgent, InferenceClientModel
 class SuperheroPartyThemeTool(Tool):
     name = "superhero_party_theme_generator"
     description = """
-    Cet outil suggère des idées créatives de fête à thème de super-héros basées sur une catégorie.
+    Cet outil propose des idées de fêtes créatives sur le thème des super-héros en fonction d'une catégorie.
     Il retourne une idée de thème de fête unique."""
 
     inputs = {
@@ -149,7 +149,7 @@ result = agent.run(
 print(result)  # Sortie : "Gotham Rogues' Ball : Un bal masqué mystérieux où les invités s'habillent en méchants classiques de Batman."
 ```
 
-Avec cet outil, Alfred sera l'hôte ultime, impressionnant ses invités avec une fête à thème de super-héros qu'ils n'oublieront pas ! 🦸‍♂️🦸‍♀️
+Avec cet outil, Alfred sera le super hôte par excellence, impressionnant ses invités avec une fête sur le thème des super-héros qu'ils n'oublieront pas ! 🦸‍♂️🦸‍♀️
 
 ## Boîte à outils par défaut
 
@@ -162,23 +162,23 @@ Avec cet outil, Alfred sera l'hôte ultime, impressionnant ses invités avec une
 - **GoogleSearchTool**
 - **VisitWebpageTool**
 
-Alfred pourrait utiliser divers outils pour assurer une fête impeccable au Wayne Manor :
+Alfred peut utiliser divers outils pour assurer une fête parfaite au manoir Wayne :
 
-- D'abord, il pourrait utiliser le `DuckDuckGoSearchTool` pour trouver des idées créatives de fête à thème de super-héros.
+- D'abord, il pourrait utiliser le `DuckDuckGoSearchTool` pour trouver des idées créatives de fête sur le thème des super-héros.
 
 - Pour le traiteur, il se fierait au `GoogleSearchTool` pour trouver les services les mieux notés à Gotham.
 
-- Pour gérer les arrangements de sièges, Alfred pourrait exécuter des calculs avec le `PythonInterpreterTool`.
+- Pour gérer la disposition des tables, Alfred pourrait effectuer des calculs avec l'outil `PythonInterpreterTool`.
 
-- Une fois que tout est rassemblé, il compilerait le plan en utilisant le `FinalAnswerTool`.
+- Une fois que tout est rassemblé, il compilerait le plan en utilisant  `FinalAnswerTool`.
 
-Avec ces outils, Alfred garantit que la fête est à la fois exceptionnelle et sans faille. 🦇💡
+Grâce à ces outils, Alfred garantit que la fête sera à la fois exceptionnelle et harmonieuse. 🦇💡
 
 ## Partage et importation d'outils
 
-L'une des fonctionnalités les plus puissantes de **smolagents** est sa capacité à partager des outils personnalisés sur le Hub et à intégrer de manière transparente des outils créés par la communauté. Cela inclut la connexion avec les **HF Spaces** et les **outils LangChain**, améliorant considérablement la capacité d'Alfred à orchestrer une fête inoubliable au Wayne Manor. 🎭
+L'une des fonctionnalités les plus puissantes de `smolagents` est sa capacité à partager des outils personnalisés sur le Hub et à intégrer de manière transparente des outils créés par la communauté. Cela inclut la connexion avec les **Spaces** d'Hugging Face et les **outils LangChain**, améliorant considérablement la capacité d'Alfred à orchestrer une fête inoubliable. 🎭
 
-Avec ces intégrations, Alfred peut exploiter des outils avancés de planification d'événements - qu'il s'agisse d'ajuster l'éclairage pour l'ambiance parfaite, de créer la playlist idéale pour la fête, ou de coordonner avec les meilleurs traiteurs de Gotham.
+Avec ces intégrations, Alfred peut exploiter des outils avancés de planification d'événements ; qu'il s'agisse d'ajuster l'éclairage pour l'ambiance parfaite, de créer la *playlist* idéale pour la fête, ou de coordonner avec les meilleurs traiteurs de Gotham.
 
 Voici des exemples montrant comment ces fonctionnalités peuvent améliorer l'expérience de la fête :
 
@@ -212,13 +212,13 @@ agent = CodeAgent(
 agent.run("Generate an image of a luxurious superhero-themed party at Wayne Manor with made-up superheros.")
 ```
 
-### Importer un Hugging Face Space comme outil
+### Importer un Space comme outil
 
-Vous pouvez également importer un HF Space comme outil en utilisant `Tool.from_space()`. Cela ouvre des possibilités d'intégration avec des milliers de spaces de la communauté pour des tâches allant de la génération d'images à l'analyse de données.
+Vous pouvez également importer un *Space* comme outil en utilisant `Tool.from_space()`. Cela ouvre des possibilités d'intégration avec des milliers de *Spaces* de la communauté pour des tâches allant de la génération d'images à l'analyse de données.
 
-L'outil se connectera au backend Gradio des spaces en utilisant le `gradio_client`, alors assurez-vous de l'installer via `pip` si vous ne l'avez pas déjà.
+L'outil se connectera au *backend Gradio* des *Spaces* en utilisant le `gradio_client`, alors assurez-vous de l'installer via `pip` si vous ne l'avez pas déjà fait.
 
-Pour la fête, Alfred peut utiliser un HF Space existant pour la génération de l'image générée par IA à utiliser dans l'annonce (au lieu de l'outil pré-construit que nous avons mentionné précédemment). Construisons-le !
+Pour la fête, Alfred peut utiliser un *Space* existant pour la génération de l'image générée par IA à utiliser comme invitation (au lieu de l'outil pré-construit que nous avons mentionné précédemment). Construisons-le !
 
 ```python
 from smolagents import CodeAgent, InferenceClientModel, Tool
@@ -241,11 +241,11 @@ agent.run(
 
 ### Importer un outil LangChain
 
-Nous discuterons du framework `LangChain` dans les sections à venir. Pour l'instant, nous notons simplement que nous pouvons réutiliser des outils LangChain dans votre flux de travail smolagents !
+Nous discuterons du *framework* `LangChain` dans les sections à venir. Pour l'instant, nous notons simplement que nous pouvons réutiliser des outils LangChain dans votre *workflow* `smolagents` !
 
-Vous pouvez facilement charger des outils LangChain en utilisant la méthode `Tool.from_langchain()`. Alfred, toujours perfectionniste, se prépare pour une spectaculaire nuit de super-héros au Wayne Manor pendant que les Wayne sont absents. Pour s'assurer que chaque détail dépasse les attentes, il exploite les outils LangChain pour trouver des idées de divertissement de premier ordre.
+Vous pouvez facilement charger des outils LangChain en utilisant la méthode `Tool.from_langchain()`. Alfred, toujours aussi perfectionniste, prépare une spectaculaire soirée de super-héros au manoir pendant l'absence des Wayne. Pour s'assurer que chaque détail dépasse les attentes, il utilise les outils LangChain pour trouver des idées de divertissement de premier ordre.
 
-En utilisant `Tool.from_langchain()`, Alfred ajoute sans effort des fonctionnalités de recherche avancées à son smolagent, lui permettant de découvrir des idées et services de fête exclusifs avec seulement quelques commandes.
+En utilisant `Tool.from_langchain()`, Alfred ajoute sans effort des fonctionnalités de recherche avancées à son agent, lui permettant de découvrir des idées et services de fête exclusifs avec seulement quelques commandes.
 
 Voici comment il procède :
 
@@ -262,7 +262,7 @@ agent.run("Search for luxury entertainment ideas for a superhero-themed event, s
 
 ### Importer une collection d'outils depuis n'importe quel serveur MCP
 
-`smolagents` permet également d'importer des outils depuis les centaines de serveurs MCP disponibles sur [glama.ai](https://glama.ai/mcp/servers) ou [smithery.ai](https://smithery.ai). Si vous voulez approfondir le MCP, vous pouvez consulter notre [cours MCP gratuit](https://huggingface.co/learn/mcp-course/).
+`smolagents` permet également d'importer des outils depuis les centaines de serveurs MCP disponibles sur [glama.ai](https://glama.ai/mcp/servers) ou [smithery.ai](https://smithery.ai). Si vous voulez approfondir le MCP, vous pouvez consulter notre [cours gratuit](https://huggingface.co/learn/mcp-course/).
 
 <details>
 <summary>Installer le client mcp</summary>
@@ -274,7 +274,7 @@ pip install "smolagents[mcp]"
 ```
 </details>
 
-Les outils des serveurs MCP peuvent être chargés dans un objet ToolCollection comme suit :
+Les outils des serveurs MCP peuvent être chargés dans un objet `ToolCollection` comme suit :
 
 ```python
 import os
@@ -297,7 +297,7 @@ with ToolCollection.from_mcp(server_parameters, trust_remote_code=True) as tool_
     agent.run("Please find a remedy for hangover.")
 ```
 
-Avec cette configuration, Alfred peut rapidement découvrir des options de divertissement luxueuses, s'assurant que les invités d'élite de Gotham vivent une expérience inoubliable. Cet outil l'aide à organiser l'événement parfait à thème de super-héros pour Wayne Manor ! 🎉
+Grâce à cette configuration, Alfred peut rapidement découvrir des options de divertissement luxueuses et s'assurer que les invités de l'élite de Gotham vivent une expérience inoubliable. Cet outil l'aide à organiser l'événement parfait sur le thème des super-héros ! 🎉
 
 ## Ressources
 

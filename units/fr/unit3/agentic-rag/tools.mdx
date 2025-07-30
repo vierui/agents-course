@@ -1,7 +1,7 @@
-# Construction et intégration d'outils pour votre agent
+# Création et intégration d'outils pour votre agent
 
 Dans cette section, nous allons donner à Alfred l'accès au web, lui permettant de trouver les dernières nouvelles et mises à jour mondiales. 
-De plus, il aura accès aux données météorologiques et aux statistiques de téléchargement de modèles *Hugging Face Hub*, pour qu'il puisse faire des conversations pertinentes sur des sujets frais.
+De plus, il aura accès aux données météorologiques et aux statistiques de téléchargement des modèles du Hub d'Hugging Face Hub, pour qu'il puisse faire des conversations pertinentes sur des sujets frais.
 
 ## Donnez à votre agent l'accès au web
 
@@ -73,14 +73,14 @@ Emmanuel Macron (né le 21 décembre 1977 à Amiens, France) est un banquier et 
 </hfoption>
 </hfoptions>
 
-## Création d'un outil personnalisé pour les informations météorologiques afin de programmer les feux d'artifice
+## Création d'un outil personnalisé pour les informations météorologiques afin de programmer le feu d'artifice
 
-Le gala parfait aurait des feux d'artifice dans un ciel clair, nous devons nous assurer que les feux d'artifice ne sont pas annulés à cause du mauvais temps.
+Le gala parfait aurait un feu d'artifice dans un ciel clair, nous devons nous assurer qu'il ne soit pas annulé à cause du mauvais temps.
 
-Créons un outil personnalisé qui peut être utilisé pour appeler une API météorologique externe et obtenir les informations météorologiques pour un lieu donné.
+Créons un outil personnalisé qui peut être utilisé pour appeler une API météo externe et obtenir les informations pour un lieu donné.
 
 <Tip>
-Par souci de simplicité, nous utilisons une API météorologique factice pour cet exemple. Si vous voulez utiliser une vraie API météorologique, vous pourriez implémenter un outil météorologique qui utilise l'*API OpenWeatherMap*, comme dans <a href="../../unit1/tutorial">l'Unité 1</a>.
+Par souci de simplicité, nous utilisons une API météorologique factice pour cet exemple. Si vous voulez utiliser une véritable API, vous pourriez implémenter un outil utilisant l'API OpenWeatherMap comme dans <a href="../../unit1/tutorial">l'Unité 1</a>.
 </Tip>
 
 <hfoptions id="agents-frameworks">
@@ -169,9 +169,9 @@ weather_info_tool = Tool(
 </hfoption>
 </hfoptions>
 
-## Création d'un outil de statistiques *Hub* pour les constructeurs d'IA influents
+## Création d'un outil pour obtenir les statistiques du Hub concernant les constructeurs d'IA influents
 
-En présence au gala se trouvent le gratin des constructeurs d'IA. Alfred veut les impressionner en discutant de leurs modèles, jeux de données et *spaces* les plus populaires. Nous créerons un outil pour récupérer les statistiques de modèles du *Hugging Face Hub* basées sur un nom d'utilisateur.
+Le gala réunit le gratin des constructeurs d'IA. Alfred veut les impressionner en discutant de leurs modèles, jeux de données et Spaces les plus populaires. Nous créerons un outil pour récupérer les statistiques des modèles du Hub à partir d'un nom d'utilisateur.
 
 <hfoptions id="agents-frameworks">
 <hfoption id="smolagents">
@@ -287,15 +287,15 @@ print(hub_stats_tool.invoke("facebook")) # Exemple : Obtenir le modèle le plus 
 Sortie attendue :
 
 ```
-Le modèle le plus téléchargé par facebook est facebook/esmfold_v1 avec 13,109,861 téléchargements.
+Le modèle le plus téléchargé par facebook est facebook/esmfold_v1 avec 13 109 861 téléchargements.
 ```
 
 </hfoption>
 </hfoptions>
 
-Avec l'outil de statistiques *Hub*, Alfred peut maintenant impressionner les constructeurs d'IA influents en discutant de leurs modèles les plus populaires.
+Avec l'outil de statistiques, Alfred peut maintenant impressionner les constructeurs d'IA influents en discutant de leurs modèles les plus populaires.
 
-## Intégration des outils avec Alfred
+## Intégration des outils
 
 Maintenant que nous avons tous les outils, intégrons-les dans l'agent d'Alfred :
 
@@ -354,7 +354,7 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-Facebook est un service de réseau social et une entreprise technologique basée à Menlo Park, en Californie. Elle a été fondée par Mark Zuckerberg et permet aux gens de créer des profils, se connecter avec des amis et la famille, partager des photos et vidéos, et rejoindre des groupes basés sur des intérêts partagés. Le modèle le plus populaire par Facebook sur le Hugging Face Hub est `facebook/esmfold_v1` avec 13,109,861 téléchargements.
+Facebook est un service de réseau social et une entreprise technologique basée à Menlo Park, en Californie. Elle a été fondée par Mark Zuckerberg et permet aux gens de créer des profils, se connecter avec des amis et la famille, partager des photos et vidéos, et rejoindre des groupes basés sur des intérêts partagés. Le modèle le plus populaire par Facebook sur le Hugging Face Hub est facebook/esmfold_v1 avec 13 109 861 téléchargements.
 ```
 
 </hfoption>
@@ -417,7 +417,7 @@ Sortie attendue :
 
 ```
 🎩 Réponse d'Alfred :
-Facebook est une entreprise de médias sociaux connue pour son site de réseau social, Facebook, ainsi que d'autres services comme Instagram et WhatsApp. Le modèle le plus téléchargé par Facebook sur le Hugging Face Hub est facebook/esmfold_v1 avec 13,202,321 téléchargements.
+Facebook est une entreprise de médias sociaux connue pour son site de réseau social, Facebook, ainsi que d'autres services comme Instagram et WhatsApp. Le modèle le plus téléchargé par Facebook sur le Hugging Face Hub est facebook/esmfold_v1 avec 13 202 321 téléchargements.
 ```
 </hfoption>
 </hfoptions>

@@ -1,7 +1,7 @@
 <CourseFloatingBanner 
   classNames="absolute z-10 right-0 top-0"
   notebooks={[
-    {label: "Google Colab", value: "https://colab.research.google.com/#fileId=https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/multiagent_notebook.ipynb"},
+    {label: "Google Colab", value: "https://colab.research.google.com/#fileId=https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/multiagent_notebook.ipynb"},
 ]}
 askForHelpUrl="http://hf.co/join/discord" />
 
@@ -9,45 +9,45 @@ askForHelpUrl="http://hf.co/join/discord" />
 
 Les systèmes multi-agents permettent à des **agents spécialisés de collaborer sur des tâches complexes**, améliorant la modularité, la scalabilité et la robustesse. Au lieu de s'appuyer sur un seul agent, les tâches sont distribuées entre des agents ayant des capacités distinctes.
 
-Dans **smolagents**, différents agents peuvent être combinés pour générer du code Python, appeler des outils externes, effectuer des recherches web et plus encore. En orchestrant ces agents, nous pouvons créer des flux de travail puissants.
+Dans `smolagents`, différents agents peuvent être combinés pour générer du code Python, appeler des outils externes, effectuer des recherches web et plus encore. En orchestrant ces agents, nous pouvons créer des flux de travail puissants.
 
 Une configuration typique pourrait inclure :
-- Un **Agent gestionnaire** pour la délégation de tâches
-- Un **Agent interpréteur de code** pour l'exécution de code
-- Un **Agent de recherche web** pour la récupération d'informations
+- Un **agent manageur** pour la délégation des tâches
+- Un **agent interpréteur de code** pour l'exécution de code
+- Un **agent de recherche web** pour la récupération d'informations
 
-Le diagramme ci-dessous illustre une architecture multi-agents simple où un **Agent gestionnaire** coordonne un **Outil interpréteur de code** et un **Agent de recherche web**, qui à son tour utilise des outils comme `DuckDuckGoSearchTool` et `VisitWebpageTool` pour rassembler des informations pertinentes.
+Le diagramme ci-dessous illustre une architecture multi-agents simple où un **agent manageur** coordonne un **outil interpréteur de code** et un **agent de recherche web**, qui à son tour utilise des outils comme `DuckDuckGoSearchTool` et `VisitWebpageTool` pour rassembler des informations pertinentes.
 
 <img src="https://mermaid.ink/img/pako:eNp1kc1qhTAQRl9FUiQb8wIpdNO76eKubrmFks1oRg3VSYgjpYjv3lFL_2hnMWQOJwn5sqgmelRWleUSKLAtFs09jqhtoWuYUFfFAa6QA9QDTnpzamheuhxn8pt40-6l13UtS0ddhtQXj6dbR4XUGQg6zEYasTF393KjeSDGnDJKNxzj8I_7hLW5IOSmP9CH9hv_NL-d94d4DVNg84p1EnK4qlIj5hGClySWbadT-6OdsrL02MI8sFOOVkciw8zx8kaNspxnrJQE0fXKtjBMMs3JA-MpgOQwftIE9Bzj14w-cMznI_39E9Z3p0uFoA?type=png" style='background: white;'>
 
 ## Systèmes multi-agents en action
 
-Un système multi-agents se compose de plusieurs agents spécialisés travaillant ensemble sous la coordination d'un **Agent orchestrateur**. Cette approche permet des flux de travail complexes en distribuant les tâches entre des agents ayant des rôles distincts.
+Un système multi-agents se compose de plusieurs agents spécialisés travaillant ensemble sous la coordination d'un **agent orchestrateur**. Cette approche permet des flux de travail complexes en distribuant les tâches entre des agents ayant des rôles distincts.
 
-Par exemple, un **système RAG multi-agents** peut intégrer :
-- Un **Agent web** pour naviguer sur internet.
-- Un **Agent récupérateur** pour récupérer des informations à partir de bases de connaissances.
-- Un **Agent de génération d'images** pour produire des visuels.
+Par exemple, un **système de RAG multi-agents** peut intégrer :
+- Un **agent web** pour naviguer sur internet.
+- Un **agent récupérateur** pour récupérer des informations à partir de bases de connaissances.
+- Un **agent de génération d'images** pour produire des visuels.
 
 Tous ces agents opèrent sous un orchestrateur qui gère la délégation de tâches et l'interaction.
 
 ## Résoudre une tâche complexe avec une hiérarchie multi-agents
 
 <Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/multiagent_notebook.ipynb" target="_blank">ce notebook</a> que vous pouvez exécuter avec Google Colab.
+Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/multiagent_notebook.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 </Tip>
 
-La réception approche ! Avec votre aide, Alfred a maintenant presque terminé les préparatifs.
+La réception approche ! Avec votre aide, Alfred a presque terminé les préparatifs.
 
-Mais maintenant il y a un problème : la Batmobile a disparu. Alfred doit trouver un remplaçant, et le trouver rapidement.
+Mais maintenant il y a un problème : la Batmobile a disparu. Alfred doit trouver une remplaçante, et la trouver rapidement.
 
-Heureusement, quelques biographies ont été faites sur la vie de Bruce Wayne, alors peut-être qu'Alfred pourrait obtenir une voiture laissée sur un des plateaux de tournage, et la réingénier aux normes modernes, ce qui inclurait certainement une option de conduite entièrement autonome.
+Heureusement, quelques biographies ont été réalisées sur la vie de Bruce Wayne, alors peut-être qu'Alfred pourrait récupérer une voiture abandonnée sur l'un des plateaux de tournage et la reconditionner selon les normes modernes, ce qui inclurait certainement une option de conduite entièrement autonome.
 
-Mais cela pourrait être n'importe où dans les lieux de tournage autour du monde - qui pourraient être nombreux.
+Mais cela pourrait être n'importe où dans les lieux de tournage autour du monde ; pouvant être nombreux.
 
-Donc Alfred veut votre aide. Pourriez-vous construire un agent capable de résoudre cette tâche ?
+Donc Alfred nécessite votre aide. Pourriez-vous construire un agent capable de résoudre cette tâche ?
 
-> 👉 Trouvez tous les lieux de tournage de Batman dans le monde, calculez le temps de transfert par cargo vers là-bas, et représentez-les sur une carte, avec une couleur variant selon le temps de transfert par cargo. Représentez aussi quelques usines de supercars avec le même temps de transfert par cargo.
+> 👉 Trouvez tous les lieux de tournage de Batman dans le monde, calculez le temps de transfert par cargo jusqu'à ces lieux, et représentez-les sur une carte, avec une couleur variant en fonction du temps de transfert par cargo. Représentez également quelques usines de supercars avec le même temps de transfert en cargo.
 
 Construisons cela !
 
@@ -127,9 +127,9 @@ print(calculate_cargo_travel_time((41.8781, -87.6298), (-33.8688, 151.2093)))
 
 Pour le fournisseur de modèle, nous utilisons Together AI, l'un des nouveaux [fournisseurs d'inférence sur le Hub](https://huggingface.co/blog/inference-providers) !
 
-Le GoogleSearchTool utilise l'[API Serper](https://serper.dev) pour rechercher sur le web, cela nécessite donc soit d'avoir configuré la variable d'environnement `SERPAPI_API_KEY` et de passer `provider="serpapi"` ou d'avoir `SERPER_API_KEY` et de passer `provider=serper`.
+Le `GoogleSearchTool` utilise l'[API Serper](https://serper.dev) pour rechercher sur le web, cela nécessite donc soit d'avoir configuré la variable d'environnement `SERPAPI_API_KEY` et de passer `provider="serpapi"` ou d'avoir `SERPER_API_KEY` et de passer `provider=serper`.
 
-Si vous n'avez pas de fournisseur Serp API configuré, vous pouvez utiliser `DuckDuckGoSearchTool` mais attention qu'il a une limite de taux.
+Si vous n'avez pas de fournisseur Serp API configuré, vous pouvez utiliser `DuckDuckGoSearchTool` mais attention il a une limite d'appels.
 
 ```python
 import os
@@ -142,8 +142,8 @@ model = InferenceClientModel(model_id="Qwen/Qwen2.5-Coder-32B-Instruct", provide
 Nous pouvons commencer par créer un agent simple comme ligne de base pour nous donner un rapport simple.
 
 ```python
-task = """Find all Batman filming locations in the world, calculate the time to transfer via cargo plane to here (we're in Gotham, 40.7128° N, 74.0060° W), and return them to me as a pandas dataframe.
-Also give me some supercar factories with the same cargo plane transfer time."""
+task = """Trouvez tous les lieux de tournage de Batman dans le monde, calculez le temps de transfert par avion cargo jusqu'ici (nous sommes à Gotham, 40.7128° N, 74.0060° W), et renvoyez-les moi sous la forme d'un dataframe pandas.
+Donnez-moi aussi des usines de supercars avec le même temps de transfert par avion-cargo."""
 ```
 
 ```python
@@ -186,7 +186,7 @@ Dans notre cas, il génère cette sortie :
 | 15 | Woking, UK (McLaren)                             | 9.13                         |
 ```
 
-Nous pourrions déjà améliorer cela un peu en ajoutant quelques étapes de planification dédiées, et en ajoutant plus de prompting.
+Nous pourrions déjà l'améliorer un peu en ajoutant des étapes de planification dédiées et en ajoutant davantage de *prompts*.
 
 Les étapes de planification permettent à l'agent de penser à l'avance et planifier ses prochaines étapes, ce qui peut être utile pour des tâches plus complexes.
 
@@ -194,9 +194,9 @@ Les étapes de planification permettent à l'agent de penser à l'avance et plan
 agent.planning_interval = 4
 
 detailed_report = agent.run(f"""
-You're an expert analyst. You make comprehensive reports after visiting many websites.
-Don't hesitate to search for many queries at once in a for loop.
-For each data point that you find, visit the source url to confirm numbers.
+Vous êtes un analyste expert. Vous rédigez des rapports complets après avoir visité de nombreux sites web.
+N'hésitez pas à effectuer plusieurs recherches à la fois dans une boucle for.
+Pour chaque point de données que vous trouvez, visitez l'url source pour confirmer les chiffres.
 
 {task}
 """)
@@ -217,17 +217,17 @@ Dans notre cas, il génère cette sortie :
 | 1  | Wishart Street, Glasgow, Scotland, UK         | 8.6                 |
 ```
 
-Grâce à ces changements rapides, nous avons obtenu un rapport beaucoup plus concis en fournissant simplement à notre agent un prompt détaillé, et en lui donnant des capacités de planification !
+Grâce à ces changements rapides, nous avons obtenu un rapport beaucoup plus concis en fournissant simplement à notre agent un *prompt* détaillé, et en lui donnant des capacités de planification !
 
-La fenêtre de contexte du modèle se remplit rapidement. Donc **si nous demandons à notre agent de combiner les résultats de recherche détaillée avec un autre, il sera plus lent et augmentera rapidement les tokens et les coûts**.
+La fenêtre de contexte du modèle se remplit rapidement. Donc **si nous demandons à notre agent de combiner les résultats de recherche détaillée avec une autre, il sera plus lent et cela augmentera rapidement le nombre de *tokens* utilisés et donc les coûts**.
 
 ➡️ Nous devons améliorer la structure de notre système.
 
 ### ✌️ Diviser la tâche entre deux agents
 
 Les structures multi-agents permettent de séparer les mémoires entre différentes sous-tâches, avec deux grands avantages :
-- Chaque agent est plus focalisé sur sa tâche principale, donc plus performant
-- Séparer les mémoires réduit le nombre de tokens d'entrée à chaque étape, réduisant ainsi la latence et le coût.
+- Chaque agent est davantage focalisé sur sa tâche principale, donc plus performant
+- Séparer les mémoires réduit le nombre de *tokens* d'entrée à chaque étape, réduisant ainsi la latence et le coût.
 
 Créons une équipe avec un agent de recherche web dédié, géré par un autre agent.
 
@@ -393,7 +393,7 @@ Never try to process strings using code: when you have a string to read, just pr
 """)
 ```
 
-Je ne sais pas comment cela s'est passé dans votre exécution, mais dans la mienne, l'agent gestionnaire a habilement divisé les tâches données à l'agent web en `1. Rechercher les lieux de tournage de Batman`, puis `2. Trouver les usines de supercars`, avant d'agréger les listes et de tracer la carte.
+Je ne sais pas comment cela s'est passé pour votre exécution, mais dans la mienne, l'agent gestionnaire a habilement divisé les tâches données à l'agent web en `1. Rechercher les lieux de tournage de Batman`, puis `2. Trouver les usines de supercars`, avant d'agréger les listes et de tracer la carte.
 
 Voyons à quoi ressemble la carte en l'inspectant directement depuis l'état de l'agent :
 
