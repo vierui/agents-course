@@ -8,22 +8,22 @@ askForHelpUrl="http://hf.co/join/discord" />
 # Construction de systèmes de RAG agentiques
 
 <Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/retrieval_agents.ipynb" target="_blank">ce notebook</a> que vous pouvez exécuter avec Google Colab.
+Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/retrieval_agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 </Tip>
 
 Les systèmes de RAG (*Retrieval Augmented Generation*) combinent les capacités de récupération de données et de modèles de génération pour fournir des réponses contextuelles. Par exemple, la requête d'un utilisateur est transmise à un moteur de recherche puis les résultats récupérés sont fournis au LLM avec la requête. Le modèle génère ensuite une réponse basée sur la requête et les informations récupérées.
 
-Le *RAG* agentique (*Agentic RAG*) étend les systèmes de *RAG* traditionnels en **combinant des agents autonomes avec une récupération dynamique des connaissances**. 
+Le RAG agentique (*Agentic RAG*) étend les systèmes de RAG traditionnels en **combinant des agents autonomes avec une récupération dynamique des connaissances**. 
 
-Alors que les systèmes de *RAG* traditionnels utilisent un *LLM* pour répondre aux requêtes basées sur des données récupérées, le *RAG* agentique **permet un contrôle intelligent des processus de récupération et de génération**, améliorant l'efficacité et la précision.
+Alors que les systèmes de RAG traditionnels utilisent un LLM pour répondre aux requêtes basées sur des données récupérées, le RAG agentique **permet un contrôle intelligent des processus de récupération et de génération**, améliorant l'efficacité et la précision.
 
-Les systèmes de *RAG* traditionnels font face à des limitations clés, telles que **s'appuyer sur une seule étape de récupération** et se concentrer sur la similarité sémantique directe avec la requête de l'utilisateur, ce qui peut négliger des informations pertinentes.
+Les systèmes de RAG traditionnels font face à des limitations clés, telles que **s'appuyer sur une seule étape de récupération** et se concentrer sur la similarité sémantique directe avec la requête de l'utilisateur, ce qui peut négliger des informations pertinentes.
 
-Le *RAG* agentique résout ces problèmes en permettant à l'agent de formuler de manière autonome des requêtes, de critiquer les résultats récupérés et de mener plusieurs étapes de récupération pour une sortie plus adaptée et complète.
+Le RAG agentique résout ces problèmes en permettant à l'agent de formuler de manière autonome des requêtes, de critiquer les résultats récupérés et de mener plusieurs étapes de récupération pour une sortie plus adaptée et complète.
 
 ## Récupération de base avec DuckDuckGo
 
-Construisons un agent simple qui peut rechercher sur le web en utilisant DuckDuckGo. Cet agent récupérera des informations et synthétisera des réponses pour répondre aux requêtes. Avec le *RAG* agentique, l'agent d'Alfred peut :
+Construisons un agent simple qui peut rechercher sur le web en utilisant DuckDuckGo. Cet agent récupérera des informations et synthétisera des réponses pour répondre aux requêtes. Avec le RAG agentique, l'agent d'Alfred peut :
 
 * Rechercher des dernières tendances en matière de fêtes de super-héros
 * Affiner les résultats pour inclure des éléments luxueux
@@ -151,7 +151,7 @@ Cet agent amélioré peut :
 
 ## Capacités de récupération améliorées
 
-Lors de la construction de systèmes de *RAG* agentiques, l'agent peut employer des stratégies sophistiquées comme :
+Lors de la construction de systèmes de RAG agentiques, l'agent peut employer des stratégies sophistiquées comme :
 
 1. **La reformulation de requête :** Au lieu d'utiliser la requête brute de l'utilisateur, l'agent peut élaborer des termes de recherche optimisés qui correspondent mieux aux documents cibles
 2. **La décomposition de requête :** Au lieu d'utiliser directement la requête de l'utilisateur, si elle contient plusieurs éléments d'information à interroger, elle peut être décomposée en plusieurs requêtes
@@ -161,8 +161,8 @@ Lors de la construction de systèmes de *RAG* agentiques, l'agent peut employer 
 6. **L'intégration de sources :** Les informations peuvent être combinées à partir de plusieurs sources comme la recherche web et la documentation locale
 7. **La validation des résultats :** Le contenu récupéré peut être analysé pour sa pertinence et son exactitude avant d'être inclus dans les réponses
 
-Les systèmes de *RAG* agentiques efficaces nécessitent une considération attentive de plusieurs aspects clés. L'agent **devrait sélectionner entre les outils disponibles en fonction du type de requête et du contexte**. Les systèmes de mémoire aident à maintenir l'historique de conversation et évitent les récupérations répétitives. Avoir des stratégies de secours garantit que le système peut toujours fournir de la valeur même lorsque les méthodes de récupération principales échouent. De plus, l'implémentation d'étapes de validation aide à assurer l'exactitude et la pertinence des informations récupérées.
+Les systèmes de RAG agentiques efficaces nécessitent une considération attentive de plusieurs aspects clés. L'agent **devrait sélectionner entre les outils disponibles en fonction du type de requête et du contexte**. Les systèmes de mémoire aident à maintenir l'historique de conversation et évitent les récupérations répétitives. Avoir des stratégies de secours garantit que le système peut toujours fournir de la valeur même lorsque les méthodes de récupération principales échouent. De plus, l'implémentation d'étapes de validation aide à assurer l'exactitude et la pertinence des informations récupérées.
 
 ## Ressources
 
-- [Agentic RAG : boostez votre RAG avec la reformulation de requête et l'auto-requête ! 🚀](https://huggingface.co/learn/cookbook/agent_rag) - Recette pour développer un système de *RAG* agentique en utilisant `smolagents`.
+- [Agentic RAG : boostez votre RAG avec la reformulation de requête et l'auto-requête ! 🚀](https://huggingface.co/learn/cookbook/agent_rag) - Recette pour développer un système de RAG agentique en utilisant `smolagents`.
