@@ -29,11 +29,11 @@
   - local: unit1/agent-steps-and-structure
     title: Comprendre les agents à travers le cycle Réflexion-Action-Observation
   - local: unit1/thoughts
-    title: Réflexions : raisonnement interne et l'approche Re-Act
+    title: Réflexions, raisonnement interne et l'approche Re-Act
   - local: unit1/actions
-    title: Actions : permettre à l'agent d'interagir avec son environnement
+    title: Actions, permettre à l'agent d'interagir avec son environnement
   - local: unit1/observations
-    title: Observer : intégrer le retour d'information pour réfléchir et s'adapter
+    title: Observer, intégrer le retour d'information pour réfléchir et s'adapter
   - local: unit1/dummy-agent-library
     title: Bibliothèque d'agents factices
   - local: unit1/tutorial
