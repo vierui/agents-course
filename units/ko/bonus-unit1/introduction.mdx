@@ -1,53 +1,53 @@
-# Introduction
+# 소개[[introduction]]
 
 ![Bonus Unit 1 Thumbnail](https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit1/thumbnail.jpg)
 
-Welcome to this first **Bonus Unit**, where you'll learn to **fine-tune a Large Language Model (LLM) for function calling**.
+첫 번째 **보너스 단원**에 오신 것을 환영합니다. 여기에서 **함수 호출을 위한 대형 언어 모델(LLM)을 미세 조정하는 방법**을 배우게 됩니다.
 
-In terms of LLMs, function calling is quickly becoming a *must-know* technique. 
+LLM 관점에서 함수 호출은 *필수 학습 기술*이 되어 가고 있습니다. 
 
-The idea is, rather than relying only on prompt-based approaches like we did in Unit 1, function calling trains your model to **take actions and interpret observations during the training phase**, making your AI more robust.
+여기서 핵심은 1단원에서 했던 것처럼 프롬프트 기반 접근 방식에만 의존하는 대신, 함수 호출을 통해 **학습 과정에서 직접 행동을 수행하고 관찰된 정보를 해석하도록** 모델을 훈련시켜 AI의 견고성을 높인다는 점입니다.”
 
-> **When should I do this Bonus Unit?**
+> **이 보너스 단원을 언제 진행해야 하나요?**
 >
-> This section is **optional** and is more advanced than Unit 1, so don't hesitate to either do this unit now or revisit it when your knowledge has improved thanks to this course. 
+> 이 섹션은 **선택 사항**이며 1단원보다 **심화된 내용**을 다루므로, 지금 바로 진행하거나 이 과정을 통해 지식이 더 쌓인 후에 다시 살펴보셔도 좋습니다.  
 >  
-> But don't worry, this Bonus Unit is designed to have all the information you need, so we'll walk you through every core concept of fine-tuning a model for function-calling even if you haven’t learned yet the inner workings of fine-tuning.
+> 하지만 걱정하지 마세요. 이 보너스 단원은 필요한 모든 정보를 담고 있어, 미세 조정의 내부 작동 방식을 아직 배우지 않으셨더라도 함수 호출을 위한 핵심 개념을 하나하나 안내해 드립니다.
 
-The best way for you to be able to follow this Bonus Unit is:
+이 보너스 단원을 가장 효과적으로 따라가려면:
 
-1. Know how to Fine-Tune an LLM with Transformers, if it's not the case [check this](https://huggingface.co/learn/nlp-course/chapter3/1?fw=pt).
+1. Transformers로 LLM을 미세 조정하는 방법을 알고 계시지 않다면 [여기](https://huggingface.co/learn/nlp-course/chapter3/1?fw=pt)를 확인하세요. 
 
-2. Know how to use `SFTTrainer` to fine-tune our model, to learn more about it [check this documentation](https://huggingface.co/learn/nlp-course/en/chapter11/1). 
-
----
-
-## What You’ll Learn
-
-1. **Function Calling**  
-   How modern LLMs structure their conversations effectively letting them trigger **Tools**.
-
-2. **LoRA (Low-Rank Adaptation)**  
-   A **lightweight and efficient** fine-tuning method that cuts down on computational and storage overhead. LoRA makes training large models *faster, cheaper, and easier* to deploy.
-
-3. **The Thought → Act → Observe Cycle** in Function Calling models  
-   A simple but powerful approach for structuring how your model decides when (and how) to call functions, track intermediate steps, and interpret the results from external Tools or APIs.
-
-4. **New Special Tokens**  
-   We’ll introduce **special markers** that help the model distinguish between:
-   - Internal “chain-of-thought” reasoning  
-   - Outgoing function calls  
-   - Responses coming back from external tools
+2. `SFTTrainer`를 사용하여 모델을 미세 조정하는 방법을 알고 싶다면 [공식 문서](https://huggingface.co/learn/nlp-course/en/chapter11/1)를 참조하세요. 
 
 ---
 
-By the end of this bonus unit, you’ll be able to:
+## 학습 내용[[what-you’ll-learn]]
 
-- **Understand** the inner working of APIs when it comes to Tools.  
-- **Fine-tune** a model using the LoRA technique.  
-- **Implement** and **modify** the Thought → Act → Observe cycle to create robust and maintainable Function-calling workflows.  
-- **Design and utilize** special tokens to seamlessly separate the model’s internal reasoning from its external actions.
+1. **함수 호출**  
+   최신 LLM이 대화를 구조화하여 **도구**를 호출할 수 있게 하는 방법을 배웁니다.
 
-And you'll **have fine-tuned your own model to do function calling.** 🔥
+2. **LoRA (저차원 적응)**  
+   계산 및 저장 오버헤드를 줄여주는 **경량화되고 효율적인** 미세 조정 방법입니다. LoRA를 사용하면 대형 모델 훈련이 *더 빠르고, 저렴하며, 배포도 쉬워집니다.*
 
-Let’s dive into **function calling**!
+3. **사고 → 행동 → 관찰 사이클** 함수 호출 모델에서  
+   모델이 언제(그리고 어떻게) 함수를 호출할지 결정하고, 중간 단계를 추적하며, 외부 도구나 API의 결과를 해석하는 구조화된 간단하지만 강력한 접근 방식입니다.
+
+4. **새로운 특수 토큰**  
+   모델이 구분하도록 돕는 **특수 마커**를 도입합니다:  
+   - 내부 “사고 과정” 추론  
+   - 함수 호출 요청  
+   - 외부 도구로부터 돌아오는 응답
+
+---
+
+이 보너스 단원을 마치면 다음을 할 수 있습니다:
+
+- **도구** 관련 API의 내부 작동 방식을 **이해**합니다.  
+- LoRA 기법을 사용하여 모델을 **미세 조정**합니다.  
+- 사고 → 행동 → 관찰 사이클을 **구현**하고 **수정**하여 견고하고 유지보수 가능한 함수 호출 워크플로를 만듭니다.  
+- 모델의 내부 추론과 외부 행동을 원활하게 구분할 수 있도록 **특수 토큰을 설계 및 활용**합니다.
+
+그리고 **함수 호출을 위해 직접 모델을 미세 조정**하게 됩니다. 🔥
+
+이제 **함수 호출**에 대해 본격적으로 살펴보겠습니다!
