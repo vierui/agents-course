@@ -1,14 +1,14 @@
 # 构建你自己的宝可梦对战智能体
 
-现在你已经探索了智能体AI在游戏中的潜力和局限性，是时候亲自动手了。在本节中，你将**构建自己的AI智能体来进行宝可梦风格的回合制战斗**，使用你在整个课程中学到的一切知识。
+现在你已经探索了智能体 AI 在游戏中的潜力和局限性，是时候亲自动手了。在本节中，你将**构建自己的 AI 智能体来进行宝可梦风格的回合制战斗**，使用你在整个课程中学到的一切知识。
 
 我们将把系统分解为四个关键构建块：
 
-- **Poke-env:** 一个专为训练基于规则或强化学习的宝可梦机器人而设计的Python库。
+- **Poke-env:** 一个专为训练基于规则或强化学习的宝可梦机器人而设计的 Python 库。
 
 - **Pokémon Showdown:** 一个在线对战模拟器，你的智能体将在这里战斗。
 
-- **LLMAgentBase:** 我们构建的一个自定义Python类，用于将你的LLM与Poke-env战斗环境连接。
+- **LLMAgentBase:** 我们构建的一个自定义 Python 类，用于将你的 LLM 与 Poke-env 战斗环境连接。
 
 - **TemplateAgent:** 一个起始模板，你将完善它来创建自己独特的战斗智能体。
 
@@ -18,8 +18,8 @@
 
 ![Battle gif](https://github.com/hsahovic/poke-env/raw/master/rl-gif.gif)
 
-[Poke-env](https://github.com/hsahovic/poke-env)是一个Python接口，最初由[Haris Sahovic](https://huggingface.co/hsahovic)构建用于训练强化学习机器人，但我们已将其重新用于智能体AI。
-它允许你的智能体通过简单的API与Pokémon Showdown交互。
+[Poke-env](https://github.com/hsahovic/poke-env)是一个 Python 接口，最初由[Haris Sahovic](https://huggingface.co/hsahovic)构建用于训练强化学习机器人，但我们已将其重新用于智能体 AI。
+它允许你的智能体通过简单的 API 与 Pokémon Showdown 交互。
 
 它提供了一个`Player`类，你的智能体将继承该类，涵盖与图形界面通信所需的一切。
 
@@ -31,40 +31,38 @@
 [Pokémon Showdown](https://pokemonshowdown.com/)是一个[开源](https://github.com/smogon/Pokemon-Showdown)战斗模拟器，你的智能体将在这里进行实时宝可梦战斗。
 它提供了一个完整的界面来实时模拟和显示战斗。在我们的挑战中，你的机器人将像人类玩家一样行动，逐回合选择招式。
 
-我们已经部署了一个所有参与者都将使用的服务器来进行战斗。让我们看看谁能构建出最好的AI战斗智能体！
+我们已经部署了一个所有参与者都将使用的服务器来进行战斗。让我们看看谁能构建出最好的 AI 战斗智能体！
 
 **代码库**: [github.com/smogon/Pokemon-Showdown](https://github.com/smogon/Pokemon-Showdown)  
 **网站**: [pokemonshowdown.com](https://pokemonshowdown.com/)
 
-
 ## 🔌 LLMAgentBase
 
-`LLMAgentBase`是一个扩展了**Poke-env**中`Player`类的Python类。
+`LLMAgentBase`是一个扩展了**Poke-env**中`Player`类的 Python 类。
 它作为你的**LLM**和**宝可梦战斗模拟器**之间的桥梁，处理输入/输出格式化并维护战斗上下文。
 
 这个基础智能体提供了一组工具（定义在`STANDARD_TOOL_SCHEMA`中）来与环境交互，包括：
 
-- `choose_move`: 用于在战斗中选择攻击  
-- `choose_switch`: 用于切换宝可梦  
+- `choose_move`: 用于在战斗中选择攻击
+- `choose_switch`: 用于切换宝可梦
 
-LLM应该使用这些工具在比赛中做出决策。
+LLM 应该使用这些工具在比赛中做出决策。
 
 ### 🧠 核心逻辑
 
-- `choose_move(battle: Battle)`: 这是每回合调用的主要方法。它接收一个`Battle`对象并基于LLM的输出返回一个动作字符串。
+- `choose_move(battle: Battle)`: 这是每回合调用的主要方法。它接收一个`Battle`对象并基于 LLM 的输出返回一个动作字符串。
 
 ### 🔧 关键内部方法
 
-- `_format_battle_state(battle)`: 将当前战斗状态转换为字符串，使其适合发送给LLM。
+- `_format_battle_state(battle)`: 将当前战斗状态转换为字符串，使其适合发送给 LLM。
 
-- `_find_move_by_name(battle, move_name)`: 按名称查找招式，用于LLM响应中调用`choose_move`。
+- `_find_move_by_name(battle, move_name)`: 按名称查找招式，用于 LLM 响应中调用`choose_move`。
 
-- `_find_pokemon_by_name(battle, pokemon_name)`: 根据LLM的切换命令定位要切换到的特定宝可梦。
+- `_find_pokemon_by_name(battle, pokemon_name)`: 根据 LLM 的切换命令定位要切换到的特定宝可梦。
 
-- `_get_llm_decision(battle_state)`: 这个方法在基类中是抽象的。你需要在自己的智能体中实现它（见下一节），在那里你定义如何查询LLM并解析其响应。
+- `_get_llm_decision(battle_state)`: 这个方法在基类中是抽象的。你需要在自己的智能体中实现它（见下一节），在那里你定义如何查询 LLM 并解析其响应。
 
 这里是显示决策如何工作的摘录：
-
 
 ```python
 STANDARD_TOOL_SCHEMA = {
@@ -215,7 +213,7 @@ class LLMAgentBase(Player):
 
 ## 🧪 TemplateAgent
 
-现在到了有趣的部分！以LLMAgentBase作为你的基础，是时候实现你自己的智能体了，用你自己的策略登上排行榜。
+现在到了有趣的部分！以 LLMAgentBase 作为你的基础，是时候实现你自己的智能体了，用你自己的策略登上排行榜。
 
 你将从这个模板开始并构建自己的逻辑。我们还提供了三个使用**OpenAI**、**Mistral**和**Gemini**模型的[完整示例](https://huggingface.co/spaces/Jofthomas/twitch_streaming/blob/main/agents.py)来指导你。
 
@@ -246,7 +244,7 @@ class TemplateAgent(LLMAgentBase):
                 ],
             )
             message = response.choices[0].message
-            
+
             return {"decision": {"name": function_name, "arguments": arguments}}
 
         except Exception as e:
