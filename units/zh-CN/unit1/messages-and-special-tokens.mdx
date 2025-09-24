@@ -1,4 +1,4 @@
-# 消息和特殊令牌 (Messages and Special Tokens)
+# 消息和特殊 Tokens (Messages and Special Tokens)
 
 现在我们了解了 LLMs 是如何工作的，让我们来看看**它们如何通过聊天模板 (chat templates) 构建生成内容**。
 
@@ -8,17 +8,21 @@
 >
 > **答**: 这是正确的！但这实际上是一个 UI 抽象。在输入 LLM 之前，对话中的所有消息都会被连接成一个单一提示。模型不会"记住"对话：它每次都会完整地读取全部内容。
 
-到目前为止，我们讨论提示 (prompts) 时将其视为输入模型的令牌序列。但当你与 ChatGPT 或 HuggingChat 这样的系统聊天时，**你实际上是在交换消息**。在后台，这些消息会**被连接并格式化成模型可以理解的提示**。
+到目前为止，我们讨论提示 (prompts) 时将其视为输入模型的 token 序列。但当你与 ChatGPT 或 HuggingChat 这样的系统聊天时，**你实际上是在交换消息**。在后台，这些消息会**被连接并格式化成模型可以理解的提示**。
 
 <figure>
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/assistant.jpg" alt="Behind models"/>
-<figcaption>我们在这里看到 UI 中显示的内容和输入模型的提示之间的区别。
-</figcaption>
+  <img
+    src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/assistant.jpg"
+    alt="Behind models"
+  />
+  <figcaption>
+    我们在这里看到 UI 中显示的内容和输入模型的提示之间的区别。
+  </figcaption>
 </figure>
 
-这就是聊天模板的用武之地。它们充当**对话消息（用户和助手轮次）与所选 LLM 的特定格式要求之间的桥梁**。换句话说，聊天模板构建了用户与智能体之间的通信，确保每个模型——尽管有其独特的特殊令牌——都能接收到正确格式化的提示。
+这就是聊天模板的用武之地。它们充当**对话消息（用户和助手轮次）与所选 LLM 的特定格式要求之间的桥梁**。换句话说，聊天模板构建了用户与智能体之间的通信，确保每个模型——尽管有其独特的特殊 token——都能接收到正确格式化的提示。
 
-我们再次谈到特殊令牌 (special tokens)，因为它们是模型用来界定用户和助手轮次开始和结束的标记。正如每个 LLM 使用自己的 EOS（序列结束）令牌一样，它们也对对话中的消息使用不同的格式规则和分隔符。
+我们再次谈到特殊 tokens (special tokens)，因为它们是模型用来界定用户和助手轮次开始和结束的标记。正如每个 LLM 使用自己的 EOS（序列结束 token 一样，它们也对对话中的消息使用不同的格式规则和分隔符。
 
 ## 消息：LLMs 的底层系统 (Messages: The Underlying System of LLMs)
 
@@ -37,7 +41,10 @@ system_message = {
 
 有了这个系统消息，Alfred 变得礼貌和乐于助人：
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/polite-alfred.jpg" alt="Polite alfred"/>
+<img
+  src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/polite-alfred.jpg"
+  alt="Polite alfred"
+/>
 
 但如果我们改成：
 
@@ -50,15 +57,21 @@ system_message = {
 
 Alfred 将表现得像个叛逆的智能体 😎：
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/rebel-alfred.jpg" alt="Rebel Alfred"/>
+<img
+  src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/rebel-alfred.jpg"
+  alt="Rebel Alfred"
+/>
 
 在使用智能体时，系统消息还**提供有关可用工具的信息，为模型提供如何格式化要采取的行动的指令，并包括关于思考过程应如何分段的指南**。
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-systemprompt.jpg" alt="Alfred System Prompt"/>
+<img
+  src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-systemprompt.jpg"
+  alt="Alfred System Prompt"
+/>
 
 ### 对话：用户和助手消息 (Conversations: User and Assistant Messages)
 
-对话由人类（用户）和LLM（助手）之间的交替消息组成。
+对话由人类（用户）和 LLM（助手）之间的交替消息组成。
 
 聊天模板通过保存对话历史记录、存储用户和助手之间的前序交流来维持上下文。这导致更连贯的多轮对话。
 
@@ -124,21 +137,21 @@ messages = [
 
 我们需要理解的另一点是基础模型与指令模型的区别：
 
-- *基础模型 (Base Model)* 是在原始文本数据上训练以预测下一个令牌的模型。
+- _基础模型 (Base Model)_ 是在原始文本数据上训练以预测下一个 token 的模型。
 
-- *指令模型 (Instruct Model)* 是专门微调以遵循指令并进行对话的模型。例如，`SmolLM2-135M`是一个基础模型，而`SmolLM2-135M-Instruct`是其指令调优变体。
+- _指令模型 (Instruct Model)_ 是专门微调以遵循指令并进行对话的模型。例如，`SmolLM2-135M`是一个基础模型，而`SmolLM2-135M-Instruct`是其指令调优变体。
 
 要使基础模型表现得像指令模型，我们需要**以模型能够理解的一致方式格式化我们的提示**。这就是聊天模板的作用所在。
 
-*ChatML*是一种这样的模板格式，它用清晰的角色指示符（系统、用户、助手）构建对话。如果你最近与一些AI API交互过，你就知道这是标准做法。
+*ChatML*是一种这样的模板格式，它用清晰的角色指示符（系统、用户、助手）构建对话。如果你最近与一些 AI API 交互过，你就知道这是标准做法。
 
 重要的是要注意，基础模型可以在不同的聊天模板上进行微调，所以当我们使用指令模型时，我们需要确保使用正确的聊天模板。
 
 ### 理解聊天模板 (Understanding Chat Templates)
 
-由于每个指令模型使用不同的对话格式和特殊令牌，聊天模板的实现确保我们正确格式化提示，使其符合每个模型的期望。
+由于每个指令模型使用不同的对话格式和特 token，聊天模板的实现确保我们正确格式化提示，使其符合每个模型的期望。
 
-在`transformers`中，聊天模板包含[Jinja2代码](https://jinja.palletsprojects.com/en/stable/)，描述如何将ChatML消息列表（如上面示例所示）转换为模型可以理解的系统级指令、用户消息和助手响应的文本表示。
+在`transformers`中，聊天模板包含[Jinja2 代码](https://jinja.palletsprojects.com/en/stable/)，描述如何将 ChatML 消息列表（如上面示例所示）转换为模型可以理解的系统级指令、用户消息和助手响应的文本表示。
 
 这种结构**有助于保持交互的一致性，并确保模型对不同类型的输入做出适当响应**。
 
@@ -184,13 +197,13 @@ How do I use it ?<|im_end|>
 
 `transformers`库会将聊天模板作为标记化过程的一部分为你处理。在<a href="https://huggingface.co/docs/transformers/main/en/chat_templating#how-do-i-use-chat-templates" target="_blank">这里</a>阅读更多关于 transformers 如何使用聊天模板的信息。我们要做的就是以正确的方式构建我们的消息，标记器将处理剩下的事情。
 
-你可以使用以下Space实验，看看同样的对话如何使用不同模型的相应聊天模板进行格式化：
+你可以使用以下 Space 实验，看看同样的对话如何使用不同模型的相应聊天模板进行格式化：
 
 <iframe
-	src="https://jofthomas-chat-template-viewer.hf.space"
-	frameborder="0"
-	width="850"
-	height="450"
+  src="https://jofthomas-chat-template-viewer.hf.space"
+  frameborder="0"
+  width="850"
+  height="450"
 ></iframe>
 
 ### 消息到提示的转换 (Messages to prompt)
@@ -216,13 +229,20 @@ rendered_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_ge
 
 这个函数返回的`rendered_prompt`现在可以作为你选择的模型的输入使用了！
 
-> 当你以 ChatML 格式与消息交互时，这个`apply_chat_template()`函数将在你的API后端使用。
+> 当你以 ChatML 格式与消息交互时，这个`apply_chat_template()`函数将在你的 API 后端使用。
 
 现在我们已经看到 LLMs 如何通过聊天模板构建它们的输入，让我们探智能体如何在它们的环境中行动。
 
-它们这样做的主要方式之一是使用工具 (Tools)，这些工具扩展了AI模型在文本生成之外的能力。
+它们这样做的主要方式之一是使用工具 (Tools)，这些工具扩展了 AI 模型在文本生成之外的能力。
 
 我们将在接下来的单元中再次讨论消息，但如果你现在想深入了解，请查看：
 
-- <a href="https://huggingface.co/docs/transformers/main/en/chat_templating" target="_blank">Hugging Face 聊天模板指南</a>
-- <a href="https://huggingface.co/docs/transformers" target="_blank">Transformers 文档</a>
+- <a
+    href="https://huggingface.co/docs/transformers/main/en/chat_templating"
+    target="_blank"
+  >
+    Hugging Face 聊天模板指南
+  </a>
+- <a href="https://huggingface.co/docs/transformers" target="_blank">
+    Transformers 文档
+  </a>

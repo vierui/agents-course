@@ -1,39 +1,54 @@
-<CourseFloatingBanner chapter={2}
+<CourseFloatingBanner
+  chapter={2}
   classNames="absolute z-10 right-0 top-0"
   notebooks={[
-    {label: "Google Colab", value: "https://colab.research.google.com/#fileId=https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/multiagent_notebook.ipynb"},
-]} />
+    {
+      label: "Google Colab",
+      value:
+        "https://colab.research.google.com/#fileId=https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/multiagent_notebook.ipynb",
+    },
+  ]}
+/>
 
 # 多智能体系统
 
-多智能体系统使**专业智能体能够在复杂任务上进行协作**，提高模块化、可扩展性和稳健性。不依赖单一智能体，任务分配给具有不同能力的智能体。  
+多智能体系统使**专业智能体能够在复杂任务上进行协作**，提高模块化、可扩展性和稳健性。不依赖单一智能体，任务分配给具有不同能力的智能体。
 
 在 **smolagents** 中，不同的智能体可以组合起来生成 Python 代码、调用外部工具、执行网络搜索等。通过编排这些智能体，我们可以创建强大的工作流。
 
 一个典型的设置可能包括：
-- **管理智能体（Manager Agent）** 用于任务委派  
-- **代码解释器智能体（Code Interpreter Agent）** 用于代码执行  
-- **网络搜索智能体（Web Search Agent）** 用于信息检索  
+
+- **管理智能体（Manager Agent）** 用于任务委派
+- **代码解释器智能体（Code Interpreter Agent）** 用于代码执行
+- **网络搜索智能体（Web Search Agent）** 用于信息检索
 
 下图说明了一个简单的多智能体架构，其中**管理智能体**协调**代码解释器工具**和**网络搜索智能体**，后者利用像 `DuckDuckGoSearchTool` 和 `VisitWebpageTool` 这样的工具来收集相关信息。
 
 <img src="https://mermaid.ink/img/pako:eNp1kc1qhTAQRl9FUiQb8wIpdNO76eKubrmFks1oRg3VSYgjpYjv3lFL_2hnMWQOJwn5sqgmelRWleUSKLAtFs09jqhtoWuYUFfFAa6QA9QDTnpzamheuhxn8pt40-6l13UtS0ddhtQXj6dbR4XUGQg6zEYasTF393KjeSDGnDJKNxzj8I_7hLW5IOSmP9CH9hv_NL-d94d4DVNg84p1EnK4qlIj5hGClySWbadT-6OdsrL02MI8sFOOVkciw8zx8kaNspxnrJQE0fXKtjBMMs3JA-MpgOQwftIE9Bzj14w-cMznI_39E9Z3p0uFoA?type=png" style='background: white;'>
 
-## 多智能体系统实战  
+## 多智能体系统实战
 
-多智能体系统由多个专业智能体在 **编排智能体（Orchestrator Agent）** 的协调下共同工作组成。这种方法通过在具有不同角色的智能体之间分配任务来实现复杂的工作流。  
+多智能体系统由多个专业智能体在 **编排智能体（Orchestrator Agent）** 的协调下共同工作组成。这种方法通过在具有不同角色的智能体之间分配任务来实现复杂的工作流。
 
-例如，**多智能体 RAG 系统**可以整合：  
-- **网络智能体（Web Agent）** 用于浏览互联网。  
-- **检索智能体（Retriever Agent）** 用于从知识库获取信息。  
-- **图像生成智能体（Image Generation Agent）** 用于生成视觉内容。  
+例如，**多智能体 RAG 系统**可以整合：
 
-所有这些智能体在管理任务委派和交互的编排者下运行。  
+- **网络智能体（Web Agent）** 用于浏览互联网。
+- **检索智能体（Retriever Agent）** 用于从知识库获取信息。
+- **图像生成智能体（Image Generation Agent）** 用于生成视觉内容。
+
+所有这些智能体在管理任务委派和交互的编排者下运行。
 
 ## 用多智能体层次结构解决复杂任务
 
 <Tip>
-你可以在 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/multiagent_notebook.ipynb" target="_blank">这个笔记本</a> 中跟随代码，可以使用 Google Colab 运行。
+  你可以在{" "}
+  <a
+    href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/multiagent_notebook.ipynb"
+    target="_blank"
+  >
+    这个笔记本
+  </a>{" "}
+  中跟随代码，可以使用 Google Colab 运行。
 </Tip>
 
 接待会即将到来！在你的帮助下，阿尔弗雷德现在几乎完成了准备工作。
@@ -216,18 +231,18 @@ detailed_report
 | 1  | Wishart Street, Glasgow, Scotland, UK         | 8.6                 |
 ```
 
-
 感谢这些快速更改，我们通过简单地为我们的智能体提供详细提示，并赋予它规划能力，获得了更加简洁的报告！
 
-模型的上下文窗口正在快速填满。所以**如果我们要求我们的智能体将详细搜索的结果与另一个结合起来，它将变得更慢，并且会迅速增加令牌数量和成本**。
+模型的上下文窗口正在快速填满。所以**如果我们要求我们的智能体将详细搜索的结果与另一个结合起来，它将变得更慢，并且会迅速增加 token 数量和成本**。
 
 ➡️ 我们需要改进系统的结构。
 
 ### ✌️ 在两个智能体之间分割任务
 
 多智能体结构允许在不同子任务之间分离记忆，带来两大好处：
+
 - 每个智能体更专注于其核心任务，因此性能更佳
-- 分离记忆减少了每个步骤的输入令牌数量，从而减少延迟和成本。
+- 分离记忆减少了每个步骤的输入 token 数量，从而减少延迟和成本。
 
 让我们创建一个团队，包含一个专门的网络搜索智能体，由另一个智能体管理。
 
@@ -408,6 +423,6 @@ manager_agent.python_executor.state["fig"]
 
 ## 资源
 
-- [多智能体系统](https://huggingface.co/docs/smolagents/main/en/examples/multiagents) – 多智能体系统概述。  
-- [什么是智能体 RAG？](https://weaviate.io/blog/what-is-agentic-rag) – 智能体 RAG 介绍。  
-- [多智能体 RAG 系统 🤖🤝🤖 配方](https://huggingface.co/learn/cookbook/multiagent_rag_system) – 构建多智能体 RAG 系统的分步指南。  
+- [多智能体系统](https://huggingface.co/docs/smolagents/main/en/examples/multiagents) – 多智能体系统概述。
+- [什么是智能体 RAG？](https://weaviate.io/blog/what-is-agentic-rag) – 智能体 RAG 介绍。
+- [多智能体 RAG 系统 🤖🤝🤖 配方](https://huggingface.co/learn/cookbook/multiagent_rag_system) – 构建多智能体 RAG 系统的分步指南。
