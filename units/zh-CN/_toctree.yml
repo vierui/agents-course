@@ -21,7 +21,7 @@
     - local: unit1/what-are-llms
       title: 什么是 LLMs？
     - local: unit1/messages-and-special-tokens
-      title: 消息和特殊令牌
+      title: 消息和特殊 token
     - local: unit1/tools
       title: 什么是工具？
     - local: unit1/quiz2

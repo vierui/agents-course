@@ -1,6 +1,9 @@
 # 简单智能体库 (Dummy Agent Library)
 
-<img src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-unit1sub3DONE.jpg" alt="Unit 1 planning"/>
+<img
+  src="https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-unit1sub3DONE.jpg"
+  alt="Unit 1 planning"
+/>
 
 本课程是框架无关的，因为我们想要**专注于 AI 智能体（AI Agent）的概念，避免陷入特定框架的细节中**。
 
@@ -28,7 +31,7 @@
 import os
 from huggingface_hub import InferenceClient
 
-## 你需要一个来自 https://hf.co/settings/tokens 的令牌，确保你选择'read'作为令牌类型。如果你在 Google Colab 上运行，你可以在"settings"标签下的"secrets"中设置它。确保将其命名为"HF_TOKEN"
+## 你需要一个来自 https://hf.co/settings/tokens 的 token，确保你选择'read'作为 token 类型。如果你在 Google Colab 上运行，你可以在"settings"标签下的"secrets"中设置它。确保将其命名为"HF_TOKEN"
 os.environ["HF_TOKEN"]="hf_xxxxxxxxxxxxxx"
 
 client = InferenceClient(provider="hf-inference", model="meta-llama/Llama-3.3-70B-Instruct")
@@ -44,13 +47,16 @@ output = client.text_generation(
 
 print(output)
 ```
+
 输出:
+
 ```
 Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris. The capital of France is Paris.
 ```
-如 LLM 部分所见，如果我们只做解码，**模型只会在预测到 EOS 令牌时停止**，而这里没有发生，因为这是一个会话（聊天）模型，**我们没有应用它期望的聊天模板**。
 
-如果我们现在添加与我们使用的<a href="https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"> Llama-3.2-3B-Instruct 模型</a>相关的特殊令牌，行为会改变，现在会产生预期的 EOS。
+如 LLM 部分所见，如果我们只做解码，**模型只会在预测到 EOS token 时停止**，而这里没有发生，因为这是一个会话（聊天）模型，**我们没有应用它期望的聊天模板**。
+
+如果我们现在添加与我们使用的<a href="https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"> Llama-3.2-3B-Instruct 模型</a>相关的特殊 token，行为会改变，现在会产生预期的 EOS。
 
 ```python
 prompt="""<|begin_of_text|><|start_header_id|>user<|end_header_id|>
@@ -62,12 +68,15 @@ output = client.text_generation(
 
 print(output)
 ```
+
 输出：
+
 ```
 The capital of France is Paris.
 ```
 
 使用"chat"方法是应用聊天模板的更方便和可靠的方式：
+
 ```python
 output = client.chat.completions.create(
     messages=[
@@ -78,10 +87,13 @@ output = client.chat.completions.create(
 )
 print(output.choices[0].message.content)
 ```
+
 输出：
+
 ```
 Paris.
 ```
+
 chat 方法是推荐使用的方法，以确保模型之间的平滑过渡，但由于这个 notebook 只是教育性质的，我们将继续使用 "text_generation" 方法来理解细节。
 
 ## 简单智能体 (Dummy Agent)
@@ -117,18 +129,19 @@ Action:
 
 $JSON_BLOB (inside markdown cell)
 
-Observation: 行动执行结果（这是唯一且完整的事实依据） 
+Observation: 行动执行结果（这是唯一且完整的事实依据）
 ...（这个 Thought/Action/Observation 循环可根据需要重复多次，$JSON_BLOB 必须使用 markdown 格式且每次仅执行一个行动）
 
 最后必须以下列格式结束：
 
-Thought: 我现在知道最终答案 
+Thought: 我现在知道最终答案
 Final Answer: 对原始问题的最终回答
 
 现在开始！请始终使用精确字符 `Final Answer:` 来给出最终答案
 ```
 
 由于我们正在运行“text_generation”方法，因此我们需要手动应用提示：
+
 ```python
 prompt=f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
 {SYSTEM_PROMPT}
@@ -139,6 +152,7 @@ What's the weather in London ?
 ```
 
 我们也可以这样做，这就是在 `chat` 方法内部发生的情况：
+
 ```python
 messages=[
     {"role": "system", "content": SYSTEM_PROMPT},
@@ -151,6 +165,7 @@ tokenizer.apply_chat_template(messages, tokenize=False,add_generation_prompt=Tru
 ```
 
 现在的提示是：
+
 ```
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
 请尽可能准确地回答以下问题。你可以使用以下工具：
@@ -176,7 +191,7 @@ Action:
 
 $JSON_BLOB (markdown 单元格内部)
 
-Observation: 行动执行结果（这是唯一且完整的事实依据） 
+Observation: 行动执行结果（这是唯一且完整的事实依据）
 ...（这个 Thought/Action/Observation 循环可根据需要重复多次，$JSON_BLOB 必须使用 markdown 格式且每次仅执行一个行动）
 
 最后必须以下列格式结束：
@@ -190,6 +205,7 @@ What's the weather in London ?
 ```
 
 Let's decode!
+
 ```python
 output = client.text_generation(
     prompt,
@@ -198,6 +214,7 @@ output = client.text_generation(
 
 print(output)
 ```
+
 输出:
 
 ````
@@ -213,8 +230,9 @@ Observation：伦敦目前的天气多云，最高气温 12°C，最低气温 8�
 ````
 
 你看到问题了吗？
->答案是模型产生的幻觉。我们需要停下来真正执行这个函数！
-现在让我们停在“观察”上，这样我们就不会产生实际函数响应的幻觉。
+
+> 答案是模型产生的幻觉。我们需要停下来真正执行这个函数！
+> 现在让我们停在“观察”上，这样我们就不会产生实际函数响应的幻觉。
 
 ```python
 output = client.text_generation(
@@ -225,6 +243,7 @@ output = client.text_generation(
 
 print(output)
 ```
+
 输出:
 
 ````
@@ -249,7 +268,9 @@ def get_weather(location):
 
 get_weather('London')
 ```
+
 输出:
+
 ```
 “伦敦天气晴朗，气温较低。\n”
 ```
@@ -265,7 +286,9 @@ final_output = client.text_generation(
 
 print(final_output)
 ```
+
 这是新的提示：
+
 ````
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
     尽可能回答以下问题。您可以使用以下工具：
@@ -319,6 +342,7 @@ Observation: 伦敦天气晴朗，气温较低。
 ````
 
 输出:
+
 ```
 最终答案：伦敦天气晴朗，气温较低。
 ```
