@@ -27,9 +27,8 @@ RAG 通过从您的数据中检索相关信息并传递给 LLM 来解决这个�
 
 ## 使用组件构建 RAG 流程
 
-<Tip>
-您可以通过 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/components.ipynb" target="_blank">这个 Notebook</a> 跟随代码实践（使用 Google Colab 运行）。
-</Tip>
+> [!TIP]
+> 您可以通过 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/components.ipynb" target="_blank">这个 Notebook</a> 跟随代码实践（使用 Google Colab 运行）。
 
 RAG 包含五个关键阶段，这些阶段将构成您构建的大部分应用：
 
@@ -50,7 +49,8 @@ LlamaIndex 提供三种主要的数据加载方式：
 2. `LlamaParse`: LlamaIndex 官方 PDF 解析工具，提供托管 API 服务
 3. `LlamaHub`: 包含数百个数据加载库的注册中心，支持从任意数据源获取数据
 
-<Tip>对于复杂数据源，建议深入了解 <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> 加载器和 <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> 解析器的使用方法。</Tip>
+> [!TIP]
+> 对于复杂数据源，建议深入了解 <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> 加载器和 <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> 解析器的使用方法。
 
 **最简单的数据加载方式是使用 `SimpleDirectoryReader`**。
 这个多功能组件可以从文件夹中加载各类文件，并将其转换为 LlamaIndex 可处理的 `Document` 对象。
@@ -123,7 +123,8 @@ pipeline = IngestionPipeline(
 )
 ```
 
-<Tip>An overview of the different vector stores can be found in the <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">LlamaIndex documentation</a>.</Tip>
+> [!TIP]
+> An overview of the different vector stores can be found in the <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">LlamaIndex documentation</a>.
 
 
 这就是向量嵌入的作用所在--通过将查询和节点嵌入同一向量空间，我们可以找到相关的匹配项。
@@ -175,7 +176,8 @@ query_engine.query("What is the meaning of life?")
 - `compact`（紧凑模式，默认）: 与迭代优化类似，但会预先拼接文本块，从而减少 LLM 调用次数
 - `tree_summarize`（树状归纳）: 通过遍历所有检索到的文本块并构建答案的树状结构来生成详细响应
 
-<Tip>通过<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">底层组合 API</a> 实现查询流程的精细控制。该 API 允许您自定义和优化查询流程的每个步骤，与 <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">Workflows</a> 配合使用效果更佳</Tip>
+> [!TIP]
+> 通过<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">底层组合 API</a> 实现查询流程的精细控制。该 API 允许您自定义和优化查询流程的每个步骤，与 <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">Workflows</a> 配合使用效果更佳
 
 由于语言模型的输出具有不可预测性，我们需要**通过评估答案质量**来确保结果的可靠性。
 
@@ -234,6 +236,7 @@ llama_index.core.set_global_handler(
 )
 ```
 
-<Tip>想要了解有关组件的更多信息以及如何使用它们？继续您的旅程，阅读<a href="https://docs.llamaindex.ai/en/stable/module_guides/">组件指南</a>或<a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">RAG 指南</a>。</Tip>
+> [!TIP]
+> 想要了解有关组件的更多信息以及如何使用它们？继续您的旅程，阅读<a href="https://docs.llamaindex.ai/en/stable/module_guides/">组件指南</a>或<a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">RAG 指南</a>。
 
 我们已经了解了如何使用组件创建 `QueryEngine`。现在，让我们看看如何**将 `QueryEngine` 用作智能体的工具！**

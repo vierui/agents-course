@@ -15,9 +15,8 @@ Leur approche simplifiée réduit le nombre d'actions requises, simplifie les op
 ![Code vs JSON Actions](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/code_vs_json_actions.png)
 Graphique issu du papier [Executable Code Actions Elicit Better LLM Agents](https://huggingface.co/papers/2402.01030)
 
-<Tip>
-Si vous voulez en savoir plus sur pourquoi les agents à code sont efficaces, consultez <a href="https://huggingface.co/docs/smolagents/en/conceptual_guides/intro_agents#code-agents" target="_blank">ce guide</a> de la documentation smolagents. 
-</Tip>
+> [!TIP]
+> Si vous voulez en savoir plus sur pourquoi les agents à code sont efficaces, consultez <a href="https://huggingface.co/docs/smolagents/en/conceptual_guides/intro_agents#code-agents" target="_blank">ce guide</a> de la documentation smolagents.
 
 ## Pourquoi les agents à code ?
 
@@ -58,9 +57,8 @@ Un `CodeAgent` effectue des actions à travers un cycle d'étapes (avec les vari
 
 ## Voyons quelques exemples
 
-<Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/code_agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
-</Tip>
+> [!TIP]
+> Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/code_agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 
 Alfred planifie une fête au manoir de la famille Wayne et a besoin de votre aide pour s'assurer que tout se passe bien. Pour l'aider, nous appliquerons ce que nous avons appris sur le fonctionnement d'un `CodeAgent` multi-étapes.
 
@@ -310,9 +308,8 @@ Comme vous pouvez le voir, nous avons créé un `CodeAgent` avec plusieurs outil
 
 Maintenant, c'est à votre tour : construisez votre propre agent et partagez-le avec la communauté en utilisant les connaissances que nous venons d'apprendre ! 🕵️‍♂️💡
 
-<Tip>
-Si vous souhaitez partager votre projet d'agent, créez un <i>Space</i> et taguez <a href="https://huggingface.co/agents-course">agents-course</a> sur le Hub. Nous serions ravis de voir ce que vous avez créé !
-</Tip>
+> [!TIP]
+> Si vous souhaitez partager votre projet d'agent, créez un <i>Space</i> et taguez <a href="https://huggingface.co/agents-course">agents-course</a> sur le Hub. Nous serions ravis de voir ce que vous avez créé !
 
 ### Inspecter notre agent préparateur de fête avec OpenTelemetry et Langfuse 📡
 
@@ -366,7 +363,8 @@ SmolagentsInstrumentor().instrument()
 
 Alfred est maintenant connecté 🔌 ! Les exécutions de `smolagents` sont enregistrées dans Langfuse, lui donnant une visibilité complète sur le comportement de l'agent. Avec cette configuration, il est prêt à revisiter les exécutions précédentes et à affiner encore plus son agent préparateur de fête. 
 
-<Tip>Pour en savoir plus sur le traçage de vos agents et l'utilisation des données collectées pour évaluer leurs performances, consultez <a href="https://huggingface.co/learn/agents-course/fr/bonus-unit2/introduction">l'Unité Bonus 2</a>.</Tip>
+> [!TIP]
+> Pour en savoir plus sur le traçage de vos agents et l'utilisation des données collectées pour évaluer leurs performances, consultez <a href="https://huggingface.co/learn/agents-course/fr/bonus-unit2/introduction">l'Unité Bonus 2</a>.
 
 ```python
 from smolagents import CodeAgent, InferenceClientModel
@@ -378,9 +376,8 @@ alfred_agent.run("Donne-moi la meilleure playlist pour une fête au manoir des W
 
 Alfred peut maintenant accéder aux logs [ici](https://cloud.langfuse.com/project/cm7bq0abj025rad078ak3luwi/traces/995fc019255528e4f48cf6770b0ce27b?timestamp=2025-02-19T10%3A28%3A36.929Z) pour les relire et les analyser.  
 
-<Tip>
-En fait, une erreur mineure s'est produite lors de l'exécution. Pouvez-vous la repérer dans les logs ? Essayez de suivre comment l'agent la gère et renvoie quand même une réponse valide. <a href="https://cloud.langfuse.com/project/cm7bq0abj025rad078ak3luwi/traces/995fc019255528e4f48cf6770b0ce27b?timestamp=2025-02-19T10%3A28%3A36.929Z&observation=80ca57ace4f69b52">Voici</a> le lien direct vers l'erreur si vous voulez vérifier votre réponse. Bien sûr, l'erreur a été corrigée entre-temps, plus de détails peuvent être trouvés dans cette <a href="https://github.com/huggingface/smolagents/issues/838"><i>issue</i></a>.
-</Tip>
+> [!TIP]
+> En fait, une erreur mineure s'est produite lors de l'exécution. Pouvez-vous la repérer dans les logs ? Essayez de suivre comment l'agent la gère et renvoie quand même une réponse valide. <a href="https://cloud.langfuse.com/project/cm7bq0abj025rad078ak3luwi/traces/995fc019255528e4f48cf6770b0ce27b?timestamp=2025-02-19T10%3A28%3A36.929Z&observation=80ca57ace4f69b52">Voici</a> le lien direct vers l'erreur si vous voulez vérifier votre réponse. Bien sûr, l'erreur a été corrigée entre-temps, plus de détails peuvent être trouvés dans cette <a href="https://github.com/huggingface/smolagents/issues/838"><i>issue</i></a>.
 
 Pendant ce temps, la [*playlist* suggérée](https://open.spotify.com/playlist/0gZMMHjuxMrrybQ7wTMTpw) crée l'ambiance parfaite pour les préparatifs de la fête. Cool, non ? 🎶  
 

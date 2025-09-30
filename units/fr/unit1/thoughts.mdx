@@ -1,8 +1,7 @@
 # Réflexions : raisonnement interne et l'approche Re-Act
 
-<Tip> 
-Dans cette section, nous plongeons dans le fonctionnement interne d'un agent : sa capacité à raisonner et à planifier. Nous explorerons comment l'agent utilise son dialogue interne pour analyser l'information, décomposer des problèmes complexes en étapes gérables, et décider de l'action à entreprendre ensuite. De plus, nous présentons l'approche Re-Act, une technique pour prompter qui encourage le modèle à réfléchir « étape par étape » avant d'agir. 
-</Tip>
+> [!TIP]
+> Dans cette section, nous plongeons dans le fonctionnement interne d'un agent : sa capacité à raisonner et à planifier. Nous explorerons comment l'agent utilise son dialogue interne pour analyser l'information, décomposer des problèmes complexes en étapes gérables, et décider de l'action à entreprendre ensuite. De plus, nous présentons l'approche Re-Act, une technique pour prompter qui encourage le modèle à réfléchir « étape par étape » avant d'agir.
 
 Les réflexions représentent le raisonnement interne de l'agent et les processus de planification** pour résoudre la tâche.
 
@@ -80,10 +79,7 @@ Action: Finish["Il fait 18°C et le ciel est nuageux à Paris."]
 | Outils externes      | ❌ Non                      | ✅ Oui (Actions + Observations)     |
 | Convient le mieux à  | Logique, mathématiques, tâches internes | Recherche d'informations, tâches dynamiques en plusieurs étapes |
 
-<Tip>
-
-Les modèles récents comme **Deepseek R1** ou **OpenAI's o1** ont été finetunés pour *réfléchir avant de répondre*. Ils utilisent des *tokens* structurés comme `<think>` et `</think>` pour séparer explicitement la phase de raisonnement de la réponse finale.
-
-Contrairement à ReAct ou CoT - qui sont des stratégies pour prompter - il s'agit d'une **technique d'entrâinement**, où le modèle apprend à penser à l'aide d'exemples.
-
-</Tip>
+> [!TIP]
+> Les modèles récents comme **Deepseek R1** ou **OpenAI's o1** ont été finetunés pour *réfléchir avant de répondre*. Ils utilisent des *tokens* structurés comme `<think>` et `</think>` pour séparer explicitement la phase de raisonnement de la réponse finale.
+>
+> Contrairement à ReAct ou CoT - qui sont des stratégies pour prompter - il s'agit d'une **technique d'entrâinement**, où le modèle apprend à penser à l'aide d'exemples.

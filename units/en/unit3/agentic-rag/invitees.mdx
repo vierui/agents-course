@@ -13,11 +13,8 @@ Imagine Alfred mingling among the guests, needing to recall specific details abo
 
 This is where Retrieval Augmented Generation (RAG) shines! By combining a retrieval system with an LLM, Alfred can access accurate, up-to-date information about your guests on demand.
 
-<Tip>
-
-You can choose any of the frameworks covered in the course for this use case. Select your preferred option from the code tabs.
-
-</Tip>
+> [!TIP]
+> You can choose any of the frameworks covered in the course for this use case. Select your preferred option from the code tabs.
 
 ## Setting up our application
 
@@ -57,9 +54,8 @@ Below is a preview of the dataset:
   height="560px"
 ></iframe>
 
-<Tip>
-In a real-world scenario, this dataset could be expanded to include dietary preferences, gift interests, conversation topics to avoid, and other helpful details for a host.
-</Tip>
+> [!TIP]
+> In a real-world scenario, this dataset could be expanded to include dietary preferences, gift interests, conversation topics to avoid, and other helpful details for a host.
 
 ## Building the Guestbook Tool
 
@@ -176,9 +172,8 @@ Now, let's create a custom tool that Alfred can use to search through our guest 
 
 We will use the `BM25Retriever` from the `langchain_community.retrievers` module to create a retriever tool.
 
-<Tip>
-  The <code>BM25Retriever</code> is a great starting point for retrieval, but for more advanced semantic search, you might consider using embedding-based retrievers like those from <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> The <code>BM25Retriever</code> is a great starting point for retrieval, but for more advanced semantic search, you might consider using embedding-based retrievers like those from <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from smolagents import Tool
@@ -221,9 +216,8 @@ Let's understand this tool step-by-step:
 
 We will use the `BM25Retriever` from the `llama_index.retrievers.bm25` module to create a retriever tool.
 
-<Tip>
-  The <code>BM25Retriever</code> is a great starting point for retrieval, but for more advanced semantic search, you might consider using embedding-based retrievers like those from <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> The <code>BM25Retriever</code> is a great starting point for retrieval, but for more advanced semantic search, you might consider using embedding-based retrievers like those from <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from llama_index.core.tools import FunctionTool
@@ -254,9 +248,8 @@ Let's understand this tool step-by-step.
 
 We will use the `BM25Retriever` from the `langchain_community.retrievers` module to create a retriever tool.
 
-<Tip>
-  The <code>BM25Retriever</code> is a great starting point for retrieval, but for more advanced semantic search, you might consider using embedding-based retrievers like those from <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> The <code>BM25Retriever</code> is a great starting point for retrieval, but for more advanced semantic search, you might consider using embedding-based retrievers like those from <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from langchain_community.retrievers import BM25Retriever
@@ -458,8 +451,7 @@ Now that Alfred can retrieve guest information, consider how you might enhance t
 
 Now Alfred is fully equipped to handle guest inquiries effortlessly, ensuring your gala is remembered as the most sophisticated and delightful event of the century!
 
-<Tip>
-Try extending the retriever tool to also return conversation starters based on each guest's interests or background. How would you modify the tool to accomplish this?
-
-When you're done, implement your guest retriever tool in the <code>retriever.py</code> file.
-</Tip>
+> [!TIP]
+> Try extending the retriever tool to also return conversation starters based on each guest's interests or background. How would you modify the tool to accomplish this?
+>
+> When you're done, implement your guest retriever tool in the <code>retriever.py</code> file.

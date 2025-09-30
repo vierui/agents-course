@@ -7,10 +7,9 @@ askForHelpUrl="http://hf.co/join/discord" />
 
 # Agents visuel avec smolagents
 
-<Tip warning={true}>
-Les exemples de cette section nécessitent l'accès à un modèle VLM puissant. Nous les avons testés en utilisant l'API GPT-4o.
-Cependant, <a href="./why_use_smolagents">Pourquoi utiliser smolagents</a> discute des solutions alternatives supportées par smolagents et Hugging Face. Si vous souhaitez explorer d'autres options, assurez-vous de consulter cette section.
-</Tip>
+> [!WARNING]
+> Les exemples de cette section nécessitent l'accès à un modèle VLM puissant. Nous les avons testés en utilisant l'API GPT-4o.
+> Cependant, <a href="./why_use_smolagents">Pourquoi utiliser smolagents</a> discute des solutions alternatives supportées par smolagents et Hugging Face. Si vous souhaitez explorer d'autres options, assurez-vous de consulter cette section.
 
 Doter les agents de capacités visuelles est crucial pour résoudre des tâches qui vont au-delà du traitement de texte. De nombreux défis du monde réel, comme la navigation web ou la compréhension de documents, nécessitent d'analyser un contenu visuel riche. Heureusement, `smolagents` fournit un support intégré pour les modèles de vision-langage (VLM), permettant aux agents de traiter et d'interpréter efficacement les images.
 
@@ -18,9 +17,8 @@ Dans cet exemple, imaginez qu'Alfred soit chargé de vérifier les identités de
 
 ## Fournir des images au début de l'exécution de l'agent
 
-<Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/vision_agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
-</Tip>
+> [!TIP]
+> Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/smolagents/vision_agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 
 Dans cette approche, les images sont transmises à l'agent au début et stockées comme `task_images` avec le *prompt* de tâche. L'agent traite ensuite ces images tout au long de son exécution.
 
@@ -94,9 +92,8 @@ Dans ce cas, la sortie révèle que la personne se fait passer pour quelqu'un d'
 
 ## Fournir des images avec recherche dynamique
 
-<Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_web_browser.py" target="_blank">ce fichier Python</a>
-</Tip>
+> [!TIP]
+> Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_web_browser.py" target="_blank">ce fichier Python</a>
 
 L'approche précédente est précieuse et a de nombreux cas d'usage potentiels. Cependant, dans des situations où l'invité n'est pas dans la base de données, nous devons explorer d'autres façons de les identifier. Une solution possible est de récupérer dynamiquement des images et des informations à partir de sources externes, comme naviguer sur le web pour des détails.
 

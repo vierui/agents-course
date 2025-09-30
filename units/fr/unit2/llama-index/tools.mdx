@@ -16,9 +16,8 @@ Nous passerons en revue chacun d'eux plus en détail ci-dessous.
 
 ## Créer un *FunctionTool*
 
-<Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/llama-index/tools.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
-</Tip>
+> [!TIP]
+> Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/llama-index/tools.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 
 *FunctionTool* fournit un moyen simple d'envelopper n'importe quelle fonction Python et de la rendre disponible à un agent.
 Vous pouvez passer soit une fonction synchrone soit asynchrone à l'outil, avec des paramètres optionnels `name` et `description`.
@@ -41,7 +40,8 @@ tool = FunctionTool.from_defaults(
 tool.call("New York")
 ```
 
-<Tip>Lors de l'utilisation d'un agent ou d'un LLM avec l'appel de fonctions, l'outil sélectionné (et les arguments écrits pour celui-ci) dépendent fortement de son nom, t de la description du but et des arguments. Apprenez-en plus sur l'appel de fonctions dans le <a href="https://docs.llamaindex.ai/en/stable/examples/workflow/function_calling_agent/">Guide sur l'appel de fonctions</a>.</Tip>
+> [!TIP]
+> Lors de l'utilisation d'un agent ou d'un LLM avec l'appel de fonctions, l'outil sélectionné (et les arguments écrits pour celui-ci) dépendent fortement de son nom, t de la description du but et des arguments. Apprenez-en plus sur l'appel de fonctions dans le <a href="https://docs.llamaindex.ai/en/stable/examples/workflow/function_calling_agent/">Guide sur l'appel de fonctions</a>.
 
 ## Créer un *QueryEngineTool*
 
@@ -136,6 +136,7 @@ Passons en revue nos deux *utility tools* principaux ci-dessous.
 1. `OnDemandToolLoader` : Cet outil transforme n'importe quel chargeur de données LlamaIndex existant (classe *BaseReader*) en un outil qu'un agent peut utiliser. Il peut être appelé avec tous les paramètres nécessaires pour déclencher `load_data` du chargeur de données, ainsi qu'une chaîne de requête en langage naturel. Pendant l'exécution, nous chargeons d'abord les données du chargeur de données, les indexons (par exemple avec un *vector store*), puis les interrogeons à la demande. Ces trois étapes se produisent dans un seul appel de l'outil.
 2. `LoadAndSearchToolSpec` : Le *LoadAndSearchToolSpec* prend n'importe quel outil existant en entrée. En tant que *tool spec*, il implémente `to_tool_list`, et quand cette fonction est appelée, deux outils sont retournés : un outil de chargement puis un outil de recherche. L'exécution du premier appellerait l'outil sous-jacent, puis indexerait la sortie (par défaut avec un *vector index*). L'exécution du second prendrait une chaîne de requête en entrée et appellerait l'index sous-jacent.
 
-<Tip>Vous pouvez trouver des <i>toolspecs</i> et des <i>utility tools</i> sur le <a href="https://llamahub.ai/">LlamaHub</a>.</Tip>
+> [!TIP]
+> Vous pouvez trouver des <i>toolspecs</i> et des <i>utility tools</i> sur le <a href="https://llamahub.ai/">LlamaHub</a>.
 
 Maintenant que nous comprenons les bases des agents et des outils dans LlamaIndex, voyons comment nous pouvons **utiliser LlamaIndex pour créer des *workflows* configurables et gérables !**

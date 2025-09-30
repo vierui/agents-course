@@ -1,8 +1,7 @@
 # Tư duy: Lập luận nội bộ và phương pháp Re-Act
 
-<Tip> 
-Trong phần này, ta sẽ tìm hiểu cách thức hoạt động bên trong của một AI agent—khả năng lập luận và lập kế hoạch. Ta sẽ khám phá cách agent tận dụng cuộc đối thoại nội bộ để phân tích thông tin, chia nhỏ vấn đề phức tạp thành các bước quản lý được, và quyết định hành động tiếp theo. Ngoài ra, ta sẽ giới thiệu phương pháp Re-Act, một kỹ thuật prompting khuyến khích mô hình suy nghĩ "từng bước một" trước khi hành động.
-</Tip>
+> [!TIP]
+> Trong phần này, ta sẽ tìm hiểu cách thức hoạt động bên trong của một AI agent—khả năng lập luận và lập kế hoạch. Ta sẽ khám phá cách agent tận dụng cuộc đối thoại nội bộ để phân tích thông tin, chia nhỏ vấn đề phức tạp thành các bước quản lý được, và quyết định hành động tiếp theo. Ngoài ra, ta sẽ giới thiệu phương pháp Re-Act, một kỹ thuật prompting khuyến khích mô hình suy nghĩ "từng bước một" trước khi hành động.
 
 Tư duy đại diện cho **quá trình lập luận và lập kế hoạch nội bộ của Agent** để giải quyết nhiệm vụ.
 
@@ -46,11 +45,10 @@ Cách này cho phép mô hình xem xét các bước con chi tiết hơn, thư�
 </figcaption>
 </figure>
 
-<Tip>
-Gần đây chúng ta thấy nhiều sự quan tâm đến các chiến lược lập luận. Đây là nền tảng của các mô hình như Deepseek R1 hay OpenAI's o1 - những mô hình đã được tinh chỉnh để "nghĩ trước khi trả lời".
-
-Những mô hình này được huấn luyện để luôn bao gồm các phần _tư duy_ cụ thể (được đặt giữa các token đặc biệt `<think>` và `</think>`). Đây không chỉ là kỹ thuật prompting như ReAct, mà là phương pháp training nơi mô hình học cách tạo ra các phần này sau khi phân tích hàng ngàn ví dụ thể hiện điều chúng ta mong đợi.
-</Tip>
+> [!TIP]
+> Gần đây chúng ta thấy nhiều sự quan tâm đến các chiến lược lập luận. Đây là nền tảng của các mô hình như Deepseek R1 hay OpenAI's o1 - những mô hình đã được tinh chỉnh để "nghĩ trước khi trả lời".
+>
+> Những mô hình này được huấn luyện để luôn bao gồm các phần _tư duy_ cụ thể (được đặt giữa các token đặc biệt `<think>` và `</think>`). Đây không chỉ là kỹ thuật prompting như ReAct, mà là phương pháp training nơi mô hình học cách tạo ra các phần này sau khi phân tích hàng ngàn ví dụ thể hiện điều chúng ta mong đợi.
 
 --- 
 Bây giờ chúng ta đã hiểu rõ hơn về quá trình Tư duy, hãy đi sâu vào phần thứ hai của quy trình: Hành động.

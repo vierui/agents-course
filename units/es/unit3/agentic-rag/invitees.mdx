@@ -13,11 +13,8 @@ Imagina a Alfred mezclándose entre los invitados, necesitando recordar detalles
 
 Aquí es donde brilla la Generación Aumentada por Recuperación (RAG)! Al combinar un sistema de recuperación con un LLM, Alfred puede acceder a información precisa y actualizada sobre tus invitados bajo demanda.
 
-<Tip>
-
-Puedes elegir cualquiera de los frameworks cubiertos en el curso para este caso de uso. Selecciona tu opción preferida de las pestañas de código.
-
-</Tip>
+> [!TIP]
+> Puedes elegir cualquiera de los frameworks cubiertos en el curso para este caso de uso. Selecciona tu opción preferida de las pestañas de código.
 
 ## Configurando nuestra aplicación
 
@@ -57,9 +54,8 @@ A continuación se muestra una vista previa del conjunto de datos:
   height="560px"
 ></iframe>
 
-<Tip>
-En un escenario del mundo real, este conjunto de datos podría ampliarse para incluir preferencias dietéticas, intereses de regalos, temas de conversación a evitar y otros detalles útiles para un anfitrión.
-</Tip>
+> [!TIP]
+> En un escenario del mundo real, este conjunto de datos podría ampliarse para incluir preferencias dietéticas, intereses de regalos, temas de conversación a evitar y otros detalles útiles para un anfitrión.
 
 ## Construyendo la Herramienta de Lista de Invitados
 
@@ -176,9 +172,8 @@ Ahora, creemos una herramienta personalizada que Alfred pueda usar para buscar e
 
 Usaremos el `BM25Retriever` del módulo `langchain_community.retrievers` para crear una herramienta de recuperación.
 
-<Tip>
-  El <code>BM25Retriever</code> es un gran punto de partida para la recuperación, pero para búsquedas semánticas más avanzadas, podrías considerar usar recuperadores basados en embeddings como los de <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> El <code>BM25Retriever</code> es un gran punto de partida para la recuperación, pero para búsquedas semánticas más avanzadas, podrías considerar usar recuperadores basados en embeddings como los de <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from smolagents import Tool
@@ -221,9 +216,8 @@ Entendamos esta herramienta paso a paso:
 
 Usaremos el `BM25Retriever` del módulo `llama_index.retrievers.bm25` para crear una herramienta de recuperación.
 
-<Tip>
-  El <code>BM25Retriever</code> es un gran punto de partida para la recuperación, pero para búsquedas semánticas más avanzadas, podrías considerar usar recuperadores basados en embeddings como los de <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> El <code>BM25Retriever</code> es un gran punto de partida para la recuperación, pero para búsquedas semánticas más avanzadas, podrías considerar usar recuperadores basados en embeddings como los de <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from llama_index.core.tools import FunctionTool
@@ -254,9 +248,8 @@ Entendamos esta herramienta paso a paso:
 
 Usaremos el `BM25Retriever` del módulo `langchain_community.retrievers` para crear una herramienta de recuperación.
 
-<Tip>
-  El <code>BM25Retriever</code> es un gran punto de partida para la recuperación, pero para búsquedas semánticas más avanzadas, podrías considerar usar recuperadores basados en embeddings como los de <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> El <code>BM25Retriever</code> es un gran punto de partida para la recuperación, pero para búsquedas semánticas más avanzadas, podrías considerar usar recuperadores basados en embeddings como los de <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from langchain_community.retrievers import BM25Retriever
@@ -458,8 +451,7 @@ Ahora que Alfred puede recuperar información de invitados, considera cómo podr
 
 ¡Ahora Alfred está completamente equipado para manejar consultas de invitados sin esfuerzo, asegurando que tu gala sea recordada como el evento más sofisticado y encantador del siglo!
 
-<Tip>
-Intenta extender la herramienta de recuperación para que también devuelva iniciadores de conversación basados en los intereses o antecedentes de cada invitado. ¿Cómo modificarías la herramienta para lograr esto?
-
-Cuando hayas terminado, implementa tu herramienta de recuperación de invitados en el archivo <code>retriever.py</code>.
-</Tip>
+> [!TIP]
+> Intenta extender la herramienta de recuperación para que también devuelva iniciadores de conversación basados en los intereses o antecedentes de cada invitado. ¿Cómo modificarías la herramienta para lograr esto?
+>
+> Cuando hayas terminado, implementa tu herramienta de recuperación de invitados en el archivo <code>retriever.py</code>.

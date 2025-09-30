@@ -6,10 +6,9 @@
 
 # 使用 smolagents 构建视觉智能体
 
-<Tip warning={true}>
-本节示例需要接入强大的视觉语言模型（VLM）。我们使用 GPT-4o API 进行了测试。  
-若需了解 smolagents 和 Hugging Face 支持的其他替代方案，请参考<a href="./why_use_smolagents">为什么选择smolagents</a>章节。
-</Tip>
+> [!WARNING]
+> 本节示例需要接入强大的视觉语言模型（VLM）。我们使用 GPT-4o API 进行了测试。  
+> 若需了解 smolagents 和 Hugging Face 支持的其他替代方案，请参考<a href="./why_use_smolagents">为什么选择smolagents</a>章节。
 
 赋予智能体视觉能力对于超越文本处理的任务至关重要。网页浏览、文档理解等现实场景都需要解析丰富的视觉内容。smolagents 内置支持视觉语言模型（VLMs），使智能体能够有效处理图像信息。
 
@@ -18,9 +17,8 @@
 
 ## 初始执行阶段提供图像
 
-<Tip>
-配套代码可在<a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_agents.ipynb" target="_blank">Google Colab 笔记本</a>中查看。
-</Tip>
+> [!TIP]
+> 配套代码可在<a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_agents.ipynb" target="_blank">Google Colab 笔记本</a>中查看。
 
 该方法在智能体启动时通过 task_images 参数传入图像，智能体在执行过程中持续处理这些图像。
 
@@ -94,9 +92,8 @@ response = agent.run(
 
 ## 提供动态检索图像
 
-<Tip>
-您可以在 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_web_browser.py" target="_blank">这个 Python 文件</a> 中查看代码。
-</Tip>
+> [!TIP]
+> 您可以在 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_web_browser.py" target="_blank">这个 Python 文件</a> 中查看代码。
 
 前面的方法具有很高的价值，并且有许多潜在的应用场景。然而，在客人不在数据库中的情况下，我们需要探索其他识别方式。一种可能的解决方案是从外部来源动态检索图像和信息，例如通过浏览网页获取详细信息。
 

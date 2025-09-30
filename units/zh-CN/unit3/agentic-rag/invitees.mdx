@@ -11,9 +11,8 @@
 
 这正是检索增强生成（RAG）技术的优势所在！通过结合检索系统与 LLM，Alfred 可按需获取准确、实时的宾客信息。
 
-<Tip>
-您可以选择课程涵盖的任何框架实现本用例，请通过代码标签页选择偏好方案。
-</Tip>
+> [!TIP]
+> 您可以选择课程涵盖的任何框架实现本用例，请通过代码标签页选择偏好方案。
 
 ## 应用搭建
 
@@ -50,9 +49,8 @@
   height="560px"
 ></iframe>
 
-<Tip>
-实际场景可扩展数据集字段，包含饮食偏好、礼品兴趣、禁忌话题等对主持人有用的详细信息。
-</Tip>
+> [!TIP]
+> 实际场景可扩展数据集字段，包含饮食偏好、礼品兴趣、禁忌话题等对主持人有用的详细信息。
 
 ## 构建宾客信息工具
 
@@ -164,9 +162,8 @@ docs = [
 
 我们将使用“langchain_community.retrievers”模块中的“BM25Retriever”来创建一个检索工具。
 
-<Tip>
-<code>BM25Retriever</code> 是检索的一个很好的起点，但对于更高级的语义搜索，您可以考虑使用基于嵌入的检索器，例如来自 <a href="https://www.sbert.net/">sentence-transformers</a> 的检索器。
-</Tip>
+> [!TIP]
+> <code>BM25Retriever</code> 是检索的一个很好的起点，但对于更高级的语义搜索，您可以考虑使用基于嵌入的检索器，例如来自 <a href="https://www.sbert.net/">sentence-transformers</a> 的检索器。
 
 ```python
 from smolagents import Tool
@@ -209,9 +206,8 @@ guest_info_tool = GuestInfoRetrieverTool(docs)
 
 我们将使用 `llama_index.retrievers.bm25` 模块中的 `BM25Retriever` 来创建一个检索工具。
 
-<Tip>
-<code>BM25Retriever</code> 是一个很好的检索起点，但对于更高级的语义搜索，您可以考虑使用基于嵌入的检索器，例如 <a href="https://www.sbert.net/">sentence-transformers</a> 中的检索器。
-</Tip>
+> [!TIP]
+> <code>BM25Retriever</code> 是一个很好的检索起点，但对于更高级的语义搜索，您可以考虑使用基于嵌入的检索器，例如 <a href="https://www.sbert.net/">sentence-transformers</a> 中的检索器。
 
 ```python
 from llama_index.core.tools import FunctionTool
@@ -242,9 +238,8 @@ guest_info_tool = FunctionTool.from_defaults(get_guest_info_retriever)
 
 我们将使用 `langchain_community.retrievers` 模块中的 `BM25Retriever` 来创建一个检索工具。
 
-<Tip>
-<code>BM25Retriever</code> 是一个很好的检索起点，但对于更高级的语义搜索，您可以考虑使用基于嵌入的检索器，例如 <a href="https://www.sbert.net/">sentence-transformers</a> 中的检索器。
-</Tip>
+> [!TIP]
+> <code>BM25Retriever</code> 是一个很好的检索起点，但对于更高级的语义搜索，您可以考虑使用基于嵌入的检索器，例如 <a href="https://www.sbert.net/">sentence-transformers</a> 中的检索器。
 
 ```python
 from langchain_community.retrievers import BM25Retriever

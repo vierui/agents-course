@@ -1,13 +1,10 @@
 
 # Thought: Internal Reasoning and the ReAct Approach
 
-<Tip>
-
-In this section, we dive into the inner workings of an AI agent—its ability to reason and plan. We’ll explore how the agent leverages its internal dialogue to analyze information, break down complex problems into manageable steps, and decide what action to take next.
-
-Additionally, we introduce the ReAct approach, a prompting technique that encourages the model to think “step by step” before acting.
-
-</Tip>
+> [!TIP]
+> In this section, we dive into the inner workings of an AI agent—its ability to reason and plan. We’ll explore how the agent leverages its internal dialogue to analyze information, break down complex problems into manageable steps, and decide what action to take next.
+>
+> Additionally, we introduce the ReAct approach, a prompting technique that encourages the model to think “step by step” before acting.
 
 Thoughts represent the **Agent's internal reasoning and planning processes** to solve the task.
 
@@ -85,10 +82,7 @@ Action: Finish["It's 18°C and cloudy in Paris."]
 | External tools       | ❌ No                       | ✅ Yes (Actions + Observations)     |
 | Best suited for      | Logic, math, internal tasks | Info-seeking, dynamic multi-step tasks |
 
-<Tip>
-
-Recent models like **Deepseek R1** or **OpenAI’s o1** were fine-tuned to *think before answering*. They use structured tokens like `<think>` and `</think>` to explicitly separate the reasoning phase from the final answer.
-
-Unlike ReAct or CoT — which are prompting strategies — this is a **training-level technique**, where the model learns to think via examples.
-
-</Tip>
+> [!TIP]
+> Recent models like **Deepseek R1** or **OpenAI’s o1** were fine-tuned to *think before answering*. They use structured tokens like `<think>` and `</think>` to explicitly separate the reasoning phase from the final answer.
+>
+> Unlike ReAct or CoT — which are prompting strategies — this is a **training-level technique**, where the model learns to think via examples.

@@ -16,9 +16,8 @@ Vamos a ver cada una de ellas en más detalle a continuación.
 
 ## Crear una FunctionTool
 
-<Tip>
-Puedes seguir el código en <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/tools.ipynb" target="_blank">este cuaderno</a> que puedes ejecutar utilizando Google Colab.
-</Tip>
+> [!TIP]
+> Puedes seguir el código en <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/tools.ipynb" target="_blank">este cuaderno</a> que puedes ejecutar utilizando Google Colab.
 
 Una FunctionTool proporciona una forma sencilla de envolver cualquier función de Python y hacerla disponible para un agente.
 Puedes pasar tanto una función sincrónica como asincrona a la herramienta, junto con par metros opcionales `name` y `description`.
@@ -41,7 +40,8 @@ tool = FunctionTool.from_defaults(
 tool.call("Nuevo York")
 ```
 
-<Tip>Cuando se utiliza un agente o LLM con llamadas a funciones, la herramienta seleccionada (y los argumentos escritos para esa herramienta) dependen en gran medida del nombre de la herramienta y la descripción del proposito y argumentos de la herramienta. Aprende más sobre la llamada a funciones en la <a href="https://docs.llamaindex.ai/en/stable/examples/workflow/function_calling_agent/">Guía de llamada a funciones</a>.</Tip>
+> [!TIP]
+> Cuando se utiliza un agente o LLM con llamadas a funciones, la herramienta seleccionada (y los argumentos escritos para esa herramienta) dependen en gran medida del nombre de la herramienta y la descripción del proposito y argumentos de la herramienta. Aprende más sobre la llamada a funciones en la <a href="https://docs.llamaindex.ai/en/stable/examples/workflow/function_calling_agent/">Guía de llamada a funciones</a>.
 
 ## Creando un QueryEngineTool
 
@@ -104,6 +104,7 @@ Vamos a revisar nuestras dos principales herramientas de utilidad a continuaci n
 1. `OnDemandToolLoader`: Esta herramienta convierte cualquier cargador de datos existente de LlamaIndex (clase BaseReader) en una herramienta que un agente puede utilizar. La herramienta se puede llamar con todos los parámetros necesarios para desencadenar `load_data` del cargador de datos, junto con una cadena de consulta de lenguaje natural. Durante la ejecución, primero cargamos datos del cargador de datos, los indexamos (por ejemplo, con un vector store) y luego los consultamos. Todos estos tres pasos se realizan en una sola llamada a la herramienta.
 2. `LoadAndSearchToolSpec`: El LoadAndSearchToolSpec toma cualquier herramienta existente como entrada. Como herramienta específicas, implementa `to_tool_list`, y cuando se llama a esa función, se devuelven dos herramientas: una herramienta de carga y una herramienta de búsqueda. La ejecución de la herramienta de carga llamar  a la herramienta subyacente, y luego indexar  la salida (por defecto con un vector index). La ejecución de la herramienta de búsqueda tomar  una cadena de consulta como entrada y llamar  al vector index subyacente.
 
-<Tip>Puedes encontrar herramientas y herramientas de utilidad en <a href="https://llamahub.ai/">LlamaHub</a></Tip>
+> [!TIP]
+> Puedes encontrar herramientas y herramientas de utilidad en <a href="https://llamahub.ai/">LlamaHub</a>
 
 Ahora que entendemos los conceptos básicos de agentes y herramientas en LlamaIndex, veamos cómo podemos **usar LlamaIndex para crear flujos de trabajo configurables y manejables!**

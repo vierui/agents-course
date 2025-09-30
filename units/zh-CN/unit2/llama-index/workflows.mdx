@@ -21,9 +21,8 @@ LlamaIndex 中的工作流提供了一种结构化方式来将代码组织成可
 
 ## 创建工作流
 
-<Tip>
-您可以通过 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/workflows.ipynb" target="_blank">这个笔记本</a> 中的代码进行实践，可使用 Google Colab 运行。
-</Tip>
+> [!TIP]
+> 您可以通过 <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/workflows.ipynb" target="_blank">这个笔记本</a> 中的代码进行实践，可使用 Google Colab 运行。
 
 ### 基础工作流创建
 
@@ -167,7 +166,8 @@ async def query(self, ctx: Context, ev: StartEvent) -> StopEvent:
 
 太棒了！现在您知道如何在 LlamaIndex 中创建基本工作流了！
 
-<Tip>工作流还有一些更复杂的细微差别，您可以在<a href="https://docs.llamaindex.ai/en/stable/understanding/workflows/">LlamaIndex 文档</a>中了解。</Tip>
+> [!TIP]
+> 工作流还有一些更复杂的细微差别，您可以在<a href="https://docs.llamaindex.ai/en/stable/understanding/workflows/">LlamaIndex 文档</a>中了解。
 
 但是，还有另一种创建工作流的方法，它依赖于 `AgentWorkflow` 类。让我们看看如何使用它来创建多智能体工作流。
 

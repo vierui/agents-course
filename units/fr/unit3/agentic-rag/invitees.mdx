@@ -12,11 +12,8 @@ Imaginez Alfred se mêlant aux invités, ayant besoin de se rappeler des détail
 
 C'est là que le RAG brille ! En combinant un système de récupération avec un LLM, Alfred peut accéder à des informations précises et à jour sur vos invités à la demande.
 
-<Tip>
-
-Vous pouvez choisir n'importe lequel des <i>frameworks</i> couverts dans le cours pour ce cas d'usage. Sélectionnez votre option préférée dans les onglets de code.
-
-</Tip>
+> [!TIP]
+> Vous pouvez choisir n'importe lequel des <i>frameworks</i> couverts dans le cours pour ce cas d'usage. Sélectionnez votre option préférée dans les onglets de code.
 
 ## Configuration de notre application
 
@@ -56,9 +53,8 @@ Voici un aperçu du jeu de données :
   height="560px"
 ></iframe>
 
-<Tip>
-Dans un scénario réel, ce jeu de données pourrait être étendu pour inclure les préférences alimentaires, les intérêts pour les cadeaux, les sujets de conversation à éviter, et d'autres détails utiles pour un hôte.
-</Tip>
+> [!TIP]
+> Dans un scénario réel, ce jeu de données pourrait être étendu pour inclure les préférences alimentaires, les intérêts pour les cadeaux, les sujets de conversation à éviter, et d'autres détails utiles pour un hôte.
 
 ## Construction d'un outil pour un livre d'or
 
@@ -175,9 +171,8 @@ Maintenant, créons un outil personnalisé qu'Alfred peut utiliser pour recherch
 
 Nous utiliserons le `BM25Retriever` du module `langchain_community.retrievers` pour créer un outil de récupération.
 
-<Tip>
-  Le <code>BM25Retriever</code> est un excellent point de départ pour la récupération, mais pour une recherche sémantique plus avancée, vous pourriez considérer l'utilisation de récupérateurs basés sur des <i>embeddings</i> comme ceux de <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> Le <code>BM25Retriever</code> est un excellent point de départ pour la récupération, mais pour une recherche sémantique plus avancée, vous pourriez considérer l'utilisation de récupérateurs basés sur des <i>embeddings</i> comme ceux de <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from smolagents import Tool
@@ -220,9 +215,8 @@ Comprenons cet outil étape par étape :
 
 Nous utiliserons le `BM25Retriever` du module `llama_index.retrievers.bm25` pour créer un outil de récupération.
 
-<Tip>
-  Le <code>BM25Retriever</code> est un excellent point de départ pour la récupération, mais pour une recherche sémantique plus avancée, vous pourriez considérer l'utilisation de récupérateurs basés sur des *embeddings* comme ceux de <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> Le <code>BM25Retriever</code> est un excellent point de départ pour la récupération, mais pour une recherche sémantique plus avancée, vous pourriez considérer l'utilisation de récupérateurs basés sur des *embeddings* comme ceux de <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from llama_index.core.tools import FunctionTool
@@ -253,9 +247,8 @@ Comprenons cet outil étape par étape :
 
 Nous utiliserons le `BM25Retriever` du module `langchain_community.retrievers` pour créer un outil de récupération.
 
-<Tip>
-  Le <code>BM25Retriever</code> est un excellent point de départ pour la récupération, mais pour une recherche sémantique plus avancée, vous pourriez considérer l'utilisation de récupérateurs basés sur des *embeddings* comme ceux de <a href="https://www.sbert.net/">sentence-transformers</a>.
-</Tip>
+> [!TIP]
+> Le <code>BM25Retriever</code> est un excellent point de départ pour la récupération, mais pour une recherche sémantique plus avancée, vous pourriez considérer l'utilisation de récupérateurs basés sur des *embeddings* comme ceux de <a href="https://www.sbert.net/">sentence-transformers</a>.
 
 ```python
 from langchain_community.retrievers import BM25Retriever
@@ -456,8 +449,7 @@ Maintenant qu'Alfred peut récupérer des informations sur les invités, consid�
 
 Maintenant Alfred est entièrement équipé pour gérer sans effort les questions sur les invités, s'assurant que votre gala soit mémorisé comme l'événement le plus sophistiqué et délicieux du siècle !
 
-<Tip>
-Essayez d'étendre l'outil de récupération pour aussi retourner des amorces de conversation basées sur les intérêts ou l'arrière-plan de chaque invité. Comment modifieriez-vous l'outil pour accomplir cela ?
-
-Quand vous avez terminé, implémentez votre outil de récupération d'invités dans le fichier <code>retriever.py</code> du <i>Space</i>.
-</Tip>
+> [!TIP]
+> Essayez d'étendre l'outil de récupération pour aussi retourner des amorces de conversation basées sur les intérêts ou l'arrière-plan de chaque invité. Comment modifieriez-vous l'outil pour accomplir cela ?
+>
+> Quand vous avez terminé, implémentez votre outil de récupération d'invités dans le fichier <code>retriever.py</code> du <i>Space</i>.
