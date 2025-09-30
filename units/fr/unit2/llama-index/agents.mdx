@@ -16,13 +16,13 @@ LlamaIndex prend en charge **trois types principaux d'agents avec raisonnement**
 2. `ReAct Agents` : Ceux-ci peuvent fonctionner avec n'importe quel modèle qui fait du *chat* ou des *endpoints* de texte et traiter des tâches de raisonnement complexes.
 3. `Advanced Custom Agents` : Ceux-ci utilisent des méthodes plus complexes pour traiter des tâches et *workflows* plus complexes.
 
-<Tip>Trouvez plus d'informations sur les agents avancés sur <a href="https://github.com/run-llama/llama_index/blob/main/llama-index-core/llama_index/core/agent/workflow/base_agent.py"><i>BaseWorkflowAgent</i></a>.</Tip>
+> [!TIP]
+> Trouvez plus d'informations sur les agents avancés sur <a href="https://github.com/run-llama/llama_index/blob/main/llama-index-core/llama_index/core/agent/workflow/base_agent.py"><i>BaseWorkflowAgent</i></a>.
 
 ## Initialiser les agents
 
-<Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/llama-index/agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
-</Tip>
+> [!TIP]
+> Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/llama-index/agents.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 
 Pour créer un agent, nous commençons par lui fournir un **ensemble de fonctions/outils qui définissent ses capacités**.
 Regardons comment créer un agent avec quelques outils de base. Au moment de la rédaction, l'agent utilisera automatiquement l'API d'appel de fonctions (si disponible), ou une boucle d'agent ReAct standard.
@@ -155,6 +155,7 @@ agent = AgentWorkflow(
 response = await agent.run(user_msg="Can you add 5 and 3?")
 ```
 
-<Tip>Vous n'avez pas encore assez appris ? Il y a beaucoup plus à découvrir sur les agents et les outils dans LlamaIndex dans l'<a href="https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/">Introduction de base à <i>AgentWorkflow</i></a> ou le <a href="https://docs.llamaindex.ai/en/stable/understanding/agent/">Guide d'apprentissage sur les agents</a>, où vous pouvez lire plus sur le <i>streaming</i>, la sérialisation de contexte, et l'humain dans la boucle !</Tip>
+> [!TIP]
+> Vous n'avez pas encore assez appris ? Il y a beaucoup plus à découvrir sur les agents et les outils dans LlamaIndex dans l'<a href="https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/">Introduction de base à <i>AgentWorkflow</i></a> ou le <a href="https://docs.llamaindex.ai/en/stable/understanding/agent/">Guide d'apprentissage sur les agents</a>, où vous pouvez lire plus sur le <i>streaming</i>, la sérialisation de contexte, et l'humain dans la boucle !
 
 Maintenant que nous comprenons les bases des agents et des outils dans LlamaIndex, voyons comment nous pouvons utiliser LlamaIndex pour **créer des *workflows* configurables et gérables !**

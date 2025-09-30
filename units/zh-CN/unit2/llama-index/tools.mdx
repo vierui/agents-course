@@ -16,9 +16,8 @@ LlamaIndex 中主要包含**四种工具类型**：
 
 ## 创建FunctionTool
 
-<Tip>
-您可以通过<a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/tools.ipynb" target="_blank">这个 Notebook</a>中的代码进行实践（支持 Google Colab 运行）。
-</Tip>
+> [!TIP]
+> 您可以通过<a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/tools.ipynb" target="_blank">这个 Notebook</a>中的代码进行实践（支持 Google Colab 运行）。
 
 FunctionTool 提供了一种简单的方式，可以将任意 Python 函数封装成智能体可用的工具。
 你可以传递同步或异步函数给这个工具，并可选地指定`name`和`description`参数。
@@ -41,7 +40,8 @@ tool = FunctionTool.from_defaults(
 tool.call("New York")
 ```
 
-<Tip>使用带有函数调用的智能体或 LLM 时，所选工具（以及为该工具编写的参数）在很大程度上取决于工具名称以及工具用途和参数的描述。在<a href="https://docs.llamaindex.ai/en/stable/examples/workflow/function_calling_agent/">函数调用指南</a>。</Tip>
+> [!TIP]
+> 使用带有函数调用的智能体或 LLM 时，所选工具（以及为该工具编写的参数）在很大程度上取决于工具名称以及工具用途和参数的描述。在<a href="https://docs.llamaindex.ai/en/stable/examples/workflow/function_calling_agent/">函数调用指南</a>。
 
 ## 创建 QueryEngineTool
 
@@ -106,6 +106,7 @@ tool_spec_list = tool_spec.to_tool_list()
 1. `OnDemandToolLoader`：该工具可将任何现有的 LlamaIndex 数据加载器（BaseReader 类）转化为智能体可使用的工具。该工具可通过调用数据加载器`load_data`所需的所有参数以及自然语言查询字符串来触发。在执行过程中，我们首先从数据加载器加载数据，建立索引（例如使用向量存储），然后进行"按需"查询。这三个步骤都在单个工具调用中完成。
 2. `LoadAndSearchToolSpec`：该工具规范接受任何现有工具作为输入。作为工具规范，它实现了`to_tool_list`方法，调用该方法时会返回两个工具：加载工具和搜索工具。加载工具的执行会调用底层工具并对输出建立索引（默认使用向量索引）。搜索工具的执行会接受查询字符串作为输入并调用底层索引。
 
-<Tip>您可以在<a href="https://llamahub.ai/">LlamaHub</a>找到各种工具规范和实用工具</Tip>
+> [!TIP]
+> 您可以在<a href="https://llamahub.ai/">LlamaHub</a>找到各种工具规范和实用工具
 
 现在我们已经理解了 LlamaIndex 中智能体和工具的基础知识，接下来让我们看看如何**使用 LlamaIndex 创建可配置且易管理的工作流程！**

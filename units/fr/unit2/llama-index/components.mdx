@@ -27,9 +27,8 @@ Maintenant, approfondissons un peu les *components* et voyons comment vous pouve
 
 ## Créer un pipeline de RAG en utilisant des *components*
 
-<Tip>
-Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/llama-index/components.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
-</Tip>
+> [!TIP]
+> Vous pouvez suivre le code dans <a href="https://huggingface.co/agents-course/notebooks/blob/main/fr/unit2/llama-index/components.ipynb" target="_blank">ce <i>notebook</i></a> que vous pouvez exécuter avec Google Colab.
 
 Il y a cinq étapes clés dans le RAG, qui feront partie de la plupart des applications plus ambitieuses que vous construirez. A savoir :
 
@@ -50,7 +49,8 @@ Il y a trois façons principales de charger des données dans LlamaIndex :
 2. `LlamaParse` : L'outil officiel de LlamaIndex pour l'analyse de PDF, disponible comme une API gérée.
 3. `LlamaHub` : Un registre de centaines de bibliothèques de chargement de données pour ingérer des données de n'importe quelle source.
 
-<Tip>Familiarisez-vous avec les chargeurs de données <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> et le <i>parser</i> <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> pour des sources de données plus complexes.</Tip>
+> [!TIP]
+> Familiarisez-vous avec les chargeurs de données <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> et le <i>parser</i> <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> pour des sources de données plus complexes.
 
 **La façon la plus simple de charger des données est avec `SimpleDirectoryReader`.**
 Ce *component* polyvalent peut charger divers types de fichiers d'un dossier et les convertir en objets `Document` avec lesquels LlamaIndex peut travailler.
@@ -123,7 +123,8 @@ pipeline = IngestionPipeline(
 )
 ```
 
-<Tip>Un aperçu des différents <i>vector stores</i> peut être trouvé dans la <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">documentation de LlamaIndex</a>.</Tip>
+> [!TIP]
+> Un aperçu des différents <i>vector stores</i> peut être trouvé dans la <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">documentation de LlamaIndex</a>.
 
 C'est là que les *embeddings* vectoriels entrent en jeu. En enchassant à la fois la requête et les *nodes* dans le même espace vectoriel, nous pouvons trouver des correspondances pertinentes.
 Le `VectorStoreIndex` s'occupe de cela pour nous, en utilisant le même modèle d'*embedding* que nous avons utilisé pendant l'ingestion pour assurer la cohérence.
@@ -174,7 +175,8 @@ Encore une fois, c'est entièrement personnalisable mais il y a trois stratégie
 - `compact` (par défaut) : similaire à l'affinement mais concaténant les morceaux au préalable, résultant en moins d'appels au LLM.
 - `tree_summarize` : créer une réponse détaillée en parcourant chaque morceau de texte récupéré et créant une structure d'arbre de la réponse.
 
-<Tip>Prenez un contrôle fin de vos <i>workflows</i> de requête avec l'<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composition de bas niveau</a>. Cette API vous permet de personnaliser et de finetuner chaque étape du processus de requête pour correspondre à vos besoins exacts, ce qui se marie également très bien avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/"><i>Workflows</i></a>.</Tip>
+> [!TIP]
+> Prenez un contrôle fin de vos <i>workflows</i> de requête avec l'<a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composition de bas niveau</a>. Cette API vous permet de personnaliser et de finetuner chaque étape du processus de requête pour correspondre à vos besoins exacts, ce qui se marie également très bien avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/"><i>Workflows</i></a>.
 
 Le modèle de langage ne performera pas toujours de manière prévisible, donc nous ne pouvons pas être sûrs que la réponse que nous obtenons soit toujours correcte. Nous pouvons gérer cela en **évaluant la qualité de la réponse**.
 
@@ -188,7 +190,8 @@ Regardons les trois évaluateurs principaux disponibles :
 - `AnswerRelevancyEvaluator` : Évalue la pertinence de la réponse en vérifiant si la réponse est pertinente par rapport à la question.
 - `CorrectnessEvaluator` : Évalue la correction de la réponse en vérifiant si la réponse est correcte.
 
-<Tip>Vous voulez en savoir plus sur l'observabilité et l'évaluation des agents ? Suivez l'<a href="https://huggingface.co/learn/agents-course/fr/bonus-unit2/introduction">Unité Bonus 2</a>.</Tip>
+> [!TIP]
+> Vous voulez en savoir plus sur l'observabilité et l'évaluation des agents ? Suivez l'<a href="https://huggingface.co/learn/agents-course/fr/bonus-unit2/introduction">Unité Bonus 2</a>.
 
 ```python
 from llama_index.core.evaluation import FaithfulnessEvaluator
@@ -236,6 +239,7 @@ llama_index.core.set_global_handler(
 )
 ```
 
-<Tip>Vous voulez en savoir plus sur les <i>components</i> et comment les utiliser ? Continuez votre parcours avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/"><i>Guides</i> des <i>components</i></a> ou le <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/"><i>Guide</i> sur le RAG</a>.</Tip>
+> [!TIP]
+> Vous voulez en savoir plus sur les <i>components</i> et comment les utiliser ? Continuez votre parcours avec les <a href="https://docs.llamaindex.ai/en/stable/module_guides/"><i>Guides</i> des <i>components</i></a> ou le <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/"><i>Guide</i> sur le RAG</a>.
 
 Nous avons vu comment utiliser les *components* pour créer un `QueryEngine`. Maintenant, voyons comment nous pouvons **utiliser le `QueryEngine` comme un outil pour un agent !**

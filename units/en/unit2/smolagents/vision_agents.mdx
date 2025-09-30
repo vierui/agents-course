@@ -7,10 +7,9 @@ askForHelpUrl="http://hf.co/join/discord" />
 
 # Vision Agents with smolagents
 
-<Tip warning={true}>
-The examples in this section require access to a powerful VLM model. We tested them using the GPT-4o API.  
-However, <a href="./why_use_smolagents">Why use smolagents</a> discusses alternative solutions supported by smolagents and Hugging Face. If you'd like to explore other options, be sure to check that section.
-</Tip>
+> [!WARNING]
+> The examples in this section require access to a powerful VLM model. We tested them using the GPT-4o API.  
+> However, <a href="./why_use_smolagents">Why use smolagents</a> discusses alternative solutions supported by smolagents and Hugging Face. If you'd like to explore other options, be sure to check that section.
 
 Empowering agents with visual capabilities is crucial for solving tasks that go beyond text processing. Many real-world challenges, such as web browsing or document understanding, require analyzing rich visual content. Fortunately, `smolagents` provides built-in support for vision-language models (VLMs), enabling agents to process and interpret images effectively.  
 
@@ -19,9 +18,8 @@ In this example, imagine Alfred, the butler at Wayne Manor, is tasked with verif
 
 ## Providing Images at the Start of the Agent's Execution
 
-<Tip>
-You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_agents.ipynb" target="_blank">this notebook</a> that you can run using Google Colab.
-</Tip>
+> [!TIP]
+> You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_agents.ipynb" target="_blank">this notebook</a> that you can run using Google Colab.
 
 In this approach, images are passed to the agent at the start and stored as `task_images` alongside the task prompt. The agent then processes these images throughout its execution.  
 
@@ -95,9 +93,8 @@ In this case, the output reveals that the person is impersonating someone else, 
 
 ## Providing Images with Dynamic Retrieval
 
-<Tip>
-You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_web_browser.py" target="_blank">this Python file</a>
-</Tip>
+> [!TIP]
+> You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/smolagents/vision_web_browser.py" target="_blank">this Python file</a>
 
 The previous approach is valuable and has many potential use cases. However, in situations where the guest is not in the database, we need to explore other ways of identifying them. One possible solution is to dynamically retrieve images and information from external sources, such as browsing the web for details.
 

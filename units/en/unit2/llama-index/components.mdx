@@ -27,9 +27,8 @@ Now, let's dive a bit deeper into the components and see how you can **combine c
 
 ## Creating a RAG pipeline using components
 
-<Tip>
-You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/components.ipynb" target="_blank">this notebook</a> that you can run using Google Colab.
-</Tip>
+> [!TIP]
+> You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/components.ipynb" target="_blank">this notebook</a> that you can run using Google Colab.
 
 There are five key stages within RAG, which in turn will be a part of most larger applications you build. These are:
 
@@ -50,7 +49,8 @@ There are three main ways to load data into LlamaIndex:
 2. `LlamaParse`: LlamaParse, LlamaIndex's official tool for PDF parsing, available as a managed API.
 3. `LlamaHub`: A registry of hundreds of data-loading libraries to ingest data from any source.
 
-<Tip>Get familiar with <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> loaders and <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> parser for more complex data sources.</Tip>
+> [!TIP]
+> Get familiar with <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> loaders and <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> parser for more complex data sources.
 
 **The simplest way to load data is with `SimpleDirectoryReader`.**
 This versatile component can load various file types from a folder and convert them into `Document` objects that LlamaIndex can work with.
@@ -124,7 +124,8 @@ pipeline = IngestionPipeline(
 )
 ```
 
-<Tip>An overview of the different vector stores can be found in the <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">LlamaIndex documentation</a>.</Tip>
+> [!TIP]
+> An overview of the different vector stores can be found in the <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">LlamaIndex documentation</a>.
 
 
 This is where vector embeddings come in - by embedding both the query and nodes in the same vector space, we can find relevant matches.
@@ -176,7 +177,8 @@ Once again, this is fully customisable but there are three main strategies that 
 - `compact` (default): similar to refining but concatenating the chunks beforehand, resulting in fewer LLM calls.
 - `tree_summarize`: create a detailed answer by going through each retrieved text chunk and creating a tree structure of the answer.
 
-<Tip>Take fine-grained control of your query workflows with the <a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">low-level composition API</a>. This API lets you customize and fine-tune every step of the query process to match your exact needs, which also pairs great with <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">Workflows</a> </Tip>
+> [!TIP]
+> Take fine-grained control of your query workflows with the <a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">low-level composition API</a>. This API lets you customize and fine-tune every step of the query process to match your exact needs, which also pairs great with <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">Workflows</a>
 
 The language model won't always perform in predictable ways, so we can't be sure that the answer we get is always correct. We can deal with this by **evaluating the quality of the answer**.
 
@@ -190,7 +192,8 @@ Let's look at the three main evaluators available:
 - `AnswerRelevancyEvaluator`: Evaluate the relevance of the answer by checking if the answer is relevant to the question.
 - `CorrectnessEvaluator`: Evaluate the correctness of the answer by checking if the answer is correct.
 
-<Tip>Want to learn more about agent observability and evaluation? Continue your journey with the <a href="https://huggingface.co/learn/agents-course/bonus-unit2/introduction">Bonus Unit 2</a>.</Tip>
+> [!TIP]
+> Want to learn more about agent observability and evaluation? Continue your journey with the <a href="https://huggingface.co/learn/agents-course/bonus-unit2/introduction">Bonus Unit 2</a>.
 
 ```python
 from llama_index.core.evaluation import FaithfulnessEvaluator
@@ -238,6 +241,7 @@ llama_index.core.set_global_handler(
 )
 ```
 
-<Tip>Want to learn more about components and how to use them? Continue your journey with the <a href="https://docs.llamaindex.ai/en/stable/module_guides/">Components Guides</a> or the <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">Guide on RAG</a>.</Tip>
+> [!TIP]
+> Want to learn more about components and how to use them? Continue your journey with the <a href="https://docs.llamaindex.ai/en/stable/module_guides/">Components Guides</a> or the <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">Guide on RAG</a>.
 
 We have seen how to use components to create a `QueryEngine`. Now, let's see how we can **use the `QueryEngine` as a tool for an agent!**

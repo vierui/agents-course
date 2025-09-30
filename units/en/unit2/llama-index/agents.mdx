@@ -16,13 +16,13 @@ LlamaIndex supports **three main types of reasoning agents:**
 2. `ReAct Agents` - These can work with any AI that does chat or text endpoint and deal with complex reasoning tasks.
 3. `Advanced Custom Agents` - These use more complex methods to deal with more complex tasks and workflows.
 
-<Tip>Find more information on advanced agents on <a href="https://github.com/run-llama/llama_index/blob/main/llama-index-core/llama_index/core/agent/workflow/base_agent.py">BaseWorkflowAgent</a></Tip>
+> [!TIP]
+> Find more information on advanced agents on <a href="https://github.com/run-llama/llama_index/blob/main/llama-index-core/llama_index/core/agent/workflow/base_agent.py">BaseWorkflowAgent</a>
 
 ## Initialising Agents
 
-<Tip>
-You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/agents.ipynb" target="_blank">this notebook</a> that you can run using Google Colab.
-</Tip>
+> [!TIP]
+> You can follow the code in <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/agents.ipynb" target="_blank">this notebook</a> that you can run using Google Colab.
 
 To create an agent, we start by providing it with a **set of functions/tools that define its capabilities**.
 Let's look at how to create an agent with some basic tools. As of this writing, the agent will automatically use the function calling API (if available), or a standard ReAct agent loop.
@@ -155,6 +155,7 @@ agent = AgentWorkflow(
 response = await agent.run(user_msg="Can you add 5 and 3?")
 ```
 
-<Tip>Haven't learned enough yet? There is a lot more to discover about agents and tools in LlamaIndex within the <a href="https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/">AgentWorkflow Basic Introduction</a> or the <a href="https://docs.llamaindex.ai/en/stable/understanding/agent/">Agent Learning Guide</a>, where you can read more about streaming, context serialization, and human-in-the-loop!</Tip>
+> [!TIP]
+> Haven't learned enough yet? There is a lot more to discover about agents and tools in LlamaIndex within the <a href="https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/">AgentWorkflow Basic Introduction</a> or the <a href="https://docs.llamaindex.ai/en/stable/understanding/agent/">Agent Learning Guide</a>, where you can read more about streaming, context serialization, and human-in-the-loop!
 
 Now that we understand the basics of agents and tools in LlamaIndex, let's see how we can use LlamaIndex to **create configurable and manageable workflows!**

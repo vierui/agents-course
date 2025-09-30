@@ -26,9 +26,8 @@ Ahora, profundicemos un poco más en los componentes y veamos como puedes **comb
 
 ## Creando un pipeline RAG usando componentes
 
-<Tip>
-Puedes seguir el código en <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/components.ipynb" target="_blank">este notebook</a> que puedes ejecutar usando Google Colab.
-</Tip>
+> [!TIP]
+> Puedes seguir el código en <a href="https://huggingface.co/agents-course/notebooks/blob/main/unit2/llama-index/components.ipynb" target="_blank">este notebook</a> que puedes ejecutar usando Google Colab.
 
 Hay cinco etapas clave dentro de RAG, que a su vez serán parte de la mayoría de las aplicaciones más grandes que construyas. Estas son:
 
@@ -49,7 +48,8 @@ Hay tres formas principales de cargar datos en LlamaIndex:
 2. `LlamaParse`: LlamaParse, la herramienta oficial de LlamaIndex para el análisis de PDFs, disponible como API gestionada.
 3. `LlamaHub`: Un registro de cientos de bibliotecas de carga de datos para ingerir datos desde cualquier fuente.
 
-<Tip>Familiarízate con los cargadores de <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> y el analizador <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> para fuentes de datos más complejas.</Tip>
+> [!TIP]
+> Familiarízate con los cargadores de <a href="https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/">LlamaHub</a> y el analizador <a href="https://github.com/run-llama/llama_cloud_services/blob/main/parse.md">LlamaParse</a> para fuentes de datos más complejas.
 
 **La forma más sencilla de cargar datos es con `SimpleDirectoryReader`.**
 Este componente versátil puede cargar varios tipos de archivos desde una carpeta y convertirlos en objetos `Document` con los que LlamaIndex puede trabajar.
@@ -122,7 +122,8 @@ pipeline = IngestionPipeline(
 )
 ```
 
-<Tip>Una visión general de los diferentes almacenes vectoriales se puede encontrar en la <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">documentación de LlamaIndex</a>.</Tip>
+> [!TIP]
+> Una visión general de los diferentes almacenes vectoriales se puede encontrar en la <a href="https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores/">documentación de LlamaIndex</a>.
 
 
 Aquí es donde entran los embeddings vectoriales - al incorporar tanto la consulta como los nodos en el mismo espacio vectorial, podemos encontrar coincidencias relevantes.
@@ -174,7 +175,8 @@ Una vez más, esto es completamente personalizable, pero hay tres estrategias pr
 - `compact` (predeterminado): similar a refinar pero concatenando los fragmentos de antemano, resultando en menos llamadas LLM.
 - `tree_summarize`: crear una respuesta detallada recorriendo cada fragmento de texto recuperado y creando una estructura de árbol de la respuesta.
 
-<Tip>Toma control detallado de tus flujos de consulta con la <a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composición de bajo nivel</a>. Esta API te permite personalizar y ajustar cada paso del proceso de consulta para que coincida con tus necesidades exactas, lo que también se combina muy bien con <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">Flujos de trabajo</a> </Tip>
+> [!TIP]
+> Toma control detallado de tus flujos de consulta con la <a href="https://docs.llamaindex.ai/en/stable/module_guides/deploying/query_engine/usage_pattern/#low-level-composition-api">API de composición de bajo nivel</a>. Esta API te permite personalizar y ajustar cada paso del proceso de consulta para que coincida con tus necesidades exactas, lo que también se combina muy bien con <a href="https://docs.llamaindex.ai/en/stable/module_guides/workflow/">Flujos de trabajo</a>
 
 El modelo de lenguaje no siempre funcionará de manera predecible, por lo que no podemos estar seguros de que la respuesta que obtenemos sea siempre correcta. Podemos lidiar con esto **evaluando la calidad de la respuesta**.
 
@@ -233,6 +235,7 @@ llama_index.core.set_global_handler(
 )
 ```
 
-<Tip>¿Quieres aprender más sobre los componentes y cómo usarlos? Continúa tu viaje con las <a href="https://docs.llamaindex.ai/en/stable/module_guides/">Guías de Componentes</a> o la <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">Guía sobre RAG</a>.</Tip>
+> [!TIP]
+> ¿Quieres aprender más sobre los componentes y cómo usarlos? Continúa tu viaje con las <a href="https://docs.llamaindex.ai/en/stable/module_guides/">Guías de Componentes</a> o la <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">Guía sobre RAG</a>.
 
 Hemos visto cómo usar componentes para crear un `QueryEngine`. Ahora, ¡veamos cómo **usar el `QueryEngine` como una herramienta para un agente!**
