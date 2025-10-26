@@ -1,0 +1,26 @@
+{
+  // MDX file associations and settings
+  "files.associations": {
+    "*.mdx": "mdx"
+  },
+
+  // Enable Markdown preview for MDX files
+  "[mdx]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+
+  // Markdown preview settings that apply to MDX
+  "markdown.preview.breaks": true,
+  "markdown.preview.linkify": true,
+
+  // Optional: Better formatting for MDX
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
